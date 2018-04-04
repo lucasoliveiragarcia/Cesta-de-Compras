@@ -49,7 +49,7 @@ Deve-se registrar o mesmo item de vários estabelecimentos diferentes, o preço 
 A coleta de dados será feita em produtos mais populares como por exemplo: bebidas alcoólicas, refrigerantes, lanches e eletrodomésticos, visto que não há uma maneira certa de conseguir as informações de todos os produtos, necessitando então de um foco. Futuramente poderá eventualmente ser segmentada por setores ou segmentos do comércio.
 
 O software será Multiplataforma, IOS, Android, Web. Será utilizado as seguintes tecnologias: C#,Xamarim, PostGreSQL. Num segundo momento para IOS, depois para web. O sistema será utilizado diariamente e o tempo de resposta esperada é de 2 segundos, sendo o tempo médio entre falhas de 30 dias.
-O sistema deve ser capaz de se recuperar de uma falha grave em menos de 12h. 
+O sistema deve ser capaz de se recuperar de uma falha grave em menos de 6h. 
 
 
 
