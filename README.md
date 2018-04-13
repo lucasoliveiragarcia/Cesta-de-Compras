@@ -55,10 +55,8 @@ O sistema deve ser capaz de se recuperar de uma falha grave em menos de 6h.
 
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-![Alt text](https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/pics/telasPrincipais.png?raw=true "Title")<br>
-Link para telas mobile: https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/Telas_Mobile.pdf
-Link para telas desktop:
-https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/telas_desktop.pdf
+
+Link para telas mobile: https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Telas%20Cesta%20de%20Compra.pdf
 
 
 ### 5	MODELO CONCEITUAL<br>
