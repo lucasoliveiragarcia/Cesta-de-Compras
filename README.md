@@ -24,31 +24,41 @@ Trabalho desenvolvido durante a disciplina de BD
         (caso contrário, nova proposta deverá ser apresentada a turma implicando logicamente em um prazo 
         mais curto para realização das atividades e conclusão do trabalho)
     
-DICA: 
-    O kickstart normalmente lança inovaçôes em termos de Sofwares e Apps, portanto pode ser interessante 
-    olhar os lançamentos recentes para incrementar as possibilidades e aguçar a criatividade, o que pode 
-    auxiliar o grupo com novas ideias na solução proposta. Acesse os links abaixo do para explorar sobre apps e softwares no Kickstarter.
-    <br>
-    https://www.kickstarter.com/discover/categories/technology/software
-    <br>
-    https://www.kickstarter.com/discover/categories/technology/apps
+
 # Sumário
 
 ### 1	COMPONENTES<br>
 Integrantes do grupo<br>
+Eduardo Couto eduardocoouto@gmail.com<br>
+Olavo Curatola olavo.curatola@gmail.com<br>
+Lucas Garcia lucasoliveiragarcia@live.com<br>
 
 ### 2	INTRODUÇÃO E MOTIVAÇAO<br>
-Este documento contém a especificação do projeto do banco de dados <nome do projeto> e motivação da escolha realizada. <br>
+Este documento contém a especificação do projeto do banco de dados do Cesta de Compras e motivação da escolha realizada. <br>
       
 ### 3	MINI-MUNDO<br>
-Descrever o mini-mundo. Não deve ser maior do que 30 linhas <br>
+O grupo deseja criar um sistema de informação para ajudar o civil comum a planejar melhor suas compras com mais facilidade e gastar menos dinheiro. Trata-se de um banco de dados cujo principal serviço é delegar informações e comparativos de produtos. A localização geográfica dos usuários será a Grande Vitória, podendo se definir raio de cobertura e escolher as estabelecimentos dentro desta área. 
+
+Os usuários são leigos, público em geral, podendo ter algumas dificuldades para identificação do produto. O usuário faz o login antes de entrar no sistema. Se ele não tiver deverá fazer o cadastro. O usuário pode criar listas, definindo nome, e estabelecimentos que serão usados na busca por produtos. O usuário poderá adicionar produtos a uma lista de compra. Podendo adicionar itens fora do catálogo do sistema, mas não armazenando o registro no sistema. Uma lista é composta de itens. Um item pode ter categoria, preço, histórico, e estabelecimentos com o mesmo disponível. Deverá ter uma tela com informações de listas já criadas no sistema e uma tela para o controle e informações de uma lista. A tela de informações da lista deverá mostrar gastos com itens por categoria, melhor estabelecimento para compras, como chegar no estabelecimento sugerido. Deverá mostrar o melhor dia para fazer compras. Podendo criar um lembrete para o usuário lembrar de fazer as compras.
+Dados dos usuários precisam ser armazenados de forma que pessoas não autorizadas acessem os informações inseridas no sistema.   
+ 
+O usuário utilizará uma lista para o auxiliar na hora da compra. O sistema deve ajuda-lo mostrando os itens da lista e mostrando o valor total da compra em tempo real. O usuário poderá colocar a quantidade em cada item. No final da compra o usuário precisa concluir a compra no aplicativo. A lista precisa ser registrada no histórico sendo disponível para consulta do usuário. As tarefas de descrição de produtos e atualização rápida e autêntica de preços são consideradas críticas e de alto impacto no negócio.
+ 
+Deve-se registrar o mesmo item de vários estabelecimentos diferentes, o preço e localidade, avaliação de usuários que pode ser classificação com ou sem comentario, e criar tabelas comparando os dados obtidos, a fim de que, no ato de consulta, possam ser verificadas facilmente as informações requeridas. O sistema utilizará os dados das compras concluídas dos usuários para melhorar a confiabilidade dos preços indicados.
+ 
+A coleta de dados será feita em produtos mais populares como por exemplo: bebidas alcoólicas, refrigerantes, lanches e eletrodomésticos, visto que não há uma maneira certa de conseguir as informações de todos os produtos, necessitando então de um foco. Futuramente poderá eventualmente ser segmentada por setores ou segmentos do comércio.
+
+O software será Multiplataforma, IOS, Android, Web. Será utilizado as seguintes tecnologias: C#,Xamarim, PostGreSQL. Num segundo momento para IOS, depois para web. O sistema será utilizado diariamente e o tempo de resposta esperada é de 2 segundos, sendo o tempo médio entre falhas de 30 dias.
+O sistema deve ser capaz de se recuperar de uma falha grave em menos de 12h. 
+
+
 
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/discipbd2/topicos-trabalho/blob/master/balsamiq.png?raw=true "Title")
+![Alt text](https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/pics/telasPrincipais.png?raw=true "Title")<br>
+Link para telas mobile: https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/Telas_Mobile.pdf
+Link para telas desktop:
+https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/telas_desktop.pdf
 
 
 ### 5	MODELO CONCEITUAL<br>
