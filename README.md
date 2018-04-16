@@ -1,4 +1,4 @@
-# TRABALHO 01 : Título do trabalho
+# TRABALHO 01 : Cesta de Compras
 Trabalho desenvolvido durante a disciplina de BD
 
     O referido projeto poderá ser:
@@ -49,21 +49,19 @@ Deve-se registrar o mesmo item de vários estabelecimentos diferentes, o preço 
 A coleta de dados será feita em produtos mais populares como por exemplo: bebidas alcoólicas, refrigerantes, lanches e eletrodomésticos, visto que não há uma maneira certa de conseguir as informações de todos os produtos, necessitando então de um foco. Futuramente poderá eventualmente ser segmentada por setores ou segmentos do comércio.
 
 O software será Multiplataforma, IOS, Android, Web. Será utilizado as seguintes tecnologias: C#,Xamarim, PostGreSQL. Num segundo momento para IOS, depois para web. O sistema será utilizado diariamente e o tempo de resposta esperada é de 2 segundos, sendo o tempo médio entre falhas de 30 dias.
-O sistema deve ser capaz de se recuperar de uma falha grave em menos de 12h. 
+O sistema deve ser capaz de se recuperar de uma falha grave em menos de 6h. 
 
 
 
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-![Alt text](https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/pics/telasPrincipais.png?raw=true "Title")<br>
-Link para telas mobile: https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/Telas_Mobile.pdf
-Link para telas desktop:
-https://github.com/Eduardocoutto/Cesta-de-Compras/blob/master/asets/telas_desktop.pdf
+
+Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3M-AxAdgzz5gvv6LtiLid8
 
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/discipbd2/topicos-trabalho/blob/master/sample_MC.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/ModeloConceitual.jpg?raw=true "Modelo Conceitual")
     
      5.2 NOTACAO UML (Caso esteja fazendo a disciplina de Projeto)
 
