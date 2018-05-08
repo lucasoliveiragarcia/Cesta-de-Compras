@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibraryCesta
 {
-    class Cliente:Pessoa
+    class Consumidor:Pessoa
     {
         private String login;
         private DateTime dataCadastro;
