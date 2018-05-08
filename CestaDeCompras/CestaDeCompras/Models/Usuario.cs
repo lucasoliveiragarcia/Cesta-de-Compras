@@ -7,5 +7,11 @@ namespace CestaDeCompras.Models
 {
     public class Usuario
     {
+        public string Nome { get; set; }
+
+        public Usuario(string texto)
+        {
+            this.Nome = texto;
+        }
     }
 }
