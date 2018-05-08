@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CestaCompraMobile.iOS", "Ce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CestaCompraMobile", "CestaCompraMobile\CestaCompraMobile\CestaCompraMobile.csproj", "{FD3A8B1F-4394-411E-8CCE-D374CAFC5A0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryCesta", "ClassLibrary1\ClassLibraryCesta.csproj", "{86CC2633-3CA1-4CEC-A989-7868D896FF5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryCesta", "ClassLibrary1\ClassLibraryCesta.csproj", "{86CC2633-3CA1-4CEC-A989-7868D896FF5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,7 +73,6 @@ Global
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.AppStore|iPhoneSimulator.Deploy.0 = Release|Any CPU
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{1F738B53-6B53-4DAB-AEB7-011EBC268BA2}.Debug|iPhone.Deploy.0 = Debug|Any CPU
