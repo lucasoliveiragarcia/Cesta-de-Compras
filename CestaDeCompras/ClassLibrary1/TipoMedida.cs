@@ -8,5 +8,11 @@ namespace ClassLibraryCesta
     {
         private int IdTipoMedida;
         private String nomeTipoMedida;
+
+        public TipoMedida(int idTipoMedida, string nomeTipoMedida)
+        {
+            IdTipoMedida = idTipoMedida;
+            this.nomeTipoMedida = nomeTipoMedida;
+        }
     }
 }

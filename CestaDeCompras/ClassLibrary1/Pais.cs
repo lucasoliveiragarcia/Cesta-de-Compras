@@ -8,5 +8,11 @@ namespace ClassLibraryCesta
     {
         private int IdPais;
         private String nomePais;
+
+        public Pais(int idPais, string nomePais)
+        {
+            IdPais = idPais;
+            this.nomePais = nomePais;
+        }
     }
 }

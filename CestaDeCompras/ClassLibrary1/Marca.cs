@@ -8,5 +8,11 @@ namespace ClassLibraryCesta
     {
         private int IdMarca;
         private String nomeMarca;
+
+        public Marca(int idMarca, string nomeMarca)
+        {
+            IdMarca = idMarca;
+            this.nomeMarca = nomeMarca;
+        }
     }
 }

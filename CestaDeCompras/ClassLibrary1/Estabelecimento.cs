@@ -10,5 +10,13 @@ namespace ClassLibraryCesta
         private String nomeEstabelecimento;
         private int IdEstabelecimento;
         private int IdEndereco;
+
+        public Estabelecimento(string unidade, string nomeEstabelecimento, int idEstabelecimento, int idEndereco)
+        {
+            this.unidade = unidade;
+            this.nomeEstabelecimento = nomeEstabelecimento;
+            IdEstabelecimento = idEstabelecimento;
+            IdEndereco = idEndereco;
+        }
     }
 }

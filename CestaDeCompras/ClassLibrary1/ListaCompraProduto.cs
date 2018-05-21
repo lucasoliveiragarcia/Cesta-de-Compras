@@ -9,5 +9,12 @@ namespace ClassLibraryCesta
         private int quantCompraProduto;
         private int IdProduto;
         private int IdListaCompra;
+
+        public ListaCompraProduto(int quantCompraProduto, int idProduto, int idListaCompra)
+        {
+            this.quantCompraProduto = quantCompraProduto;
+            IdProduto = idProduto;
+            IdListaCompra = idListaCompra;
+        }
     }
 }

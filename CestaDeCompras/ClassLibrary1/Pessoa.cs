@@ -12,16 +12,15 @@ namespace ClassLibraryCesta
         private String email;
         private int IdEndereco;
 
-        public Pessoa(int idPessoa, string nomePessoa, string sobrenomePessoa, string cpfPessoa, DateTime dataNascimento, string email, int idEndereco)
+        protected Pessoa(int idPessoa, string nomePessoa, string sobrenomePessoa, string cpfPessoa, DateTime dataNascimento, string email, int idEndereco)
         {
-            this.IdPessoa = idPessoa;
+            IdPessoa = idPessoa;
             this.nomePessoa = nomePessoa;
             this.sobrenomePessoa = sobrenomePessoa;
             this.cpfPessoa = cpfPessoa;
             this.dataNascimento = dataNascimento;
             this.email = email;
-            this.IdEndereco = idEndereco;
-
+            IdEndereco = idEndereco;
         }
     }
 }

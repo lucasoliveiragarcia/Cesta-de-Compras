@@ -15,6 +15,14 @@ namespace ClassLibraryCesta
            
         }
 
+        public Consumidor(string login, DateTime dataCadastro, string senha, string nivel, int idConsumidor)
+        {
+            this.login = login;
+            this.dataCadastro = dataCadastro;
+            this.senha = senha;
+            this.nivel = nivel;
+            IdConsumidor = idConsumidor;
+        }
     }
 
 }

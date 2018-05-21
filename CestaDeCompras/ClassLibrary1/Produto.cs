@@ -11,5 +11,14 @@ namespace ClassLibraryCesta
         private int unidadeProduto;
         private int IdMarca;
         private int IdTipoMedida;
+
+        public Produto(int idProduto, string nomeProduto, int unidadeProduto, int idMarca, int idTipoMedida)
+        {
+            IdProduto = idProduto;
+            this.nomeProduto = nomeProduto;
+            this.unidadeProduto = unidadeProduto;
+            IdMarca = idMarca;
+            IdTipoMedida = idTipoMedida;
+        }
     }
 }

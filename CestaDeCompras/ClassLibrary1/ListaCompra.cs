@@ -13,5 +13,15 @@ namespace ClassLibraryCesta
         private int IdListaCompra;
         private int IdCliente;
 
+        public ListaCompra(DateTime dataCria, DateTime dataFim, DateTime dataLemb, string nomeListaCompra, int idListaCompra, int idCliente)
+        {
+            this.dataCria = dataCria;
+            this.dataFim = dataFim;
+            this.dataLemb = dataLemb;
+            this.nomeListaCompra = nomeListaCompra;
+            IdListaCompra = idListaCompra;
+            IdCliente = idCliente;
+        }
     }
+
 }

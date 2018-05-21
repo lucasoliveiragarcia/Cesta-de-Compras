@@ -10,5 +10,13 @@ namespace ClassLibraryCesta
         private Double valorTotal;
         private int IdCompraRealizada;
         private int IdCliente;
+
+        public CompraRealizada(DateTime dataCompra, double valorTotal, int idCompraRealizada, int idCliente)
+        {
+            this.dataCompra = dataCompra;
+            this.valorTotal = valorTotal;
+            IdCompraRealizada = idCompraRealizada;
+            IdCliente = idCliente;
+        }
     }
 }
