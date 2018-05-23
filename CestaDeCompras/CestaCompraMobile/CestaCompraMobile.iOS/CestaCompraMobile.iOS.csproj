@@ -119,10 +119,4 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\CestaCompraMobile\CestaCompraMobile.csproj">
-      <Project>{D1F819BA-4999-460D-9626-39923EB92BFF}</Project>
-      <Name>CestaCompraMobile</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
