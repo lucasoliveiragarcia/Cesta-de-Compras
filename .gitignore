@@ -87,6 +87,9 @@ _i.h
 .pidb
 .svclog
 .scc
+.suo
+.dll
+.ide
 
 # Chutzpah Test files
 _Chutzpah
