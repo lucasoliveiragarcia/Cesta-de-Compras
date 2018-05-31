@@ -12,11 +12,10 @@ namespace CestaCompra.Data.Models.Mapping
         { 
             //Chave Primaria
             this.HasKey(t => t.idcomprarealizada);
-                
+
             //Propriedades
             this.Property(t => t.valortotal)
-                .IsRequired()
-                .HasMaxLength(7);
+                .IsRequired();
         }
     }
 }
