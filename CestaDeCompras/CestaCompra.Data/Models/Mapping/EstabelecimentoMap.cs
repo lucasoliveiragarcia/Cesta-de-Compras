@@ -4,29 +4,22 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 
-
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class PessoaMap : EntityTypeConfiguration<pessoa>
+    public class EstabelecimentoMap : EntityTypeConfiguration<estabelecimento>
     {
-        public PessoaMap()
+        public EstabelecimentoMap()
         {
-            //this.ToTable("pessoa", "\"public\"");
-
             //Chave Primaria
-            this.HasKey(t => t.idpessoa);
-
+            this.HasKey(t => t.idestabelecimento);
 
             //Propriedades
-            this.Property(t => t.email)
-                 .IsRequired()
-                .HasMaxLength(100);
             this.Property(t => t.nome)
                 .IsRequired()
                 .HasMaxLength(100);
-            this.Property(t => t.sobrenome)
+            this.Property(t => t.unidade)
+                .IsRequired()
                 .HasMaxLength(100);
         }
-
     }
 }

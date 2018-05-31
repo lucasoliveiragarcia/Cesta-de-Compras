@@ -4,22 +4,21 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 
-
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class TipoMedidaMap : EntityTypeConfiguration<tipomedida>
+    public class CidadeMap : EntityTypeConfiguration<cidade>
     {
-        public TipoMedidaMap()
-        {
-
+        public CidadeMap()
+        { 
             //Chave Primaria
-            this.HasKey(t => t.idtipomedida);
+            this.HasKey(t => t.idcidade);
+              
 
             //Propriedades
-            this.Property(t => t.descricao)
+            this.Property(t => t.nome)
                 .IsRequired()
-                .HasMaxLength(20);
-        }
+                .HasMaxLength(100);
 
+        }
     }
 }
