@@ -197,6 +197,10 @@ PublishScripts
 .nuget.props
 .nuget.targets
 
+.vs/
+
+applicationhost.config
+
 # Microsoft Azure Build Output
 csx
 .build.csdef
