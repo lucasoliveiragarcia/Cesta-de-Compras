@@ -21,11 +21,9 @@ namespace CestaCompra.Data.Models.Mapping
 
             this.Property(t => t.preco)
                 .IsRequired()
-                .HasMaxLength(7);
 
             this.Property(t => t.valido)
-                .IsRequired()
-                .HasMaxLength(1);
+                .IsRequired();
         }
     }
 }

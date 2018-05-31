@@ -15,10 +15,9 @@ namespace CestaCompra.Data.Models.Mapping
 
             //Propriedades
             this.Property(t => t.admnistrador)
-                .IsRequired()
-                .HasMaxLength(1);
+                .IsRequired();
             this.Property(t => t.login)
-                 .IsRequired();
+                 .IsRequired()
                 .HasMaxLength(40);
             this.Property(t => t.senha)
                  .IsRequired()
