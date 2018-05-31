@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class CidadeMap : EntityTypeConfiguration<cidade>
+    public class CidadeMap : EntityTypeConfiguration<Cidade>
     {
         public CidadeMap()
         { 

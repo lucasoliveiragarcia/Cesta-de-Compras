@@ -5,8 +5,6 @@ using System.Web;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using CestaCompra.Data.Models;
-
-using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 // add a reference to System.ComponentModel.DataAnnotations DLL 
 using System.ComponentModel.DataAnnotations;
@@ -14,13 +12,13 @@ using CestaCompra.Data.Models.Mapping;
 
 namespace CestaCompra.Data
 {
-    public class BancoCestaCompras: DbContext
+    public class ContextCestaBD: DbContext
     {
-        public BancoCestaCompras() : base("BancoCestaCompras")
+        public ContextCestaBD() : base("Name=ContextCestaBD")
         {
 
         }
-        public DbSet<pessoa> pessoa { get; set; }
+        public DbSet<Pessoa> Pessoa { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,10 +29,10 @@ namespace CestaCompra.Data
             //modelBuilder.HasDefaultSchema("Public");
             
             modelBuilder.Configurations.Add(new PessoaMap());
-            modelBuilder.Configurations.Add(new TipoMedidaMap());
+            //modelBuilder.Configurations.Add(new TipoMedidaMap());
 
             //Adiciona Chave primarias automaticamente
-            modelBuilder.Properties().Where(p => p.Name == "id" + p.ReflectedType.Name).Configure(p => p.IsKey());
+            //modelBuilder.Properties().Where(p => p.Name == "id" + p.ReflectedType.Name.ToLower()).Configure(p => p.IsKey());
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<DateTime>().Configure(p => p.HasColumnType("timestamp"));
         }
