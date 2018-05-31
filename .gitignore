@@ -11,6 +11,8 @@
 .user
 .userosscache
 .sln.docstates
+.Data.csproj.user
+.csproj.user
 
 # User-specific files (MonoDevelopXamarin Studio)
 .userprefs
