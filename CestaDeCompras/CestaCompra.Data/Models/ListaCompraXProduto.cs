@@ -9,9 +9,9 @@ namespace CestaCompra.Data.Models
 {
     public class ListaCompraXProduto
     {
-        public int IdListaCompraxproduto { get; set; }
+        public int IdListaCompraXProduto { get; set; }
         public int IdProduto { get; set; }
-        public int IdListacompra { get; set; }
+        public int IdListaCompra { get; set; }
         public int Quantidade { get; set; }
 
     }

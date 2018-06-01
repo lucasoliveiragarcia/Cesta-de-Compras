@@ -24,7 +24,7 @@ namespace CestaCompra.Data.Models.Mapping
             this.ToTable("produto");
             this.Property(t => t.IdProduto).HasColumnName("idproduto");
             this.Property(t => t.IdMarca).HasColumnName("idmarca");
-            this.Property(t => t.IdTipomedida).HasColumnName("idtipomedida");
+            this.Property(t => t.IdTipoMedida).HasColumnName("idtipomedida");
             this.Property(t => t.Unidade).HasColumnName("unidade");
             this.Property(t => t.Nome).HasColumnName("nome");
             this.Property(t => t.Valido).HasColumnName("valido");
