@@ -7,14 +7,14 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    [Table("pessoa")]
-    public class Pessoa
+    
+    public class pessoa
     {
-        public int IdPessoa { get; set; }
-        public int IdEndereco { get; set; }
-        public string Email { get; set; }
-        public DateTime DataNascimento { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
+        public int idpessoa { get; set; }
+        public int idendereco { get; set; }
+        public string email { get; set; }
+        public DateTime datanascimento { get; set; }
+        public string nome { get; set; }
+        public string sobrenome { get; set; }
     }
 }

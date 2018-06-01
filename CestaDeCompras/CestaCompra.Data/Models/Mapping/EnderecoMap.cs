@@ -26,6 +26,15 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.logradouro)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            //Table & Column Mappings
+            this.ToTable("endereco");
+            this.Property(t => t.idendereco).HasColumnName("idendereco");
+            this.Property(t => t.cep).HasColumnName("cep");
+            this.Property(t => t.numero).HasColumnName("numero");
+            this.Property(t => t.complemento).HasColumnName("complemento");
+            this.Property(t => t.logradouro).HasColumnName("logradouro");
+ 
         }
     }
 }

@@ -20,6 +20,15 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.unidade)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            //Table & Column Mappings
+            this.ToTable("estabelecimento");
+            this.Property(t => t.idestabelecimento).HasColumnName("idestabelecimento");
+            this.Property(t => t.idendereco).HasColumnName("idendereco");
+            this.Property(t => t.nome).HasColumnName("nome");
+            this.Property(t => t.unidade).HasColumnName("unidade");
+            this.Property(t => t.logo).HasColumnName("logo");
+
         }
     }
 }

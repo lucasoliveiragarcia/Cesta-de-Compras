@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class CidadeMap : EntityTypeConfiguration<Cidade>
+    public class CidadeMap : EntityTypeConfiguration<cidade>
     {
         public CidadeMap()
         { 
@@ -19,6 +19,11 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            //Table & Column Mappings
+            this.ToTable("cidade");
+            this.Property(t => t.idcidade).HasColumnName("idcidade");
+            this.Property(t => t.idestado).HasColumnName("idestado");
+            this.Property(t => t.nome).HasColumnName("nome");
         }
     }
 }

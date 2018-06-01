@@ -15,7 +15,7 @@ namespace CestaCompra.Data.Models
         public int idestabelecimento { get; set; }
         public string quantidade { get; set; }
         public double preco { get; set; }
-        public double valido { get; set; }
+        public int valido { get; set; }
         
     }
 }

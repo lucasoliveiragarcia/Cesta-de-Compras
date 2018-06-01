@@ -7,8 +7,7 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    [Table("Cidade")]
-    public class Cidade
+    public class cidade
     {
         public int idcidade { get; set; }
         public int idestado { get; set; }

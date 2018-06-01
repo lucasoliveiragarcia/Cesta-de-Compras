@@ -16,6 +16,15 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades
             this.Property(t => t.valortotal)
                 .IsRequired();
+                
+
+            //Table & Column Mappings
+            this.ToTable("comprarealizada");
+            this.Property(t => t.idcomprarealizada).HasColumnName("idcomprarealizada");
+            this.Property(t => t.idconsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.datacompra).HasColumnName("datacompra");
+            this.Property(t => t.valortotal).HasColumnName("valortotal");
+
         }
     }
 }
