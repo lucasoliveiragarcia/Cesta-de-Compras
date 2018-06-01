@@ -7,13 +7,13 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    public class endereco
+    public class Endereco
     {
-        public int idendereco { get; set; }
-        public string cep { get; set; }
-        public string numero { get; set; }
-        public string complemento { get; set; }
-        public string logradouro { get; set; }
+        public int IdEndereco { get; set; }
+        public string Cep { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Logradouro { get; set; }
 
     }
 }

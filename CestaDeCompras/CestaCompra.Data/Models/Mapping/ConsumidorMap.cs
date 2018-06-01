@@ -6,36 +6,36 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class ConsumidorMap : EntityTypeConfiguration<consumidor>
+    public class ConsumidorMap : EntityTypeConfiguration<Consumidor>
     {
         public ConsumidorMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.idconsumidor);
+            this.HasKey(t => t.IdConsumidor);
 
             //Propriedades
-            this.Property(t => t.admnistrador)
+            this.Property(t => t.Admnistrador)
                 .IsRequired();
                 
-            this.Property(t => t.login)
+            this.Property(t => t.Login)
                  .IsRequired()
                 .HasMaxLength(40);
-            this.Property(t => t.senha)
+            this.Property(t => t.Senha)
                  .IsRequired()
                 .HasMaxLength(40);
-            this.Property(t => t.nivel)
+            this.Property(t => t.Nivel)
                 .IsRequired()
                 .HasMaxLength(10);
 
             //Table & Column Mappings
             this.ToTable("consumidor");
-            this.Property(t => t.idconsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.idpessoa).HasColumnName("idpessoa");
-            this.Property(t => t.datacadastro).HasColumnName("datacadastro");
-            this.Property(t => t.admnistrador).HasColumnName("admnistrador");
-            this.Property(t => t.login).HasColumnName("login");
-            this.Property(t => t.senha).HasColumnName("senha");
-            this.Property(t => t.nivel).HasColumnName("nivel");
+            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
+            this.Property(t => t.DataCadastro).HasColumnName("datacadastro");
+            this.Property(t => t.Admnistrador).HasColumnName("admnistrador");
+            this.Property(t => t.Login).HasColumnName("login");
+            this.Property(t => t.Senha).HasColumnName("senha");
+            this.Property(t => t.Nivel).HasColumnName("nivel");
         }
     }
 }

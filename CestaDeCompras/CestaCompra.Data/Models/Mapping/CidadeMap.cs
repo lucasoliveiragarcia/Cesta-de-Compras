@@ -6,24 +6,24 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class CidadeMap : EntityTypeConfiguration<cidade>
+    public class CidadeMap : EntityTypeConfiguration<Cidade>
     {
         public CidadeMap()
         { 
             //Chave Primaria
-            this.HasKey(t => t.idcidade);
+            this.HasKey(t => t.IdCidade);
               
 
             //Propriedades
-            this.Property(t => t.nome)
+            this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
 
             //Table & Column Mappings
             this.ToTable("cidade");
-            this.Property(t => t.idcidade).HasColumnName("idcidade");
-            this.Property(t => t.idestado).HasColumnName("idestado");
-            this.Property(t => t.nome).HasColumnName("nome");
+            this.Property(t => t.IdCidade).HasColumnName("idcidade");
+            this.Property(t => t.IdEstado).HasColumnName("idestado");
+            this.Property(t => t.Nome).HasColumnName("nome");
         }
     }
 }

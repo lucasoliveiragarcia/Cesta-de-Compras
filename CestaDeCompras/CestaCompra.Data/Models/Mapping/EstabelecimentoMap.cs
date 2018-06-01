@@ -6,28 +6,28 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class EstabelecimentoMap : EntityTypeConfiguration<estabelecimento>
+    public class EstabelecimentoMap : EntityTypeConfiguration<Estabelecimento>
     {
         public EstabelecimentoMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.idestabelecimento);
+            this.HasKey(t => t.IdEstabelecimento);
 
             //Propriedades
-            this.Property(t => t.nome)
+            this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
-            this.Property(t => t.unidade)
+            this.Property(t => t.Unidade)
                 .IsRequired()
                 .HasMaxLength(100);
 
             //Table & Column Mappings
             this.ToTable("estabelecimento");
-            this.Property(t => t.idestabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.idendereco).HasColumnName("idendereco");
-            this.Property(t => t.nome).HasColumnName("nome");
-            this.Property(t => t.unidade).HasColumnName("unidade");
-            this.Property(t => t.logo).HasColumnName("logo");
+            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
+            this.Property(t => t.IdEndereco).HasColumnName("idendereco");
+            this.Property(t => t.Nome).HasColumnName("nome");
+            this.Property(t => t.Unidade).HasColumnName("unidade");
+            this.Property(t => t.Logo).HasColumnName("logo");
 
         }
     }

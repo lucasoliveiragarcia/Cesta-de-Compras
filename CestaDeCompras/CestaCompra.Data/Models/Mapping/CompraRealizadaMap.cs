@@ -6,24 +6,24 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class CompraRealizadaMap : EntityTypeConfiguration<comprarealizada>
+    public class CompraRealizadaMap : EntityTypeConfiguration<CompraRealizada>
     {
         public CompraRealizadaMap()
         { 
             //Chave Primaria
-            this.HasKey(t => t.idcomprarealizada);
+            this.HasKey(t => t.IdComprarealizada);
 
             //Propriedades
-            this.Property(t => t.valortotal)
+            this.Property(t => t.ValorTotal)
                 .IsRequired();
                 
 
             //Table & Column Mappings
             this.ToTable("comprarealizada");
-            this.Property(t => t.idcomprarealizada).HasColumnName("idcomprarealizada");
-            this.Property(t => t.idconsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.datacompra).HasColumnName("datacompra");
-            this.Property(t => t.valortotal).HasColumnName("valortotal");
+            this.Property(t => t.IdComprarealizada).HasColumnName("idcomprarealizada");
+            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.DataCompra).HasColumnName("datacompra");
+            this.Property(t => t.ValorTotal).HasColumnName("valortotal");
 
         }
     }

@@ -6,22 +6,22 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class PaisMap : EntityTypeConfiguration<pais>
+    public class PaisMap : EntityTypeConfiguration<Pais>
     {
         public PaisMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.idpais);
+            this.HasKey(t => t.IdPais);
 
             //Propriedades
-            this.Property(t => t.nome)
+            this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
 
             //Table & Column Mappings
             this.ToTable("pais");
-            this.Property(t => t.idpais).HasColumnName("idpais");
-            this.Property(t => t.nome).HasColumnName("nome");
+            this.Property(t => t.IdPais).HasColumnName("idpais");
+            this.Property(t => t.Nome).HasColumnName("nome");
 
         }
     }

@@ -7,14 +7,14 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    public class consumidor
+    public class Consumidor
     {
-        public int idconsumidor { get; set; }
-        public int idpessoa { get; set; }
-        public int datacadastro { get; set; }
-        public int admnistrador { get; set; }
-        public string login { get; set; }
-        public string senha { get; set; }
-        public string nivel { get; set; }
+        public int IdConsumidor { get; set; }
+        public int IdPessoa { get; set; }
+        public int DataCadastro { get; set; }
+        public int Admnistrador { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
+        public string Nivel { get; set; }
     }
 }

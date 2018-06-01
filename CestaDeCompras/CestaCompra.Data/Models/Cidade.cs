@@ -7,10 +7,10 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    public class cidade
+    public class Cidade
     {
-        public int idcidade { get; set; }
-        public int idestado { get; set; }
-        public string nome { get; set; }
+        public int IdCidade { get; set; }
+        public int IdEstado { get; set; }
+        public string Nome { get; set; }
     }
 }

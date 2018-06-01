@@ -6,24 +6,24 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class ListaCompraMap : EntityTypeConfiguration<listacompra>
+    public class ListaCompraMap : EntityTypeConfiguration<ListaCompra>
     {
         public ListaCompraMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.idlistacompra);
+            this.HasKey(t => t.IdListaCompra);
 
             //Propriedades
-            this.Property(t => t.nome)
+            this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
 
             //Table & Column Mappings
             this.ToTable("listacompra");
-            this.Property(t => t.idlistacompra).HasColumnName("idlistacompra");
-            this.Property(t => t.idconsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.nome).HasColumnName("nome");
-            this.Property(t => t.dataultimamodificacao).HasColumnName("dataultimamodificacao");
+            this.Property(t => t.IdListaCompra).HasColumnName("idlistacompra");
+            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.Nome).HasColumnName("nome");
+            this.Property(t => t.DataUltimaModificacao).HasColumnName("dataultimamodificacao");
  
         }
     }
