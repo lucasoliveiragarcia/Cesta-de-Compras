@@ -1,6 +1,9 @@
 language: csharp
 solution: CestaDeCompras.sln
 
+script:    # the following commands are just examples, use whatever your build process requires
+  - ./build.sh
+
  notifications:
     slack: bsi-ifserra:O5bddhxfjXaEAlH6Fm70RjeS
   
