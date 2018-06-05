@@ -6,12 +6,12 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class EstadoMap : EntityTypeConfiguration<Estado>
+    public class BairroMap : EntityTypeConfiguration<Bairro>
     {
-        public EstadoMap()
+        public BairroMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.IdEstado);
+            this.HasKey(t => t.IdBairro);
 
 
             //Propriedades
@@ -20,16 +20,17 @@ namespace CestaCompra.Data.Models.Mapping
                 .HasMaxLength(100);
 
             //Table & Column Mappings
-            this.ToTable("estado");
-            this.Property(t => t.IdEstado).HasColumnName("idestado");
-            this.Property(t => t.IdPais).HasColumnName("idpais");
+            this.ToTable("bairro");
+            this.Property(t => t.IdBairro).HasColumnName("idbairro");
+            this.Property(t => t.IdCidade).HasColumnName("idcidade");
             this.Property(t => t.Nome).HasColumnName("nome");
 
             //Relacionamentos
-            this.HasRequired(d => d.Pais)
-                .WithMany(d => d.Estado)
-                .HasForeignKey(d => d.IdPais);
-
+            this.HasRequired(d => d.Cidade)
+                .WithMany(d => d.Bairro)
+                .HasForeignKey(d => d.IdCidade);
         }
+
+        
     }
 }

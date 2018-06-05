@@ -21,9 +21,14 @@ namespace CestaCompra.Data.Models.Mapping
             //Table & Column Mappings
             this.ToTable("comprarealizada");
             this.Property(t => t.IdComprarealizada).HasColumnName("idcomprarealizada");
-            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.IdUsuario).HasColumnName("idusuario");
             this.Property(t => t.DataCompra).HasColumnName("datacompra");
             this.Property(t => t.ValorTotal).HasColumnName("valortotal");
+
+            //Relacionamentos
+            this.HasRequired(d => d.Usuario)
+                .WithMany(d => d.CompraRealizada)
+                .HasForeignKey(d => d.IdUsuario);
 
         }
     }

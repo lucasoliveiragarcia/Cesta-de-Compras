@@ -11,6 +11,6 @@ namespace CestaCompra.Data.Models
     {
         public int IdPais { get; set; }
         public string Nome { get; set; }
-
+        public virtual Estado Estado { get; set; }
     }
 }

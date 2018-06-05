@@ -24,7 +24,12 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
             this.Property(t => t.Nome).HasColumnName("nome");
             this.Property(t => t.DataUltimaModificacao).HasColumnName("dataultimamodificacao");
- 
+
+            //Relacionamentos
+            this.HasRequired(d => d.Usuario)
+                .WithMany(d => d.ListaCompra)
+                .HasForeignKey(d => d.IdUsuario);
+
         }
     }
 }

@@ -34,7 +34,13 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Numero).HasColumnName("numero");
             this.Property(t => t.Complemento).HasColumnName("complemento");
             this.Property(t => t.Logradouro).HasColumnName("logradouro");
- 
+            
+
+            //Relacionamentos
+            this.HasRequired(d => d.Pessoa)
+                .WithMany(d => d.Endereco)
+                .HasForeignKey(d => d.IdBairro);
+
         }
     }
 }

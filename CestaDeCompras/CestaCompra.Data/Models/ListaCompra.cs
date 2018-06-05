@@ -13,5 +13,6 @@ namespace CestaCompra.Data.Models
         public int IdConsumidor { get; set; }
         public string Nome { get; set; }
         public string DataUltimaModificacao { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

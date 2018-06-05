@@ -15,5 +15,6 @@ namespace CestaCompra.Data.Models
         public int Unidade { get; set; }
         public string Nome { get; set; }
         public double Valido { get; set; }
+        public virtual Marca Marca { get; set; }
     }
 }

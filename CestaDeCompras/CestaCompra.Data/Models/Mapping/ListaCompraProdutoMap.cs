@@ -6,19 +6,22 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class ListaCompraXProdutoMap : EntityTypeConfiguration<ListaCompraXProduto>
+    public class ListaCompraProdutoMap : EntityTypeConfiguration<ListaCompraProduto>
     {
-        public ListaCompraXProdutoMap()
+        public ListaCompraProdutoMap()
         {
-            //Chave Primaria
-            this.HasKey(t => t.IdListaCompraXProduto);
+   
 
             //Table & Column Mappings
-            this.ToTable("listacompraxproduto");
-            this.Property(t => t.IdListaCompraXProduto).HasColumnName("idlistacompraxproduto");
+            this.ToTable("listacompraproduto");
             this.Property(t => t.IdProduto).HasColumnName("idproduto");
             this.Property(t => t.IdListaCompra).HasColumnName("idlistacompra");
             this.Property(t => t.Quantidade).HasColumnName("quantidade");
+
+            //Relacionamentos
+            this.HasRequired(d => d.Produto)
+                .WithMany(d => d.ListaCompra)
+                .HasForeignKey(d => d.IdProduto);
 
         }       
 

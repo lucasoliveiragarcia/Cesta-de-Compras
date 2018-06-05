@@ -36,6 +36,8 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Quantidade).HasColumnName("quantidade");
             this.Property(t => t.Preco).HasColumnName("preco");
             this.Property(t => t.Valido).HasColumnName("valido");
+
+          
         }
     }
 }
