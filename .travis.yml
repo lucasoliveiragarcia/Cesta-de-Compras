@@ -1,8 +1,8 @@
 language: csharp
-solution: MimAcher.sln
+solution: CestaDeCompras.sln
 
-notifications:
-  slack: bsi-ifserra:O5bddhxfjXaEAlH6Fm70RjeS
+ notifications:
+    slack: bsi-ifserra:O5bddhxfjXaEAlH6Fm70RjeS
   
-script:
-  - sonar-scanner
+ script:
+   - sonar-scanner
