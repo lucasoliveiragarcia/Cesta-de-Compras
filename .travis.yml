@@ -1,0 +1,8 @@
+language: csharp
+solution: MimAcher.sln
+
+notifications:
+  slack: bsi-ifserra:O5bddhxfjXaEAlH6Fm70RjeS
+  
+script:
+  - sonar-scanner
