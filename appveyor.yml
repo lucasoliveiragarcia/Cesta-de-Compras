@@ -1,0 +1,11 @@
+version: 1.0.{build}
+clone_folder: https://github.com/lucasoliveiragarcia/Cesta-de-Compras.git
+build:
+  verbosity: minimal
+notifications:
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  channel: '#grupo_cesta_basica'
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
