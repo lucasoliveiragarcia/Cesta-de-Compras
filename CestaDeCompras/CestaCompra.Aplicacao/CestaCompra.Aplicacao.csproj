@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
     <Compile Include="Features\ListaCompraAplicacao.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SupermercadoAplicacao.feature</DependentUpon>
     </Compile>
+    <Compile Include="CodeBindings\ListaCompraAplicacaoSteps.cs" />
     <Compile Include="PessoaAplicacao.cs" />
     <Compile Include="Features\PessoaAplicacao.feature.cs">
       <AutoGen>True</AutoGen>
