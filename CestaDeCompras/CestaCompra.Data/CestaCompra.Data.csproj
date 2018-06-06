@@ -106,7 +106,7 @@
     <Compile Include="Models\Mapping\CidadeMap.cs" />
     <Compile Include="Models\Mapping\CompraMap.cs" />
     <Compile Include="Models\Mapping\CompraRealizadaMap.cs" />
-    <Compile Include="Models\Mapping\UsuarioMap.cs" />
+    <Compile Include="Models\Mapping\ConsumidorMap.cs" />
     <Compile Include="Models\Mapping\EnderecoMap.cs" />
     <Compile Include="Models\Mapping\EstabelecimentoMap.cs" />
     <Compile Include="Models\Mapping\EstadoMap.cs" />

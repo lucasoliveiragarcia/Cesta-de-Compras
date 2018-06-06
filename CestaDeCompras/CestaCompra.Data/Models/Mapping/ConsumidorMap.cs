@@ -6,12 +6,12 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class UsuarioMap : EntityTypeConfiguration<Usuario>
+    public class ConsumidorMap : EntityTypeConfiguration<Consumidor>
     {
-        public UsuarioMap()
+        public ConsumidorMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.IdUsuario);
+            this.HasKey(t => t.IdConsumidor);
 
             //Propriedades
             this.Property(t => t.Admnistrador)
@@ -29,7 +29,7 @@ namespace CestaCompra.Data.Models.Mapping
 
             //Table & Column Mappings
             this.ToTable("usuario");
-            this.Property(t => t.IdUsuario).HasColumnName("idusuario");
+            this.Property(t => t.IdConsumidor).HasColumnName("idusuario");
             this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
             this.Property(t => t.DataCadastro).HasColumnName("datacadastro");
             this.Property(t => t.Admnistrador).HasColumnName("admnistrador");
@@ -38,9 +38,9 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Nivel).HasColumnName("nivel");
 
             //Relacionamentos
-            this.HasRequired(d => d.Pessoa)
-                .WithMany(d => d.Usuario)
-                .HasForeignKey(d => d.IdPessoa);
+            //this.HasRequired(d => d.Pessoa)
+            //    .WithMany(d => d.Consumidor)
+            //    .HasForeignKey(d => d.IdPessoa);
         }
     }
 }
