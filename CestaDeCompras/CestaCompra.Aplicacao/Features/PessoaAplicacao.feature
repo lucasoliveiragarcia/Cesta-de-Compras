@@ -1,11 +1,21 @@
 ﻿Feature: PessoaAplicacao
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	
+Scenario: Login com sucesso
+	Given Eu, usuario estou entrando no sistema
+	And eu informo o <login>
+	And eu informo a <senha>
+	When  Eu pressiono o botão entrar
+	Then Eu acesso o menu principal.
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: Cadastrar Consumidor
+	Given Eu acesso o aplicativo “Cesta de Compras”
+	When Eu escolho a opção “Cadastrar”
+	And O sistema exibe a tela de cadastramento de usuário
+	And Eu preencho todos os dados solicitados
+	And Eu forneço o meu e-mail e digito /defino  uma senha
+	And Eu confirmo meu e-mail via link recebido no meu e-mail
+	And O sistema recebe a confirmação do e-mail
+	Then O sistema conclui o cadastro e me habilita como usuário e eu posso começar a usar o aplicativo.
+
+
+
