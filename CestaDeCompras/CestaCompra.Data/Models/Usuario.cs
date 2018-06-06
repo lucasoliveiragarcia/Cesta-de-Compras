@@ -18,5 +18,6 @@ namespace CestaCompra.Data.Models
         public string Nivel { get; set; }
         public virtual Pessoa Pessoa { get; set; }
         public virtual CompraRealizada CompraRealizada { get; set; }
+        //public virtual CompraRealizadaLista CompraRealizadaLista { get; set; }
     }
 }

@@ -27,9 +27,15 @@ namespace CestaCompra.Data.Models.Mapping
             
 
             //Relacionamentos
-            this.HasRequired(d => d.Estado)
-                .WithMany(d => d.Cidade)    
-                .HasForeignKey(d => d.IdEstado);
+            //this.HasRequired(d => d.Estado)
+              //  .WithMany(d => d.Cidade)    
+              //  .HasForeignKey(d => d.IdEstado);
+
+            //1:N - 1 Cidade DEVE ter 1 Estado e 1 estado pode ter várias cidades
+            HasRequired(x => x.Estado)
+              .WithMany(x => x.CidadeLista)
+              .Map(m => m.MapKey("IdEstado"));//chave estrangeira
+
         }
     }
 }

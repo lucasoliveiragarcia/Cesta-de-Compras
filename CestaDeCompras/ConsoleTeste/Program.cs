@@ -26,6 +26,13 @@ namespace ConsoleTeste
             
             Console.WriteLine("Registro Adicionado com sucesso!");
             Console.WriteLine("" + pessoa.IdPessoa);
+
+            var comprarealizada = pessoaAplicacao.CompraRealizada
+                     .Include("CompraRealizadaLista")
+                     .ToList();
+            var cidade = pessoaAplicacao.Cidade
+                     .Include("CidadeLista")
+                     .ToList();
         }
     }
 }

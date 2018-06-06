@@ -92,7 +92,6 @@
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Configuracao\ContextCestaBD.cs" />
-    <Compile Include="Models\Bairro.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\CompraRealizada.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\ListaCompra.cs" />
     <Compile Include="Models\ListaCompraProduto.cs" />
-    <Compile Include="Models\Mapping\BairroMap.cs" />
     <Compile Include="Models\Mapping\CidadeMap.cs" />
     <Compile Include="Models\Mapping\CompraMap.cs" />
     <Compile Include="Models\Mapping\CompraRealizadaMap.cs" />

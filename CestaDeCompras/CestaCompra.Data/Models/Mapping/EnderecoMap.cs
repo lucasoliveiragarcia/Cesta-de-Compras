@@ -37,7 +37,7 @@ namespace CestaCompra.Data.Models.Mapping
             
 
             //Relacionamentos
-            this.HasRequired(d => d.Pessoa)
+            this.HasRequired(d => d.Bairro)
                 .WithMany(d => d.Endereco)
                 .HasForeignKey(d => d.IdBairro);
 

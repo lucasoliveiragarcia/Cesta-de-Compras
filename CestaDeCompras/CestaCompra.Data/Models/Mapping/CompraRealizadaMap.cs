@@ -26,9 +26,14 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.ValorTotal).HasColumnName("valortotal");
 
             //Relacionamentos
-            this.HasRequired(d => d.Usuario)
-                .WithMany(d => d.CompraRealizada)
-                .HasForeignKey(d => d.IdUsuario);
+            //this.HasRequired(d => d.Usuario)
+            //  .WithMany(d => d.CompraRealizada)
+            //.HasForeignKey(d => d.IdConsumidor);
+
+            //1:N - 1 compra pertence a 1 usuario e 1 usuario pode ter varias compras
+            HasRequired(x => x.Usuario)
+            .WithMany(x => x.CompraRealizadaLista)
+            .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
 
         }
     }
