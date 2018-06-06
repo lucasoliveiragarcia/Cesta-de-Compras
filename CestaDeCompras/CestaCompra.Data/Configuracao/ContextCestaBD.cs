@@ -14,7 +14,20 @@ namespace CestaCompra.Data
 {
     public class ContextCestaBD: DbContext
     {
-        public ContextCestaBD() : base("Name=ContextCestaBD")
+        //static ContextCestaBD()
+        //{
+        //    Database.SetInitializer<ContextCestaBD>(null);
+        //}
+
+        //public ContextCestaBD()
+        //    : base("Data Source=localhost;Initial Catalog=BancoCestaCompraNew;Persist Security Info=True;User ID=postgres;Password=root;")
+
+        //    //: base("name=ContextCestaBD connectionString=Server = localhost; Database=BancoCestaCompraNew;User Id = postgres; Password=root providerName=Npgsql")
+        //{
+        //}
+
+        //DbSet, OnModelCreating, etc..
+        public ContextCestaBD() : base("ContextCestaBD")
         {
 
         }
@@ -34,7 +47,7 @@ namespace CestaCompra.Data
             //Adiciona Chave primarias automaticamente
             //modelBuilder.Properties().Where(p => p.Name == "id" + p.ReflectedType.Name.ToLower()).Configure(p => p.IsKey());
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
-            modelBuilder.Properties<DateTime>().Configure(p => p.HasColumnType("timestamp"));
+            //modelBuilder.Properties<DateTime>().Configure(p => p.HasColumnType("timestamp"));
         }
     }
 }

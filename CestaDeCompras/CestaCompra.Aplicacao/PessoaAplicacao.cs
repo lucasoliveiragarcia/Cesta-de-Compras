@@ -55,14 +55,14 @@ namespace CestaCompra.Aplicacao
             return false;
         }
 
-        public void InserirPessoa(Pessoa usuario)
+        public void InserirPessoa(Pessoa pessoa)
         {
-            this.pessoaRepositorio.InserirPessoa(usuario);
+            this.pessoaRepositorio.InserirPessoa(pessoa);
         }
 
-        public Boolean InserirPessoaComRetorno(Pessoa usuario)
+        public Boolean InserirPessoaComRetorno(Pessoa pessoa)
         {
-            return this.pessoaRepositorio.InserirPessoaComRetorno(usuario);
+            return this.pessoaRepositorio.InserirPessoaComRetorno(pessoa);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -70,19 +70,19 @@ namespace CestaCompra.Aplicacao
             return this.pessoaRepositorio.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverPessoa(Pessoa usuario)
+        public void RemoverPessoa(Pessoa pessoa)
         {
-            this.pessoaRepositorio.RemoverPessoa(usuario);
+            this.pessoaRepositorio.RemoverPessoa(pessoa);
         }
 
-        //public void AtualizarPessoa(Pessoa usuario)
+        //public void AtualizarPessoa(Pessoa pessoa)
         //{
-        //    this.pessoaRepositorio.AtualizarPessoa(usuario);
+        //    this.pessoaRepositorio.AtualizarPessoa(pessoa);
         //}
 
-        //public Boolean AtualizarPessoaComRetorno(Pessoa usuario)
+        //public Boolean AtualizarPessoaComRetorno(Pessoa pessoa)
         //{
-        //    return this.pessoaRepositorio.AtualizarPessoaComRetorno(usuario);
+        //    return this.pessoaRepositorio.AtualizarPessoaComRetorno(pessoa);
         //}
 
         public Boolean VerificarSeExistePessoaPorId(int idPessoa)
