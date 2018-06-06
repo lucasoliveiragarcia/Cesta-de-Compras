@@ -1,0 +1,15 @@
+language: csharp
+solution: CestaDeCompras.sln
+
+branches:
+  only:
+  - master
+
+script: 
+  - ./build.sh
+
+ notifications:
+    slack: bsi-ifserra:O5bddhxfjXaEAlH6Fm70RjeS
+  
+ script:
+   - sonar-scanner
