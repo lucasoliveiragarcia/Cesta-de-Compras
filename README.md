@@ -1,4 +1,4 @@
-# TRABALHO 01 : Cesta de Compras
+# TRABALHO 01 : Cesta de Compras [![Build status](https://ci.appveyor.com/api/projects/status/ar1y55k5oi8ea4k1?svg=true)](https://ci.appveyor.com/project/Eduardocoutto/cesta-de-compras)
 Trabalho desenvolvido durante a disciplina de BD
 
     O referido projeto poderá ser:
