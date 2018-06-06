@@ -26,9 +26,7 @@ namespace CestaCompra.Data.Models.Mapping
                 .HasMaxLength(100);
             this.Property(t => t.Sobrenome)
                 .HasMaxLength(100);
-            this.Property(t => t.DataNascimento)
-                .IsRequired();
-
+            
             this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
             this.Property(t => t.IdEndereco).HasColumnName("idendereco");
             this.Property(t => t.Email).HasColumnName("email");
