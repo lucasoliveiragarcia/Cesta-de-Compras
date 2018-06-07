@@ -11,14 +11,14 @@ namespace CestaCompra.Aplicacao
     [Binding]
     public class ListaCompraAplicacaoSteps
     {
-        IWebDriver driver;
+        //IWebDriver driver;
 
         [Given(@"Eu estou no menu principal")]
         public void GivenEuEstouNoMenuPrincipal()
         {
-            //ScenarioContext.Current.Pending();
-            driver=new ChromeDriver();
-            driver.Url = "https://www.uol.com.br/";
+            ScenarioContext.Current.Pending();
+            //driver=new ChromeDriver();
+            //driver.Url = "";
         }
         
         [Given(@"Eu seleciono a opção minhas listas de compras")]
