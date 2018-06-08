@@ -3,6 +3,7 @@ from faker import Faker
 import sys
 import os
 import random
+import time
 
 fake = Faker()
 fake = Factory.create('pt_BR')
@@ -20,18 +21,19 @@ QTD_PESSOA = 5000;
 #QTD_CONSUMIDOR = 2000; #QUANTIDADE DE PESSOA E CONSUMIDOR DEVEM SER A MESMA
 QTD_LISTA_COMPRA = 100;
 QTD_PRODUTO = 18;
-QTD_COMPRA = 30; #Valor maximo aleatorio por Pessoa
+QTD_COMPRA = 40; #Valor maximo aleatorio por Pessoa
+QTD_QUANTIDADE_PRODUTO_LISTA = 15;
 QTD_LISTA_COMPRA_PRODUTO = 0;
 
 def main():
 
     print("Programa Iniciado")
+    time.sleep(2)
     gerarArquivo()
 
 def gerarArquivo():
 
-    arquivoSql = open("insertCestaCompras.sql", 'wt')
-
+    arquivoSql = open("insertCestaCompras.sql", 'wt')    
     arquivoSql.write("SET schema "+schema+";") #Schema padrão do postgres é Public
     arquivoSql.write(getScriptMarca())
     arquivoSql.write(getScriptMedida())
@@ -52,7 +54,6 @@ def gerarArquivo():
     input()
 
     return;
-
 
 def porcentagem(atual, total):
     porce = 100 * atual / (total)
@@ -256,7 +257,7 @@ def getScriptListaCompraxProduto(QTD = QTD_LISTA_COMPRA_PRODUTO):
 
 def getIdProdutosAleatorio():
     lstIdProdutos = []
-    qtdProduto = random.randint(2,7)
+    qtdProduto = random.randint(2,QTD_QUANTIDADE_PRODUTO_LISTA)
 
     for i in range(0,qtdProduto):
         idProduto = random.randint(1,QTD_PRODUTO);
@@ -321,6 +322,11 @@ def getScriptCompra(QTD = QTD_COMPRA):
             print('Quantidade de Itens: ', countItemCompra)
             print("Criando Compras...", porcentagem(IdConsumidor, QTD_PESSOA))
             registros = 0
+
+    limpaTela()
+    print('Quantidade de Compras: ', idCompra)
+    print('Quantidade de Itens: ', countItemCompra)
+    print()
 
     return sqlretorno
 
