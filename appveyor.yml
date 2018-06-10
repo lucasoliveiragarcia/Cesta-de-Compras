@@ -7,6 +7,7 @@ nuget:
   project_feed: true
 build:
   verbosity: minimal
+  publish_wap: true
   
 notifications:
 - provider: Slack
