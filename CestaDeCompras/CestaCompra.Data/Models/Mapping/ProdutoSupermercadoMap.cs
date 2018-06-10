@@ -26,9 +26,9 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Preco).HasColumnName("preco");
 
             //Relacionamentos
-            this.HasRequired(d => d.Estabelecimento)
-                .WithMany(d => d.ProdutoSupermercado)
-                .HasForeignKey(d => d.IdEstabelecimento);
+            //this.HasRequired(d => d.Estabelecimento)
+            //    .WithMany(d => d.ProdutoSupermercado)
+            //    .HasForeignKey(d => d.IdEstabelecimento);
 
         }
     }

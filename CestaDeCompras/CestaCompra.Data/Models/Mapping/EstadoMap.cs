@@ -25,10 +25,10 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdPais).HasColumnName("idpais");
             this.Property(t => t.Nome).HasColumnName("nome");
 
-            //Relacionamentos
-            this.HasRequired(d => d.Pais)
-                .WithMany(d => d.Estado)
-                .HasForeignKey(d => d.IdPais);
+            ////Relacionamentos
+            //this.HasRequired(d => d.Pais)
+            //    .WithMany(d => d.Estado)
+            //    .HasForeignKey(d => d.IdPais);
 
         }
     }

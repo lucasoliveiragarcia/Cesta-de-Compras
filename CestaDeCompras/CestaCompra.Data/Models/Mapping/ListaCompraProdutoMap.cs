@@ -18,10 +18,10 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdListaCompra).HasColumnName("idlistacompra");
             this.Property(t => t.Quantidade).HasColumnName("quantidade");
 
-            //Relacionamentos
-            this.HasRequired(d => d.Produto)
-                .WithMany(d => d.ListaCompra)
-                .HasForeignKey(d => d.IdProduto);
+            ////Relacionamentos
+            //this.HasRequired(d => d.Produto)
+            //    .WithMany(d => d.ListaCompra)
+            //    .HasForeignKey(d => d.IdProduto);
 
         }       
 

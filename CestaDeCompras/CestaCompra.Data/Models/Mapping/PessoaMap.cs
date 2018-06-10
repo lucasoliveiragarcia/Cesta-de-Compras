@@ -35,9 +35,9 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Sobrenome).HasColumnName("sobrenome");
 
             //Relacionamentos
-            this.HasRequired(d => d.Endereco)
-                .WithMany(d => d.Pessoa)
-                .HasForeignKey(d => d.IdEndereco);
+            //this.HasRequired(d => d.Endereco)
+            //    .WithMany(d => d.IdEndereco)
+            //    .HasForeignKey(d => d.IdEndereco);
         }
 
     }

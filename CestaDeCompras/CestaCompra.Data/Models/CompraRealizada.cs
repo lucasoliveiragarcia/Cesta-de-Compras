@@ -13,6 +13,6 @@ namespace CestaCompra.Data.Models
         public int IdUsuario { get; set; }
         public DateTime DataCompra { get; set; }
         public double ValorTotal { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Consumidor Consumidor { get; set; }
     }
 }
