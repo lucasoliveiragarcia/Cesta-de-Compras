@@ -61,6 +61,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
+    <Compile Include="Features\ListaCompraAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListaCompraAplicacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RealizaCompraAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealizaCompraAplicacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SupermercadoAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupermercadoAplicacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CodeBindings\ListaCompraAplicacaoSteps.cs" />
     <Compile Include="PessoaAplicacao.cs" />
     <Compile Include="Features\PessoaAplicacao.feature.cs">
       <AutoGen>True</AutoGen>
@@ -81,6 +100,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\ListaCompraAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListaCompraAplicacao.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RealizaCompraAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RealizaCompraAplicacao.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\SupermercadoAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SupermercadoAplicacao.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Features\PessoaAplicacao.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

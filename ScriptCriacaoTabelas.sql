@@ -1,131 +1,130 @@
--- Geração de Modelo físico
--- Sql ANSI 2003 - brModelo.
---SET schema 'dbo';
-
-CREATE TABLE Consumidor (
-IdConsumidor serial PRIMARY KEY,
-IdPessoa INTEGER,
-DataCadastro timestamp,
-Administrador NUMERIC(1),
-Login VARCHAR(40),
-Senha VARCHAR(40),
-Nivel VARCHAR(40)
-);
+--SET schema 'dbo'; -- PARA UTILIZAR COM EF
 
 CREATE TABLE Estado (
-IdEstado serial PRIMARY KEY,
-IdPais INTEGER,
+IdEstado SERIAL PRIMARY KEY,
+IdPais SERIAL,
 Nome VARCHAR(100)
 );
 
+CREATE TABLE Marca (
+IdMarca SERIAL PRIMARY KEY,
+Nome VARCHAR(50)
+);
+
+CREATE TABLE Endereco (
+IdEndereco SERIAL PRIMARY KEY,
+IdCidade INTEGER,
+Logradouro VARCHAR(100),
+Complemento VARCHAR(100),
+Numero VARCHAR(20),
+Cep VARCHAR(8)
+);
+
+CREATE TABLE EstabelecimentoProduto (
+IdEstabelecimentoProduto SERIAL PRIMARY KEY,
+IdProduto INTEGER,
+IdEstabelecimento INTEGER,
+Preco DECIMAL(10)
+);
+
+CREATE TABLE Pessoa (
+IdPessoa SERIAL PRIMARY KEY,
+IdEndereco INTEGER,
+Nome VARCHAR(100),
+Sobrenome VARCHAR(100),
+DataNascimento TIMESTAMP,
+Email VARCHAR(100),
+FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
+);
+
+CREATE TABLE Compra (
+IdCompra SERIAL PRIMARY KEY,
+IdConsumidor INTEGER,
+IdEstabelecimento INTEGER,
+ValorTotal DECIMAL(18),
+DataCompra TIMESTAMP
+);
+
 CREATE TABLE Cidade (
-IdCidade serial PRIMARY KEY,
+IdCidade SERIAL PRIMARY KEY,
 IdEstado INTEGER,
 Nome VARCHAR(100),
 FOREIGN KEY(IdEstado) REFERENCES Estado (IdEstado)
 );
 
-
-CREATE TABLE Endereco (
-IdEndereco serial PRIMARY KEY,
-Cep CHAR(8),
-Numero VARCHAR(20),
-Complemento VARCHAR(100),
-Logradouro VARCHAR(100)
-);
-
-CREATE TABLE Estabelecimento (
-IdEstabelecimento serial PRIMARY KEY,
-IdEndereco INTEGER,
-Nome VARCHAR(100),
-Unidade VARCHAR(100),
-Logo INTEGER,
-FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
-);
-
-CREATE TABLE ProdutoSupermercado (
-IdProdutoSupermercado serial PRIMARY KEY,
-IdEstabelecimento INTEGER,
-IdProduto INTEGER,
-Preco decimal(7,2),
-FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento (IdEstabelecimento)
-);
-
-CREATE TABLE Marca (
-IdMarca serial PRIMARY KEY,
-Nome VARCHAR(50)
-);
-
-CREATE TABLE TipoMedida (
-IdTipoMedida serial PRIMARY KEY,
-TipoMedida VARCHAR(20)
-
-);
-
-CREATE TABLE Compra (
-IdCompra serial PRIMARY KEY,
-IdCompraRealizada INTEGER,
-IdProduto INTEGER,
-IdEstabelecimento INTEGER,
-Quantidade int,
-Preco decimal(7,2),
-Valido numeric(1,0)
-);
-
-CREATE TABLE Pessoa (
-IdPessoa serial PRIMARY KEY,
-IdEndereco INTEGER,
-Email VARCHAR(100),
-DataNascimento timestamp,
-Nome VARCHAR(100),
-Sobrenome VARCHAR(100),
-FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
-);
-
 CREATE TABLE Pais (
-IdPais serial PRIMARY KEY,
+IdPais SERIAL PRIMARY KEY,
 Nome VARCHAR(100)
 );
 
-CREATE TABLE CompraRealizada (
-IdCompraRealizada serial PRIMARY KEY,
-IdConsumidor INTEGER,
-DataCompra timestamp,
-ValorTotal decimal(7,2),
-FOREIGN KEY(IdConsumidor) REFERENCES Consumidor (IdConsumidor)
+CREATE TABLE Consumidor (
+IdConsumidor SERIAL PRIMARY KEY,
+IdPessoa INTEGER,
+Login VARCHAR(40),
+Senha VARCHAR(200),
+Nivel NUMERIC(10),
+DataCadastro TIMESTAMP,
+Administrador NUMERIC(1),
+FOREIGN KEY(IdPessoa) REFERENCES Pessoa (IdPessoa)
 );
 
 CREATE TABLE ListaCompra (
-IdListaCompra serial PRIMARY KEY,
-IdConsumidor integer,
+IdListaCompra SERIAL PRIMARY KEY,
+IdConsumidor INTEGER,
 Nome VARCHAR(100),
-DataUltimaModificacao timestamp,
+DataUltimaModificacao TIMESTAMP,
 FOREIGN KEY(IdConsumidor) REFERENCES Consumidor (IdConsumidor)
 );
 
-CREATE TABLE ListaCompraxProduto (
-IdListaCompraxProduto serial PRIMARY KEY,
-IdProduto INTEGER,
-IdListaCompra INTEGER,
-Quantidade INT,
-FOREIGN KEY(IdListaCompra) REFERENCES ListaCompra (IdListaCompra)
+CREATE TABLE Medida (
+IdMedida SERIAL PRIMARY KEY,
+Descricao VARCHAR(40),
+TipoMedida NUMERIC(10)
 );
 
 CREATE TABLE Produto (
-IdProduto serial PRIMARY KEY,
+IdProduto SERIAL PRIMARY KEY,
 IdMarca INTEGER,
-IdTipoMedida INTEGER,
-Unidade INTEGER,
+IdMedida INTEGER,
 Nome VARCHAR(100),
-Valido numeric(1,0),
+Unidade VARCHAR(20),
+Valido NUMERIC(1),
 FOREIGN KEY(IdMarca) REFERENCES Marca (IdMarca),
-FOREIGN KEY(IdTipoMedida) REFERENCES TipoMedida (IdTipoMedida)
+FOREIGN KEY(IdMedida) REFERENCES Medida (IdMedida)
 );
 
-ALTER TABLE Consumidor ADD FOREIGN KEY(IdPessoa) REFERENCES Pessoa (IdPessoa);
+CREATE TABLE ItemCompra (
+IdItemCompra SERIAL PRIMARY KEY,
+IdProduto INTEGER,
+IdCompra INTEGER,
+Valido VARCHAR(10),
+Preco DECIMAL(10),
+Quantidade BIGINT,
+FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto),
+FOREIGN KEY(IdCompra) REFERENCES Compra (IdCompra)
+);
+
+CREATE TABLE ItemListaCompra (
+IdItemListaCompra VARCHAR(10) PRIMARY KEY,
+IdListaCompra INTEGER,
+IdProduto INTEGER,
+Quantidade BIGINT,
+FOREIGN KEY(IdListaCompra) REFERENCES ListaCompra (IdListaCompra),
+FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto)
+);
+
+CREATE TABLE Estabelecimento (
+IdEstabelecimento SERIAL PRIMARY KEY,
+IdEndereco INTEGER,
+Nome VARCHAR(100),
+Unidade VARCHAR(100),
+Logo INT,
+FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
+);
+
 ALTER TABLE Estado ADD FOREIGN KEY(IdPais) REFERENCES Pais (IdPais);
-ALTER TABLE ProdutoSupermercado ADD FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto);
-ALTER TABLE Compra ADD FOREIGN KEY(IdProduto) 		   REFERENCES Produto         (IdProduto);
+ALTER TABLE Endereco ADD FOREIGN KEY(IdCidade) REFERENCES Cidade (IdCidade);
+ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto);
+ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento (IdEstabelecimento);
+ALTER TABLE Compra ADD FOREIGN KEY(IdConsumidor) REFERENCES Consumidor (IdConsumidor);
 ALTER TABLE Compra ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento (IdEstabelecimento);
-ALTER TABLE Compra ADD FOREIGN KEY(IdCompraRealizada) REFERENCES CompraRealizada (IdCompraRealizada);
-ALTER TABLE ListaCompraxProduto ADD FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto);
