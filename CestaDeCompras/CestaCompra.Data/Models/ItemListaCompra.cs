@@ -7,12 +7,13 @@ using System.Web;
 
 namespace CestaCompra.Data.Models
 {
-    public class ListaCompraProduto
+    public class ItemListaCompra
     {
-       
+
         public int IdProduto { get; set; }
-        public int IdListaCompra { get; set; }
+        public int IdItemListaCompra { get; set; }
         public int Quantidade { get; set; }
         public virtual Produto Produto { get; set; }
+        public virtual ListaCompra ListaCompra { get; set; }
     }
 }

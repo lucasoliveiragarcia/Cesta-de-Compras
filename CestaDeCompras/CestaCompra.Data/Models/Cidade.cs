@@ -15,6 +15,6 @@ namespace CestaCompra.Data.Models
         public int IdEstado { get; set; }
         public string Nome { get; set; }
         public virtual Estado Estado { get; set; }
-        public virtual Bairro Bairro { get; set; }
+        public virtual List<Endereco> Enderecos { get; set; }
     }
 }

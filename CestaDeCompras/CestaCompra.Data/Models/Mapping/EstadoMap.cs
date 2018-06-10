@@ -19,16 +19,22 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            this.Property(t => t.IdEstado)
+                .IsRequired();
+
+            this.Property(t => t.IdPais)
+                .IsRequired();
+
             //Table & Column Mappings
             this.ToTable("estado");
             this.Property(t => t.IdEstado).HasColumnName("idestado");
             this.Property(t => t.IdPais).HasColumnName("idpais");
             this.Property(t => t.Nome).HasColumnName("nome");
 
-            ////Relacionamentos
-            //this.HasRequired(d => d.Pais)
-            //    .WithMany(d => d.Estado)
-            //    .HasForeignKey(d => d.IdPais);
+            //Relacionamentos
+            this.HasRequired(d => d.Pais)
+                .WithMany(d => d.Estados)
+                .HasForeignKey(d => d.IdPais);
 
         }
     }

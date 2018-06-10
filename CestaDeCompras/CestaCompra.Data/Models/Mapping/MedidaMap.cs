@@ -7,9 +7,9 @@ using System.Web;
 
 namespace CestaCompra.Data.Models.Mapping
 {
-    public class TipoMedidaMap : EntityTypeConfiguration<TipoMedida>
+    public class MedidaMap : EntityTypeConfiguration<Medida>
     {
-        public TipoMedidaMap()
+        public MedidaMap()
         {
 
             //Chave Primaria
@@ -20,11 +20,17 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(20);
 
-            //Table & Column Mappings
-            this.ToTable("tipomedida");
-            this.Property(t => t.IdTipomedida).HasColumnName("idtipomedida");
-            this.Property(t => t.Descricao).HasColumnName("tipomedida");
+            this.Property(t => t.TipoMedida)
+                .IsRequired();
 
+            this.Property(t => t.IdTipomedida)
+                .IsRequired();
+
+            //Table & Column Mappings
+            this.ToTable("medida");
+            this.Property(t => t.IdTipomedida).HasColumnName("idtipomedida");
+            this.Property(t => t.Descricao).HasColumnName("descricao");
+            this.Property(t => t.TipoMedida).HasColumnName("tipomedida");
         }
 
     }

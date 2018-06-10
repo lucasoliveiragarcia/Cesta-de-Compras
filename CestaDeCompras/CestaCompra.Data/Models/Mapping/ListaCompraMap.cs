@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
-using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
@@ -18,17 +18,30 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            this.Property(t => t.IdListaCompra)
+                .IsRequired();
+
+            this.Property(t => t.IdConsumidor)
+                .IsRequired();
+
+            this.Property(t => t.DataUltimaModificacao)
+                .IsRequired();
+
             //Table & Column Mappings
-            this.ToTable("listacompra");
+            this.ToTable("itemlistacompra");
             this.Property(t => t.IdListaCompra).HasColumnName("idlistacompra");
             this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
             this.Property(t => t.Nome).HasColumnName("nome");
             this.Property(t => t.DataUltimaModificacao).HasColumnName("dataultimamodificacao");
 
-            ////Relacionamentos
-            //this.HasRequired(d => d.Usuario)
-            //    .WithMany(d => d.ListaCompra)
-            //    .HasForeignKey(d => d.IdUsuario);
+
+
+            //Relacionamentos
+            HasRequired(d => d.Consumidor)
+            .WithMany(d => d.ListasCompra)
+            .HasForeignKey(d => d.IdConsumidor);
+
+
 
         }
     }

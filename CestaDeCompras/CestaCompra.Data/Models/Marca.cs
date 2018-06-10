@@ -11,6 +11,6 @@ namespace CestaCompra.Data.Models
     {
         public int IdMarca { get; set; }
         public string Nome { get; set; }
-
+        public virtual List<Produto> Produtos { get; set; }
     }
 }
