@@ -7,8 +7,7 @@ nuget:
   project_feed: true
 build:
   verbosity: minimal
-before_test:
-- cmd: nuget restore
+  
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
