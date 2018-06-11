@@ -1,0 +1,10 @@
+﻿
+#pnlLogin { position: absolute; top: 47px; width: 98.5%; height: 65px; left: 15px; border: 1px solid #CCCCCC; }
+
+#lblLogin { position: absolute; left: 15px; top: 15px; }
+#TxtUsuario { position: absolute; left: 115px; top: 113px; width: 70px; }
+
+
+#TxtNome_Pessoa { position: absolute; left: 195px; top: 13px; width: 400px; }
+#LkbAtualizarPessoa { position: absolute; left: 601px; top: 12px; width: 19px; }
+#LkbEditarPessoa { position: absolute; left: 621px; top: 13px; width: 19px; }

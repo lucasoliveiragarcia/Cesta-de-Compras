@@ -1,0 +1,82 @@
+﻿.html, body { width: 100%; height: 100%; float: left; margin: 0px; padding: 0px; background-color: #f3f3f3; }
+
+.ToolBox { position: fixed; top: 0px; width: 100%; height: 24px; background-color: #99bbe8; z-index: 10000; }
+
+.BotaoToolbox { position: relative; left: 33%; font-family: Arial, Sans-Serif; font-size: 11px; }
+
+.BotaoToolboxProximo { position: relative; left: 23%; font-family: Arial, Sans-Serif; font-size: 11px; }
+
+.BotaoToolboxCalendario { position: relative; font-family: Arial, Sans-Serif; font-size: 11px; }
+
+.Mensagem { font-family: Arial, Sans-Serif; font-size: 13px; position: absolute; height: auto; top: 23px; left: 15%; font-weight: bold; }
+
+.lbltitulo { color: #3a6ea5; font-family: Arial, Sans-Serif; font-size: 14px; left: 10px; position: absolute; font-weight: bold; padding-top: 3px; }
+
+.lbldescricao { color: #336699; font-family: Arial, Sans-Serif; font-size: 12px; }
+
+.lbldescricaotitulonegrito { color: #336699; font-family: Arial, Sans-Serif; font-size: 14px; font-weight: bold; }
+
+.ctxtCodObr { border-color: #C9D7F1; border-style: solid; border-width: 1px; border-left: 3px; border-left-color: Red; border-left-style: solid; font-family: Arial, Sans-Serif; font-size: 12px; width: 110px; height: 16px; }
+
+/* Caixa de texto obrigatória */
+.ctxtObr { border: 1px solid #C9D7F1; border-left: 3px; border-left-style: solid; border-left-color: Red; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; }
+
+/* Caixa de texto amarela */
+.ctxtAma { border: 1px solid #C9D7F1; border-left: 3px; border-left-style: solid; border-left-color: #ffc601; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; }
+
+/* Caixa de texto normal */
+.ctxt { border-color: #C9D7F1; border-style: solid; border-width: 1px; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; }
+
+/* Caixa de texto normal Maiúsculo */
+.ctxtmaisc { border-color: #C9D7F1; border-style: solid; border-width: 1px; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; text-transform: uppercase; }
+
+/*Caixa de texto marca d'água */
+.ctxtMD { border-color: #C9D7F1; border-style: solid; border-width: 1px; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; color: #999999; }
+
+.ctxtMDObr { border: 1px solid #C9D7F1; border-left: 3px; border-left-style: solid; border-left-color: Red; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; color: #999999; }
+
+.ctxtMDAma { border: 1px solid #C9D7F1; border-left: 3px; border-left-style: solid; border-left-color: #ffc601; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; color: #999999; }
+
+FixaHeader { position: relative; }
+
+.FixaFooter { font-weight: bold; position: relative; }
+
+.FixaColuna { position: relative; }
+
+.lbllista { color: #C9D7F1; font-family: Arial, Sans-Serif; font-size: 17px; font-weight: bold; }
+
+.drolist { border-color: #C9D7F1; border-style: solid; border-width: 1px; font-family: Arial, Sans-Serif; font-size: 12px; height: 20px; }
+
+.drolistObr { border-color: #C9D7F1; border-style: solid; border-width: 1px; font-family: Arial, Sans-Serif; font-size: 12px; height: 20px; border-left: 3px; border-left-style: solid; border-left-color: Red; }
+
+.btbotao { font: 11px arial, sans-serif; }
+
+.radlist { color: #336699; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; }
+
+.chkb { color: #336699; font-family: Arial, Sans-Serif; font-size: 12px; height: 16px; }
+
+.listaBox { background-color: White; border: solid 1px #C9D7F1; font-family: Arial, Sans-Serif; font-size: 12px; }
+
+.BotaoCalendario { border-color: #C9D7F1; border-style: solid; border-width: 0px; font-family: Tahoma, Arial; font-size: 13px; width: 24px; height: 20px; background-image: url(../Imagem/icone-calendario.jpg); }
+
+.Calendario .ajax__calendar_container { border: 1px solid #C9D7F1; background-color: White; color: #01518e; z-index: 10000; }
+
+.Calendario .ajax__calendar_header { background-color: #99bbe8; color: #003875; font-size: 13px; z-index: 10000; }
+
+.Calendario .ajax__calendar_hover { color: #003875; font-weight: bold; font-size: 14px; z-index: 10000; }
+
+.Calendario .ajax__calendar_active { color: Red; font-weight: bold; z-index: 10000; }
+
+.Calendario .ajax__calendar_footer { background-color: #99bbe8; color: #003875; font-weight: bold; font-size: 13px; z-index: 10000; }
+
+.Consulta { margin: 0px; padding: 0px; background-color: White; color: #999999; font-family: Arial, Sans-Serif; font-size: 12px; border: buttonshadow; border-width: 1px; border-style: solid; cursor: default; list-style-type: none; overflow: auto; max-height: 210px; z-index: 3000; }
+
+.lkbatualizar { position: absolute; width: 20px; height: 20px; background: url(../Imagem/imgAtualizar.gif); }
+
+.lkbeditar { position: absolute; width: 18px; height: 19px; background: url(../Imagem/imgAlterar.gif); }
+
+.lkbSetaDown { position: absolute; width: 23px; height: 23px; background: url(../Imagem/setaDown.png); }
+
+.lkbSetaUp { position: absolute; width: 23px; height: 23px; background: url(../Imagem/setaUp.png); }
+
+.lkbConsultar { position: absolute; width: 18px; height: 19px; background: url(../Imagem/imgAlterar.gif); }
