@@ -14,5 +14,6 @@ namespace CestaCompra.Data.Models
         public string Nome { get; set; }
         public string DataUltimaModificacao { get; set; }
         public virtual Consumidor Consumidor { get; set; }
+        public virtual List<ItemListaCompra> ItensListaCompra { get; set; }
     }
 }

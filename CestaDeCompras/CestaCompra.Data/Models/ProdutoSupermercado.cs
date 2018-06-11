@@ -13,5 +13,6 @@ namespace CestaCompra.Data.Models
         public int IdEstabelecimento { get; set; }
         public int IdProduto { get; set; }
         public string Preco { get; set; }
+        public virtual Estabelecimento Estabelecimento { get; set; }
     }
 }

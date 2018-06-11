@@ -9,35 +9,41 @@ namespace CestaCompra.Data.Models.Mapping
     public class CompraMap : EntityTypeConfiguration<Compra>
     {
         public CompraMap()
-        { 
+        {
             //Chave Primaria
             this.HasKey(t => t.IdCompra);
-                
 
             //Propriedades
-            this.Property(t => t.Quantidade)
-                .IsRequired()
-                .HasMaxLength(10);
-
-            this.Property(t => t.Preco)
+            this.Property(t => t.ValorTotal)
                 .IsRequired();
-                
 
-            this.Property(t => t.Valido)
+            this.Property(t => t.IdCompra)
                 .IsRequired();
-                
+
+            this.Property(t => t.IdConsumidor)
+                .IsRequired();
+
+            this.Property(t => t.DataCompra)
+                .IsRequired();
 
             //Table & Column Mappings
             this.ToTable("compra");
             this.Property(t => t.IdCompra).HasColumnName("idcompra");
-            this.Property(t => t.IdComprarealizada).HasColumnName("idcomprarealizada");
-            this.Property(t => t.IdProduto).HasColumnName("idproduto");
-            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.Quantidade).HasColumnName("quantidade");
-            this.Property(t => t.Preco).HasColumnName("preco");
-            this.Property(t => t.Valido).HasColumnName("valido");
+            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
+            this.Property(t => t.DataCompra).HasColumnName("datacompra");
+            this.Property(t => t.ValorTotal).HasColumnName("valortotal");
 
-          
+
+
+            //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
+            HasRequired(cr => cr.Consumidor)
+            .WithMany(cons => cons.Compras)
+            .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
+
+            HasRequired(cr => cr.ItemCompra)
+           .WithMany(cons => cons.Compras)
+           .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
+
         }
     }
 }

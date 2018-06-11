@@ -1,15 +1,24 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
+
+
 
 namespace CestaCompra.Aplicacao
 {
     [Binding]
     public class ListaCompraAplicacaoSteps
     {
+        //IWebDriver driver;
+
         [Given(@"Eu estou no menu principal")]
         public void GivenEuEstouNoMenuPrincipal()
         {
             ScenarioContext.Current.Pending();
+            //driver=new ChromeDriver();
+            //driver.Url = "";
         }
         
         [Given(@"Eu seleciono a opção minhas listas de compras")]

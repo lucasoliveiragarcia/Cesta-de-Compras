@@ -10,12 +10,10 @@ namespace CestaCompra.Data.Models
     public class Compra
     {
         public int IdCompra { get; set; }
-        public int IdComprarealizada { get; set; }
-        public int IdProduto { get; set; }
-        public int IdEstabelecimento { get; set; }
-        public string Quantidade { get; set; }
-        public double Preco { get; set; }
-        public int Valido { get; set; }
-        
+        public int IdConsumidor { get; set; }
+        public DateTime DataCompra { get; set; }
+        public double ValorTotal { get; set; }
+        public virtual Consumidor Consumidor { get; set; }
+        public virtual ItemCompra ItemCompra { get; set; }
     }
 }

@@ -18,6 +18,9 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            this.Property(t => t.IdPais)
+                .IsRequired();
+
             //Table & Column Mappings
             this.ToTable("pais");
             this.Property(t => t.IdPais).HasColumnName("idpais");

@@ -26,6 +26,10 @@ namespace ConsoleTeste
             
             Console.WriteLine("Registro Adicionado com sucesso!");
             Console.WriteLine("" + pessoa.IdPessoa);
+            
+            //Teste AppVeyor 2
+
+           
         }
     }
 }

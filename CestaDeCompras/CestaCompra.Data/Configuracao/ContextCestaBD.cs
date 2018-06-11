@@ -41,8 +41,23 @@ namespace CestaCompra.Data
             
             //modelBuilder.HasDefaultSchema("Public");
             
+            modelBuilder.Configurations.Add(new CidadeMap());
+            modelBuilder.Configurations.Add(new CompraMap());
+            modelBuilder.Configurations.Add(new ItemCompraMap());
+            modelBuilder.Configurations.Add(new EnderecoMap());
+            modelBuilder.Configurations.Add(new EstabelecimentoMap());
+            modelBuilder.Configurations.Add(new EstadoMap());
+            modelBuilder.Configurations.Add(new ItemListaCompraMap());
+            modelBuilder.Configurations.Add(new ListaCompraMap());
+            modelBuilder.Configurations.Add(new MarcaMap());
+            modelBuilder.Configurations.Add(new PaisMap());
             modelBuilder.Configurations.Add(new PessoaMap());
-            //modelBuilder.Configurations.Add(new TipoMedidaMap());
+            modelBuilder.Configurations.Add(new ProdutoMap());
+            modelBuilder.Configurations.Add(new EstabelecimentoProdutoMap());
+            modelBuilder.Configurations.Add(new MedidaMap());
+            modelBuilder.Configurations.Add(new ConsumidorMap());
+            modelBuilder.Configurations.Add(new MedidaMap());
+
 
             //Adiciona Chave primarias automaticamente
             //modelBuilder.Properties().Where(p => p.Name == "id" + p.ReflectedType.Name.ToLower()).Configure(p => p.IsKey());

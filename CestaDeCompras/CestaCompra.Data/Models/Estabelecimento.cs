@@ -15,5 +15,8 @@ namespace CestaCompra.Data.Models
         public string Unidade { get; set; }
         public int Logo { get; set; }
         public virtual Endereco Endereco { get; set; }
+        public virtual Compra Compra { get; set; }
+        public virtual List<EstabelecimentoProduto> EstabelecimentoProduto { get; set; }
+        public virtual List<ItemCompra> ItensCompra { get; set; }
     }
 }

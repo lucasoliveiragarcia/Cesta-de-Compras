@@ -18,6 +18,7 @@ namespace CestaCompra.Data.Models
         public DateTime DataNascimento { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
+        public virtual Consumidor Consumidor { get; set; }
         public virtual Endereco Endereco { get; set; }
 
     }

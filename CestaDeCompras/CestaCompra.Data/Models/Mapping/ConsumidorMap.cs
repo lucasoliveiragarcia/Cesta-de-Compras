@@ -16,20 +16,30 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades
             this.Property(t => t.Admnistrador)
                 .IsRequired();
-                
+
             this.Property(t => t.Login)
                  .IsRequired()
                 .HasMaxLength(40);
+
             this.Property(t => t.Senha)
                  .IsRequired()
                 .HasMaxLength(40);
+
             this.Property(t => t.Nivel)
                 .IsRequired()
                 .HasMaxLength(10);
 
+            this.Property(t => t.IdConsumidor)
+                .IsRequired();
+
+            this.Property(t => t.IdPessoa)
+                .IsRequired();
+
+            this.Property(t => t.DataCadastro)
+                .IsRequired();
             //Table & Column Mappings
-            this.ToTable("usuario");
-            this.Property(t => t.IdConsumidor).HasColumnName("idusuario");
+            this.ToTable("consumidor");
+            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
             this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
             this.Property(t => t.DataCadastro).HasColumnName("datacadastro");
             this.Property(t => t.Admnistrador).HasColumnName("admnistrador");
@@ -38,9 +48,9 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Nivel).HasColumnName("nivel");
 
             //Relacionamentos
-            //this.HasRequired(d => d.Pessoa)
-            //    .WithMany(d => d.Consumidor)
-            //    .HasForeignKey(d => d.IdPessoa);
+            HasRequired(d => d.Pessoa)
+            .WithOptional(d => d.Consumidor)
+            .Map(m => m.MapKey("IdPessoa"));
         }
     }
 }
