@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+    <div class="Container text-center">
         </br>
         </br>
 
@@ -13,7 +13,7 @@
                 <asp:TextBox runat="server" ID="TxtUsuario"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Senha</label>
+                <label for="exampleInputPassword1">Senha&nbsp&nbsp</label>
                 <asp:TextBox runat="server" ID="TxtSenha" type="password"></asp:TextBox>
             </div>
             <asp:Button ID="BtnAcesso" class="btn btn-primary" runat="server" TabIndex="4" OnClick="BtnEntrar_Click" Text="Entrar" />

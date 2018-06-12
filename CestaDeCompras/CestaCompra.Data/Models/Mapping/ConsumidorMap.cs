@@ -29,9 +29,6 @@ namespace CestaCompra.Data.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(10);
 
-            this.Property(t => t.IdConsumidor)
-                .IsRequired();
-
             this.Property(t => t.IdPessoa)
                 .IsRequired();
 

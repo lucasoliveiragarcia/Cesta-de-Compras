@@ -10,11 +10,10 @@ namespace CestaCompra.Data.Models.Mapping
     {
         public ItemListaCompraMap()
         {
+            //Chave Primaria
+            this.HasKey(t => t.IdItemListaCompra);
 
             this.Property(t => t.IdProduto)
-                .IsRequired();
-
-            this.Property(t => t.IdItemListaCompra)
                 .IsRequired();
 
             this.Property(t => t.Quantidade)
@@ -25,9 +24,7 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdProduto).HasColumnName("idproduto");
             this.Property(t => t.IdItemListaCompra).HasColumnName("iditemlistacompra");
             this.Property(t => t.Quantidade).HasColumnName("quantidade");
-
-
-
+            
             HasRequired(d => d.Produto)
             .WithMany(d => d.ItensListaCompra)
             .Map(m => m.MapKey("IdProduto"));

@@ -40,16 +40,16 @@ namespace CestaCompra.Data.Models.Mapping
             Property(t => t.Numero).HasColumnName("numero");
             Property(t => t.Complemento).HasColumnName("complemento");
             Property(t => t.Logradouro).HasColumnName("logradouro");
+
+            //1:N - 1 Endeço DEVE ter 1 Cidade e 1 Cidade pode ter muitos Endereços
+            HasRequired(x => x.Cidade)
+              .WithMany(x => x.Enderecos)
+              .Map(m => m.MapKey("IdCidade"));
+
             
-
-            //Relacionamentos
-            HasRequired(d => d.Cidade)
-            .WithMany(d => d.Enderecos)
-            .Map(m => m.MapKey("IdCidade"));//chave estrangeira
-
-            HasRequired(d => d.Pessoa)
-            .WithOptional(d => d.Endereco)
-            .Map(m => m.MapKey("IdCidade"));
+            // Mapear um para um ou um relacionamento 
+            HasRequired(t => t.Pessoa)
+               .WithOptional(t => t.Endereco);
 
         }
     }

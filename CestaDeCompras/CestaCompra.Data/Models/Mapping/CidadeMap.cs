@@ -12,16 +12,12 @@ namespace CestaCompra.Data.Models.Mapping
         { 
             //Chave Primaria
             this.HasKey(t => t.IdCidade);
-              
-
+            
             //Propriedades
             this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
-
-            this.Property(t => t.IdCidade)
-                .IsRequired();
-
+            
             this.Property(t => t.IdEstado)
                 .IsRequired();
 
@@ -36,9 +32,7 @@ namespace CestaCompra.Data.Models.Mapping
              HasRequired(cidade => cidade.Estado)
              .WithMany(e => e.Cidades)
              .Map(m => m.MapKey("IdEstado"));//chave estrangeira
-
-
-
+            
         }
     }
 }

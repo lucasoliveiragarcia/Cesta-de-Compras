@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CestaCompra.Apresentacao
 {
-    public partial class _Login  : System.Web.UI.Page
+    public partial class _Cadastrar  : System.Web.UI.Page
     {
         private SiteMaster _masterPage;
         private SiteMaster MasterPage
@@ -42,7 +42,7 @@ namespace CestaCompra.Apresentacao
         }
 
         
-        protected void BtnEntrar_Click(object sender, EventArgs e)
+        protected void BtnCadastrar_Click(object sender, EventArgs e)
         {
             //this.AutenticaEArmazenaDadosIniciais();
             string senhadigitada = this.TxtSenha.Text;
@@ -55,7 +55,7 @@ namespace CestaCompra.Apresentacao
             if (BCrypt.Net.BCrypt.Verify(senhadigitada,senhaEncriptada))
             {
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
-                FormsAuthentication.RedirectFromLoginPage(TxtUsuario.Text,false);
+                FormsAuthentication.RedirectFromLoginPage(TxtLogin.Text,false);
             }
             else
             {

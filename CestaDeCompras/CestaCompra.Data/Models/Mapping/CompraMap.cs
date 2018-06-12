@@ -35,14 +35,14 @@ namespace CestaCompra.Data.Models.Mapping
 
 
 
-            //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
-            HasRequired(cr => cr.Consumidor)
-            .WithMany(cons => cons.Compras)
-            .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
+           // //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
+           // HasRequired(cr => cr.Consumidor)
+           // .WithMany(cons => cons.Compras)
+           // .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
 
-            HasRequired(cr => cr.ItemCompra)
-           .WithMany(cons => cons.Compras)
-           .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
+           // HasRequired(cr => cr.ItemCompra)
+           //.WithMany(cons => cons.Compras)
+           //.Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
 
         }
     }

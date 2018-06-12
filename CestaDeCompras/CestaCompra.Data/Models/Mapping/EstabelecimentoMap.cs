@@ -25,9 +25,6 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Logo)
                 .IsRequired();
 
-            this.Property(t => t.IdEstabelecimento)
-                .IsRequired();
-
             this.Property(t => t.IdEndereco)
                 .IsRequired();
 

@@ -35,13 +35,13 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Preco).HasColumnName("preco");
 
             //Relacionamentos
-            HasRequired(d => d.Estabelecimento)
-            .WithMany(d => d.EstabelecimentoProduto)
-            .Map(m => m.MapKey("IdEstabelecimento"));
+            //HasRequired(d => d.Estabelecimento)
+            //.WithMany(d => d.EstabelecimentoProduto)
+            //.Map(m => m.MapKey("IdEstabelecimento"));
 
-             HasRequired(d => d.Produto)
-             .WithMany(d => d.EstabelecimentoProduto)
-             .Map(m => m.MapKey("IdEstabelecimento"));
+            // HasRequired(d => d.Produto)
+            // .WithMany(d => d.EstabelecimentoProduto)
+            // .Map(m => m.MapKey("IdEstabelecimento"));
 
         }
     }

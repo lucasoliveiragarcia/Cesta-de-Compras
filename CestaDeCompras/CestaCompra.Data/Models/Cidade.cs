@@ -9,8 +9,6 @@ namespace CestaCompra.Data.Models
 {
     public class Cidade
     {
-
-    
         public int IdCidade { get; set; }
         public int IdEstado { get; set; }
         public string Nome { get; set; }

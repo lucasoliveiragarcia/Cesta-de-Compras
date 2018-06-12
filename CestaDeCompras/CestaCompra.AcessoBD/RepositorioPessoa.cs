@@ -35,11 +35,6 @@ namespace CestaCompra.AcessoBD
             return this.Contexto.Pessoa.Where(l => l.Email.Equals(email)).SingleOrDefault();
         }
 
-        //public Pessoa ObterPessoaPorEmailESenha(String email, String senha)
-        //{
-        //    return this.Contexto.Pessoa.Where(l => l.Email.ToLower().Equals(email) && l.senha.ToLower().Equals(senha)).SingleOrDefault();
-        //}
-
         public void InserirPessoa(Pessoa Pessoa)
         {
             if (!VerificarSeEmailDePessoaJaExiste(Pessoa))
