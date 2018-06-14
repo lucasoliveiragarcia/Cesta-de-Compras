@@ -46,8 +46,9 @@ namespace CestaCompra.Apresentacao
         {
             //this.AutenticaEArmazenaDadosIniciais();
             string senhadigitada = this.TxtSenha.Text;
-            string senhaEncriptada = BCrypt.Net.BCrypt.HashString(this.TxtSenha.Text);
-            if(string.IsNullOrEmpty(senhadigitada))
+            //string senhaEncriptada = BCrypt.Net.BCrypt.HashString(this.TxtSenha.Text);
+            string senhaEncriptada = BCrypt.Net.BCrypt.HashString("cesta");
+            if (string.IsNullOrEmpty(senhadigitada))
             {
                 MasterPage.SetMensagemMain("Informe uma senha!",eTipoMensagem.Erro);
             }
@@ -55,7 +56,14 @@ namespace CestaCompra.Apresentacao
             if (BCrypt.Net.BCrypt.Verify(senhadigitada,senhaEncriptada))
             {
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
-                FormsAuthentication.RedirectFromLoginPage(TxtUsuario.Text,false);
+
+                FormsAuthentication.SetAuthCookie(this.TxtUsuario.Text, false);
+
+                Response.Redirect(FormsAuthentication.DefaultUrl);
+
+                //FormsAuthentication.Authenticate(TxtUsuario.Text, TxtSenha.Text);
+                
+                //FormsAuthentication.RedirectFromLoginPage(TxtUsuario.Text,false);
             }
             else
             {

@@ -150,14 +150,14 @@
   <ItemGroup>
     <Content Include="Estilos\Padrao.css" />
     <Content Include="Content\Login.css" />
-    <Content Include="Pagina\Cadastrar\Cadastrar.aspx" />
+    <Content Include="public\Cadastrar.aspx" />
     <Content Include="Pagina\MenuPrincipal\MenuPrincipal.aspx" />
     <Content Include="Pagina\ListaCompra\ListaCompra.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Pagina\Login\Login.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="public\Login.aspx" />
+    <Content Include="public\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -206,11 +206,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Pagina\Cadastrar\Cadastrar.aspx.cs">
+    <Compile Include="public\Cadastrar.aspx.cs">
       <DependentUpon>Cadastrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pagina\Cadastrar\Cadastrar.aspx.designer.cs">
+    <Compile Include="public\Cadastrar.aspx.designer.cs">
       <DependentUpon>Cadastrar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagina\MenuPrincipal\MenuPrincipal.aspx.cs">
@@ -228,18 +228,18 @@
     <Compile Include="Pagina\ListaCompra\ListaCompra.aspx.designer.cs">
       <DependentUpon>ListaCompra.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pagina\Login\Login.aspx.cs">
+    <Compile Include="public\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pagina\Login\Login.aspx.designer.cs">
+    <Compile Include="public\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="public\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="public\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -271,7 +271,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagem\" />
-    <Folder Include="Pagina\Default\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

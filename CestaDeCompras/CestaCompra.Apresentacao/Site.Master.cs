@@ -43,6 +43,7 @@ namespace CestaCompra.Apresentacao
             cookie2.Expires = DateTime.Now.AddYears(-1);
             Response.Cookies.Add(cookie2);
 
+            FormsAuthentication.RedirectToLoginPage();
         }
 
         public void SetMensagemMain(string text, eTipoMensagem tipoMensagem)
