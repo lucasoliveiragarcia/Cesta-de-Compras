@@ -17,36 +17,36 @@ namespace CestaCompra.Data.Models.Mapping
             this.HasKey(t => t.IdPessoa);
 
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Email)
                  .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Email");
 
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Nome");
 
             this.Property(t => t.Sobrenome)
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Sobrenome");
 
             this.Property(t => t.IdPessoa)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("IdPessoa");
 
-            this.Property(t => t.IdEndereco)
-                .IsRequired();
 
             this.Property(t => t.DataNascimento)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("DataNascimento");
+            
+            //Table 
+            this.ToTable("Pessoa");
 
-            this.ToTable("pessoa");
-            this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
-            this.Property(t => t.IdEndereco).HasColumnName("idendereco");
-            this.Property(t => t.Email).HasColumnName("email");
-            this.Property(t => t.DataNascimento).HasColumnName("datanascimento");
-            this.Property(t => t.Nome).HasColumnName("nome");
-            this.Property(t => t.Sobrenome).HasColumnName("sobrenome");
-
-   
+            //Relacionamentos
+            HasRequired(d => d.Endereco)
+           .WithOptional(d => d.Pessoa);
         }
 
     }

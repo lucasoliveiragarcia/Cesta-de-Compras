@@ -13,11 +13,10 @@ namespace CestaCompra.Data.Models
 
         public int IdConsumidor { get; set; }
         public int DataCadastro { get; set; }
-        public int Admnistrador { get; set; }
+        public double Admnistrador { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
-        public string Nivel { get; set; }
-        public int IdPessoa { get; set; }
+        public double Nivel { get; set; }        
         public virtual Pessoa Pessoa { get; set; }
         public virtual List<Compra> Compras { get; set; }
         public virtual List<ListaCompra> ListasCompra { get; set; }

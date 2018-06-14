@@ -13,28 +13,30 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdEstabelecimento);
 
-            //Propriedades
+            //Propriedades  & Column Mappings
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Nome");
 
             this.Property(t => t.Unidade)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Unidade");
 
             this.Property(t => t.Logo)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("Logo");
 
-            this.Property(t => t.IdEndereco)
-                .IsRequired();
+            this.Property(t => t.IdEstabelecimento)
+                .IsRequired()
+                .HasColumnName("IdEstabelecimento");
 
-            //Table & Column Mappings
-            this.ToTable("estabelecimento");
-            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.IdEndereco).HasColumnName("idendereco");
-            this.Property(t => t.Nome).HasColumnName("nome");
-            this.Property(t => t.Unidade).HasColumnName("unidade");
-            this.Property(t => t.Logo).HasColumnName("logo");
+
+
+
+            //Table
+            this.ToTable("Estabelecimento");
 
             //Relacionamentos
             HasRequired(d => d.Endereco)

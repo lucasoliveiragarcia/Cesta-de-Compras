@@ -13,18 +13,18 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdPais);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("Nome");
 
             this.Property(t => t.IdPais)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("IdPais");
 
-            //Table & Column Mappings
-            this.ToTable("pais");
-            this.Property(t => t.IdPais).HasColumnName("idpais");
-            this.Property(t => t.Nome).HasColumnName("nome");
+            //Table
+            this.ToTable("Pais");
 
         }
     }

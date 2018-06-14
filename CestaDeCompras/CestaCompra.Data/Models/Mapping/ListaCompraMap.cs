@@ -13,33 +13,27 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdListaCompra);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)               
+                .HasColumnName("Nome");
 
             this.Property(t => t.IdListaCompra)
-                .IsRequired();
-
-            this.Property(t => t.IdConsumidor)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("IdListaCompra");
 
             this.Property(t => t.DataUltimaModificacao)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("DataUltimaModificacao");
 
-            //Table & Column Mappings
-            this.ToTable("itemlistacompra");
-            this.Property(t => t.IdListaCompra).HasColumnName("idlistacompra");
-            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.Nome).HasColumnName("nome");
-            this.Property(t => t.DataUltimaModificacao).HasColumnName("dataultimamodificacao");
-
-
+            //Table
+            this.ToTable("ListaCompra");
 
             //Relacionamentos
             HasRequired(d => d.Consumidor)
             .WithMany(d => d.ListasCompra)
-            .HasForeignKey(d => d.IdConsumidor);
+            .Map(m => m.MapKey("IdConsumidor"));
 
 
 

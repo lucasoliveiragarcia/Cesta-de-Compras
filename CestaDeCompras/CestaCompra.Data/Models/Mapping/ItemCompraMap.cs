@@ -11,46 +11,37 @@ namespace CestaCompra.Data.Models.Mapping
         public ItemCompraMap()
         {
             //Chave Primaria
-            this.HasKey(t => t.IdCompra);
+            this.HasKey(t => t.IdItemCompra);
 
-
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Quantidade)
                 .IsRequired()
-                .HasMaxLength(10);
+                .HasMaxLength(10)
+                .HasColumnName("Quantidade");
 
             this.Property(t => t.Preco)
-                .IsRequired();
-
+                .IsRequired()
+                .HasColumnName("Preco");
 
             this.Property(t => t.Valido)
-                .IsRequired();
-
-            this.Property(t => t.IdCompra)
-                .IsRequired();
-
-            this.Property(t => t.IdProduto)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("Valido");
 
             this.Property(t => t.IdEstabelecimento)
-                .IsRequired();
-            //Table & Column Mappings
-            this.ToTable("itemcompra");
-            this.Property(t => t.IdCompra).HasColumnName("idcompra");
-            this.Property(t => t.IdProduto).HasColumnName("idproduto");
-            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.Quantidade).HasColumnName("quantidade");
-            this.Property(t => t.Preco).HasColumnName("preco");
-            this.Property(t => t.Valido).HasColumnName("valido");
+                .IsRequired()
+                .HasColumnName("IdEstabelecimento");
 
+            //Table
+            this.ToTable("ItemCompra");
+
+            //Relacionamentos
             HasRequired(e => e.Produto)
-            .WithMany(e => e.ItensCompra);
+            .WithMany(e => e.ItensCompra)
+            .Map(m => m.MapKey("IdProduto"));
 
-            HasRequired(e => e.Estabelecimento)
-            .WithMany(e => e.ItensCompra);
-           
-
-
+            HasRequired(e => e.Compra)
+            .WithMany(e => e.ItemCompras)
+            .Map(m => m.MapKey("IdCompra"));            
         }
     }
 }

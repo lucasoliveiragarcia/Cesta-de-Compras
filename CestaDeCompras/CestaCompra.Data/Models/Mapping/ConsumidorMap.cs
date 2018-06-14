@@ -13,36 +13,35 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdConsumidor);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Admnistrador)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("Admnistrador"); 
 
             this.Property(t => t.Login)
-                 .IsRequired()
-                .HasMaxLength(40);
+                .IsRequired()
+                .HasMaxLength(40)
+                .HasColumnName("Login");
 
             this.Property(t => t.Senha)
-                 .IsRequired()
-                .HasMaxLength(40);
+                .IsRequired()
+                .HasMaxLength(200)
+                .HasColumnName("Senha"); 
 
             this.Property(t => t.Nivel)
-                .IsRequired()
-                .HasMaxLength(10);
+                .IsRequired()               
+                .HasColumnName("Nivel");
 
-            this.Property(t => t.IdPessoa)
-                .IsRequired();
+            this.Property(t => t.IdConsumidor)
+                .IsRequired()
+                .HasColumnName("IdConsumidor");
 
             this.Property(t => t.DataCadastro)
-                .IsRequired();
-            //Table & Column Mappings
-            this.ToTable("consumidor");
-            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
-            this.Property(t => t.DataCadastro).HasColumnName("datacadastro");
-            this.Property(t => t.Admnistrador).HasColumnName("admnistrador");
-            this.Property(t => t.Login).HasColumnName("login");
-            this.Property(t => t.Senha).HasColumnName("senha");
-            this.Property(t => t.Nivel).HasColumnName("nivel");
+                .IsRequired()
+                .HasColumnName("DataCadastro");
+
+            //Table 
+            this.ToTable("Consumidor");
 
             //Relacionamentos
             HasRequired(d => d.Pessoa)
