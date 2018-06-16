@@ -12,41 +12,40 @@ namespace CestaCompra.Data.Models.Mapping
         public PessoaMap()
         {
             
-
             //Chave Primaria
             this.HasKey(t => t.IdPessoa);
-
 
             //Propriedades & Column Mappings
             this.Property(t => t.Email)
                  .IsRequired()
                 .HasMaxLength(100)
-                .HasColumnName("Email");
+                .HasColumnName("email");
 
             this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100)
-                .HasColumnName("Nome");
+                .HasColumnName("nome");
 
             this.Property(t => t.Sobrenome)
                 .HasMaxLength(100)
-                .HasColumnName("Sobrenome");
+                .HasColumnName("sobrenome");
 
             this.Property(t => t.IdPessoa)
                 .IsRequired()
-                .HasColumnName("IdPessoa");
+                .HasColumnName("idpessoa");
 
 
             this.Property(t => t.DataNascimento)
                 .IsRequired()
-                .HasColumnName("DataNascimento");
+                .HasColumnName("datanascimento");
             
             //Table 
-            this.ToTable("Pessoa");
+            this.ToTable("pessoa");
 
             //Relacionamentos
             HasRequired(d => d.Endereco)
-           .WithOptional(d => d.Pessoa);
+           .WithOptional(d => d.Pessoa)
+           .Map(m => m.MapKey("idendereco"));
         }
 
     }

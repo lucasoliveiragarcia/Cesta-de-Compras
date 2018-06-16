@@ -9,8 +9,7 @@ namespace CestaCompra.Data.Models
 {
     public class Produto
     {
-        public int IdProduto { get; set; }        
-        public int IdTipoMedida { get; set; }
+        public int IdProduto { get; set; }               
         public int Unidade { get; set; }
         public string Nome { get; set; }
         public double Valido { get; set; }

@@ -16,30 +16,28 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades
             this.Property(t => t.ValorTotal)
                 .IsRequired()
-                .HasColumnName("ValorTotal");
+                .HasColumnName("valortotal");
 
             this.Property(t => t.IdCompra)
                 .IsRequired()
-                .HasColumnName("IdCompra");
+                .HasColumnName("idcompra");
 
             this.Property(t => t.DataCompra)
                 .IsRequired()
-                .HasColumnName("DataCompra");
+                .HasColumnName("datacompra");
 
             //Table
-            this.ToTable("Compra");
+            this.ToTable("compra");
 
             //Relacionamentos
             //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
             HasRequired(cr => cr.Consumidor)
             .WithMany(cons => cons.Compras)
-            .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
+            .Map(m => m.MapKey("idconsumidor"));
 
             HasRequired(cr => cr.Estabelecimento)
             .WithMany(cons => cons.Compras)
-            .Map(m => m.MapKey("IdEstabelecimento"));
-
-
+            .Map(m => m.MapKey("idestabelecimento"));
         }
     }
 }

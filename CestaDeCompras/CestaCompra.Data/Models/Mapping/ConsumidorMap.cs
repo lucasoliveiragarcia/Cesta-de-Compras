@@ -16,37 +16,37 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades & Column Mappings
             this.Property(t => t.Admnistrador)
                 .IsRequired()
-                .HasColumnName("Admnistrador"); 
+                .HasColumnName("admnistrador"); 
 
             this.Property(t => t.Login)
                 .IsRequired()
                 .HasMaxLength(40)
-                .HasColumnName("Login");
+                .HasColumnName("login");
 
             this.Property(t => t.Senha)
                 .IsRequired()
                 .HasMaxLength(200)
-                .HasColumnName("Senha"); 
+                .HasColumnName("senha"); 
 
             this.Property(t => t.Nivel)
                 .IsRequired()               
-                .HasColumnName("Nivel");
+                .HasColumnName("nivel");
 
             this.Property(t => t.IdConsumidor)
                 .IsRequired()
-                .HasColumnName("IdConsumidor");
+                .HasColumnName("idconsumidor");
 
             this.Property(t => t.DataCadastro)
                 .IsRequired()
-                .HasColumnName("DataCadastro");
+                .HasColumnName("datacadastro");
 
             //Table 
-            this.ToTable("Consumidor");
+            this.ToTable("consumidor");
 
             //Relacionamentos
             HasRequired(d => d.Pessoa)
             .WithOptional(d => d.Consumidor)
-            .Map(m => m.MapKey("IdPessoa"));
+            .Map(m => m.MapKey("idpessoa"));
         }
     }
 }

@@ -17,34 +17,28 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100)
-                .HasColumnName("Nome");
+                .HasColumnName("nome");
 
             this.Property(t => t.Unidade)
                 .IsRequired()
                 .HasMaxLength(100)
-                .HasColumnName("Unidade");
+                .HasColumnName("unidade");
 
             this.Property(t => t.Logo)
                 .IsRequired()
-                .HasColumnName("Logo");
+                .HasColumnName("logo");
 
             this.Property(t => t.IdEstabelecimento)
                 .IsRequired()
-                .HasColumnName("IdEstabelecimento");
-
-
-
+                .HasColumnName("idestabelecimento");
 
             //Table
-            this.ToTable("Estabelecimento");
+            this.ToTable("estabelecimento");
 
             //Relacionamentos
             HasRequired(d => d.Endereco)
             .WithOptional(d => d.Estabelecimento)
-            .Map(m => m.MapKey("IdEndereco"));
-
-
-
+            .Map(m => m.MapKey("idendereco"));
         }
     }
 }

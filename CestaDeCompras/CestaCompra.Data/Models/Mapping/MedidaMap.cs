@@ -19,20 +19,18 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.Descricao)
                 .IsRequired()
                 .HasMaxLength(20)
-                .HasColumnName("Descricao");
+                .HasColumnName("descricao");
 
             this.Property(t => t.TipoMedida)
                 .IsRequired()
-                .HasColumnName("TipoMedida");
+                .HasColumnName("tipomedida");
 
             this.Property(t => t.IdMedida)
                 .IsRequired()
-                .HasColumnName("IdMedida");
+                .HasColumnName("idmedida");
 
             //Table
-            this.ToTable("Medida");
-
+            this.ToTable("medida");
         }
-
     }
 }

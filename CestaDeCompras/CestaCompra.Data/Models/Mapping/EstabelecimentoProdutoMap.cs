@@ -16,24 +16,23 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades & Column Mappings
             this.Property(t => t.Preco)
                 .IsRequired()               
-                .HasColumnName("Preco");
+                .HasColumnName("preco");
 
             this.Property(t => t.IdEstabelecimentoProduto)
                 .IsRequired()
-                .HasColumnName("IdEstabelecimentoProduto");
+                .HasColumnName("idestabelecimentoproduto");
 
             //Table
-            this.ToTable("EstabelecimentoProduto");
+            this.ToTable("estabelecimentoproduto");
 
             //Relacionamentos
             HasRequired(d => d.Estabelecimento)
             .WithMany(d => d.EstabelecimentoProduto)
-            .Map(m => m.MapKey("IdEstabelecimento"));
+            .Map(m => m.MapKey("idestabelecimento"));
 
             HasRequired(d => d.Produto)
             .WithMany(d => d.EstabelecimentoProduto)
-            .Map(m => m.MapKey("IdProduto"));
-
+            .Map(m => m.MapKey("idproduto"));
         }
     }
 }
