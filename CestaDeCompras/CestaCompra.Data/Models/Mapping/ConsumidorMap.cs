@@ -13,41 +13,40 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdConsumidor);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Admnistrador)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("admnistrador"); 
 
             this.Property(t => t.Login)
-                 .IsRequired()
-                .HasMaxLength(40);
+                .IsRequired()
+                .HasMaxLength(40)
+                .HasColumnName("login");
 
             this.Property(t => t.Senha)
-                 .IsRequired()
-                .HasMaxLength(40);
+                .IsRequired()
+                .HasMaxLength(200)
+                .HasColumnName("senha"); 
 
             this.Property(t => t.Nivel)
-                .IsRequired()
-                .HasMaxLength(10);
+                .IsRequired()               
+                .HasColumnName("nivel");
 
-            this.Property(t => t.IdPessoa)
-                .IsRequired();
+            this.Property(t => t.IdConsumidor)
+                .IsRequired()
+                .HasColumnName("idconsumidor");
 
             this.Property(t => t.DataCadastro)
-                .IsRequired();
-            //Table & Column Mappings
+                .IsRequired()
+                .HasColumnName("datacadastro");
+
+            //Table 
             this.ToTable("consumidor");
-            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.IdPessoa).HasColumnName("idpessoa");
-            this.Property(t => t.DataCadastro).HasColumnName("datacadastro");
-            this.Property(t => t.Admnistrador).HasColumnName("admnistrador");
-            this.Property(t => t.Login).HasColumnName("login");
-            this.Property(t => t.Senha).HasColumnName("senha");
-            this.Property(t => t.Nivel).HasColumnName("nivel");
 
             //Relacionamentos
             HasRequired(d => d.Pessoa)
             .WithOptional(d => d.Consumidor)
-            .Map(m => m.MapKey("IdPessoa"));
+            .Map(m => m.MapKey("idpessoa"));
         }
     }
 }

@@ -13,25 +13,24 @@ namespace CestaCompra.Data.Models.Mapping
         {
 
             //Chave Primaria
-            this.HasKey(t => t.IdTipomedida);
+            this.HasKey(t => t.IdMedida);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Descricao)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(20)
+                .HasColumnName("descricao");
 
             this.Property(t => t.TipoMedida)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("tipomedida");
 
-            this.Property(t => t.IdTipomedida)
-                .IsRequired();
+            this.Property(t => t.IdMedida)
+                .IsRequired()
+                .HasColumnName("idmedida");
 
-            //Table & Column Mappings
+            //Table
             this.ToTable("medida");
-            this.Property(t => t.IdTipomedida).HasColumnName("idtipomedida");
-            this.Property(t => t.Descricao).HasColumnName("descricao");
-            this.Property(t => t.TipoMedida).HasColumnName("tipomedida");
         }
-
     }
 }

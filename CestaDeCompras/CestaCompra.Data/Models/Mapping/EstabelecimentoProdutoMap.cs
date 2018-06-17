@@ -13,36 +13,26 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdEstabelecimentoProduto);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Preco)
-                .IsRequired()
-                .HasMaxLength(10);
+                .IsRequired()               
+                .HasColumnName("preco");
 
             this.Property(t => t.IdEstabelecimentoProduto)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("idestabelecimentoproduto");
 
-            this.Property(t => t.IdEstabelecimento)
-                .IsRequired();
-
-            this.Property(t => t.IdProduto)
-                .IsRequired();
-
-            //Table & Column Mappings
-            this.ToTable("produtosupermercado");
-            this.Property(t => t.IdEstabelecimentoProduto).HasColumnName("idestabelecimentoproduto");
-            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.IdProduto).HasColumnName("idproduto");
-            this.Property(t => t.Preco).HasColumnName("preco");
+            //Table
+            this.ToTable("estabelecimentoproduto");
 
             //Relacionamentos
-            //HasRequired(d => d.Estabelecimento)
-            //.WithMany(d => d.EstabelecimentoProduto)
-            //.Map(m => m.MapKey("IdEstabelecimento"));
+            HasRequired(d => d.Estabelecimento)
+            .WithMany(d => d.EstabelecimentoProduto)
+            .Map(m => m.MapKey("idestabelecimento"));
 
-            // HasRequired(d => d.Produto)
-            // .WithMany(d => d.EstabelecimentoProduto)
-            // .Map(m => m.MapKey("IdEstabelecimento"));
-
+            HasRequired(d => d.Produto)
+            .WithMany(d => d.EstabelecimentoProduto)
+            .Map(m => m.MapKey("idproduto"));
         }
     }
 }

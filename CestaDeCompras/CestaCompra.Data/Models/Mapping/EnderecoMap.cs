@@ -13,44 +13,38 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdEndereco);
 
-            //Propriedades
+            //Propriedades  & Column Mappings
             this.Property(t => t.Cep)
                 .IsRequired()
-                .HasMaxLength(8);
+                .HasMaxLength(8)
+                .HasColumnName("cep");
 
             this.Property(t => t.Numero)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(20)
+                .HasColumnName("numero");
 
             this.Property(t => t.Complemento)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("complemento");
 
             this.Property(t => t.Logradouro)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("logradouro");
 
             this.Property(t => t.IdEndereco)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("idendereco");
 
-            //Table & Column Mappings
+            //Table
             ToTable("endereco");
-            Property(t => t.IdEndereco).HasColumnName("idendereco");
-            Property(t => t.Cep).HasColumnName("cep");
-            Property(t => t.Numero).HasColumnName("numero");
-            Property(t => t.Complemento).HasColumnName("complemento");
-            Property(t => t.Logradouro).HasColumnName("logradouro");
 
-            //1:N - 1 Endeço DEVE ter 1 Cidade e 1 Cidade pode ter muitos Endereços
-            HasRequired(x => x.Cidade)
-              .WithMany(x => x.Enderecos)
-              .Map(m => m.MapKey("IdCidade"));
-
-            
-            // Mapear um para um ou um relacionamento 
-            HasRequired(t => t.Pessoa)
-               .WithOptional(t => t.Endereco);
-
+            //Relacionamentos
+            HasRequired(d => d.Cidade)
+            .WithMany(d => d.Enderecos)
+            .Map(m => m.MapKey("idcidade"));             
         }
     }
 }

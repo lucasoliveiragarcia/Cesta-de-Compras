@@ -15,35 +15,29 @@ namespace CestaCompra.Data.Models.Mapping
 
             //Propriedades
             this.Property(t => t.ValorTotal)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("valortotal");
 
             this.Property(t => t.IdCompra)
-                .IsRequired();
-
-            this.Property(t => t.IdConsumidor)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("idcompra");
 
             this.Property(t => t.DataCompra)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("datacompra");
 
-            //Table & Column Mappings
+            //Table
             this.ToTable("compra");
-            this.Property(t => t.IdCompra).HasColumnName("idcompra");
-            this.Property(t => t.IdConsumidor).HasColumnName("idconsumidor");
-            this.Property(t => t.DataCompra).HasColumnName("datacompra");
-            this.Property(t => t.ValorTotal).HasColumnName("valortotal");
 
+            //Relacionamentos
+            //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
+            HasRequired(cr => cr.Consumidor)
+            .WithMany(cons => cons.Compras)
+            .Map(m => m.MapKey("idconsumidor"));
 
-
-           // //1:N - 1 compra pertence a 1 consumidor e 1 consumidor pode ter varias compras
-           // HasRequired(cr => cr.Consumidor)
-           // .WithMany(cons => cons.Compras)
-           // .Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
-
-           // HasRequired(cr => cr.ItemCompra)
-           //.WithMany(cons => cons.Compras)
-           //.Map(m => m.MapKey("IdConsumidor"));//chave estrangeira
-
+            HasRequired(cr => cr.Estabelecimento)
+            .WithMany(cons => cons.Compras)
+            .Map(m => m.MapKey("idestabelecimento"));
         }
     }
 }

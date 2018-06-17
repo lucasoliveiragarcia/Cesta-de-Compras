@@ -1,0 +1,35 @@
+version: 1.0.{build}
+before_build:
+- ps: >-
+    cd CestaDeCompras
+
+    nuget restore
+build:
+  publish_wap: true
+  verbosity: minimal
+before_package:
+- cmd: >-
+    choco install "msbuild-sonarqube-runner" -y
+    
+    SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13"
+    
+    MsBuild.exe /t:Rebuild
+    
+    SonarQube.Scanner.MSBuild.exe end /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13"
+    
+deploy:
+- provider: WebDeploy
+  server: https://eduardocoutto-001-site1.htempurl.com:8172/msdeploy.axd?site=eduardocoutto-001-site1
+  website: eduardocoutto-001-site1
+  username: ifc\eduardocoutto-001
+  password:
+    secure: Orw8GZWzSrtxBpvT3LK37A==
+  on:
+    branch: master
+notifications:
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  channel: '#grupo_cesta_basica'
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true

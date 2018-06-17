@@ -9,9 +9,9 @@ namespace CestaCompra.Data.Models
 {
     public class Medida
     {
-        public int IdTipomedida { get; set; }
+        public int IdMedida { get; set; }
         public string Descricao { get; set; }
-        public int TipoMedida { get; set; }
+        public double TipoMedida { get; set; }
         public virtual List<Produto> Produtos { get; set; }
     }
 }

@@ -13,36 +13,32 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdEstabelecimento);
 
-            //Propriedades
+            //Propriedades  & Column Mappings
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("nome");
 
             this.Property(t => t.Unidade)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("unidade");
 
             this.Property(t => t.Logo)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("logo");
 
-            this.Property(t => t.IdEndereco)
-                .IsRequired();
+            this.Property(t => t.IdEstabelecimento)
+                .IsRequired()
+                .HasColumnName("idestabelecimento");
 
-            //Table & Column Mappings
+            //Table
             this.ToTable("estabelecimento");
-            this.Property(t => t.IdEstabelecimento).HasColumnName("idestabelecimento");
-            this.Property(t => t.IdEndereco).HasColumnName("idendereco");
-            this.Property(t => t.Nome).HasColumnName("nome");
-            this.Property(t => t.Unidade).HasColumnName("unidade");
-            this.Property(t => t.Logo).HasColumnName("logo");
 
             //Relacionamentos
             HasRequired(d => d.Endereco)
             .WithOptional(d => d.Estabelecimento)
-            .Map(m => m.MapKey("IdEndereco"));
-
-
-
+            .Map(m => m.MapKey("idendereco"));
         }
     }
 }

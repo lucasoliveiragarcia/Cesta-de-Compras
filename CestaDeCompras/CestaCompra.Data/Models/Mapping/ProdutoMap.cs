@@ -13,45 +13,36 @@ namespace CestaCompra.Data.Models.Mapping
             //Chave Primaria
             this.HasKey(t => t.IdProduto);
 
-            //Propriedades
+            //Propriedades & Column Mappings
             this.Property(t => t.Nome)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .HasColumnName("nome");
 
             this.Property(t => t.Valido)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("valido");
 
             this.Property(t => t.IdProduto)
-                .IsRequired();
-
-            this.Property(t => t.IdMarca)
-                .IsRequired();
-
-            this.Property(t => t.IdTipoMedida)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("idproduto");
 
             this.Property(t => t.Unidade)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnName("unidade");
 
             //Table & Column Mappings
             this.ToTable("produto");
-            this.Property(t => t.IdProduto).HasColumnName("idproduto");
-            this.Property(t => t.IdMarca).HasColumnName("idmarca");
-            this.Property(t => t.IdTipoMedida).HasColumnName("idtipomedida");
-            this.Property(t => t.Unidade).HasColumnName("unidade");
-            this.Property(t => t.Nome).HasColumnName("nome");
-            this.Property(t => t.Valido).HasColumnName("valido");
 
             //Relacionamentos
             HasRequired(d => d.Marca)
             .WithMany(d => d.Produtos)
-            .HasForeignKey(d => d.IdMarca);
+            .Map(m => m.MapKey("idmarca"));
 
-             //Relacionamentos
+            //Relacionamentos
             HasRequired(d => d.Medida)
             .WithMany(d => d.Produtos)
-            .HasForeignKey(d => d.IdTipoMedida);
-
+            .Map(m => m.MapKey("idmedida"));
         }
     }
 }
