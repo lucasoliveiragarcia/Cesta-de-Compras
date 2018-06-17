@@ -10,6 +10,7 @@ namespace CestaCompra.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(CestaCompra.Data.ContextCestaBD context)
