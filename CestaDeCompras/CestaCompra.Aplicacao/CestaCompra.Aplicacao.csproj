@@ -61,14 +61,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FazerLoginSteps.cs" />
-    <Compile Include="Features\FazerLogin.feature.cs">
+    <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
+    <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
+    <Compile Include="Features\ListaCompraAplicacao.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FazerLogin.feature</DependentUpon>
+      <DependentUpon>ListaCompraAplicacao.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\RealizaCompraAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealizaCompraAplicacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SupermercadoAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupermercadoAplicacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CodeBindings\ListaCompraAplicacaoSteps.cs" />
     <Compile Include="ConsumidorAplicacao.cs" />
     <Compile Include="PessoaAplicacao.cs" />
+    <Compile Include="Features\PessoaAplicacao.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PessoaAplicacao.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,17 +101,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\FazerLogin.feature">
+    <None Include="Features\ListaCompraAplicacao.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FazerLogin.feature.cs</LastGenOutput>
+      <LastGenOutput>ListaCompraAplicacao.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RealizaCompraAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RealizaCompraAplicacao.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\SupermercadoAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SupermercadoAplicacao.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Features\PessoaAplicacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PessoaAplicacao.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CodeBindings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
