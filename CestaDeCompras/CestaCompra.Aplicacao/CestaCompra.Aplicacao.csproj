@@ -61,9 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarConsumidorAplicacao.cs" />
+    <Compile Include="CadastrarEstabelecimentoAplicacao.cs" />
+    <Compile Include="CadastrarProdutoAplicacao.cs" />
     <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
     <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
     <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
+    <Compile Include="FazerComprasAplicacao.cs" />
+    <Compile Include="FazerLoginAplicacao.cs" />
     <Compile Include="Features\ListaCompraAplicacao.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
