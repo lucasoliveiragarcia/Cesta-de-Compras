@@ -70,102 +70,102 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     b) justifique!
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
-    Tabela ESTADO: Tabela que armazena as informações relativas ao estado.<br>
-    idestado: campo que armazena um número de identificação do estado (chave primária).<br>
-    nome: campo que armazena o nome do estado.<br>
-    idpais: campo que faz referência a um registro da tabela PAIS (chave estrangeira).<br><br>
+    Tabela ESTADO: Tabela que armazena as informações relativas ao estado.
+    idestado: campo que armazena um número de identificação do estado (chave primária).
+    nome: campo que armazena o nome do estado.
+    idpais: campo que faz referência a um registro da tabela PAIS (chave estrangeira).
 
-    Tabela MARCA: Tabela que armazena as informações relativas a marca do produto.<br>
-    idmarca: campo que armazena um número de identificação da marca (chave primária).<br>
-    nome: campo que armazena o nome da marca.<br><br>
+    Tabela MARCA: Tabela que armazena as informações relativas a marca do produto.
+    idmarca: campo que armazena um número de identificação da marca (chave primária).
+    nome: campo que armazena o nome da marca.
 
-    Tabela ENDERECO: Tabela que armazena as informações relativas ao endereço.<br>
-    idendereco: campo que armazena um número de identificação do endereco (chave primária).<br>
-    logradouro: campo que armazena o tipo de logradouro do endereço(Rua,Avenida,Vila).<br>
-    complemento: campo que armazena o complemento do endereço.<br>
-    numero: campo que armazena o número do endereço.<br>
-    cep: campo que armazena o Código de endereço postal do endereço.<br>
-    idcidade: campo que faz referência a um registro da tabela CIDADE (chave estrangeira).<br>
+    Tabela ENDERECO: Tabela que armazena as informações relativas ao endereço.
+    idendereco: campo que armazena um número de identificação do endereco (chave primária).
+    logradouro: campo que armazena o tipo de logradouro do endereço(Rua,Avenida,Vila).
+    complemento: campo que armazena o complemento do endereço.
+    numero: campo que armazena o número do endereço.
+    cep: campo que armazena o Código de endereço postal do endereço.
+    idcidade: campo que faz referência a um registro da tabela CIDADE (chave estrangeira).
 
-    Tabela ESTABELECIMENTOPRODUTO: Tabela que armazena as informações relativas<br>
-    idestabelecimentoproduto:<br>
-    preco:<br>
-    idproduto:campo que faz referência a um registro da tabela PRODUTO (chave estrangeira).<br>
-    idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO (chave estrangeira).<br>
+    Tabela ESTABELECIMENTOPRODUTO: 
+    idestabelecimentoproduto:
+    preco:
+    idproduto:campo que faz referência a um registro da tabela PRODUTO (chave estrangeira).
+    idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO (chave estrangeira).
 
-    Tabela PESSOA: Tabela que armazena as informações relativas à pessoa.<br>
-    idpessoa: campo que armazena um número de identificação da pessoa(chave primária).<br>
-    nome: campo que armazena o nome da pessoa.<br>
-    sobrenome: campo que armazena o sobrenome da pessoa.<br>
-    datanascimento: campo que armazena a data de nascimento da pessoa.<br>
-    email: campo que armazena o email da pessoa.<br>
-    idendereco: campo que faz referência a um registro da tabela ENDERECO (chave estrangeira).<br>
+    Tabela PESSOA: Tabela que armazena as informações relativas à pessoa.
+    idpessoa: campo que armazena um número de identificação da pessoa(chave primária).
+    nome: campo que armazena o nome da pessoa.
+    sobrenome: campo que armazena o sobrenome da pessoa.
+    datanascimento: campo que armazena a data de nascimento da pessoa.
+    email: campo que armazena o email da pessoa.
+    idendereco: campo que faz referência a um registro da tabela ENDERECO (chave estrangeira).
 
 
-    Tabela COMPRA: Tabela que armazena as informações relativas a compra realizada.<br>
-    idcompra: campo que armazena um número de identificação da compra(chave primária).<br>
-    valortotal: campo que armazena o valor total da compra.<br>
-    datacompra: campo que armazena a data da compra.<br>
-    idconsumidor: campo que faz referência a um registro da tabela CONSUMIDOR(chave estrangeira).<br>
-    idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO(chave estrangeira).<br>
+    Tabela COMPRA: Tabela que armazena as informações relativas a compra realizada.
+    idcompra: campo que armazena um número de identificação da compra(chave primária).
+    valortotal: campo que armazena o valor total da compra.
+    datacompra: campo que armazena a data da compra.
+    idconsumidor: campo que faz referência a um registro da tabela CONSUMIDOR(chave estrangeira).
+    idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO(chave estrangeira).
 
-    Tabela CIDADE: Tabela que armazena as informações relativas à cidade.<br>
-    idcidade: campo que armazena um número de identificação da cidade(chave primária).<br>
-    nome: campo que armazena o nome da cidade.<br>
-    idestado: campo que faz referência a um registro da tabela ESTADO(chave estrangeira).<br>
+    Tabela CIDADE: Tabela que armazena as informações relativas à cidade.
+    idcidade: campo que armazena um número de identificação da cidade(chave primária).
+    nome: campo que armazena o nome da cidade.
+    idestado: campo que faz referência a um registro da tabela ESTADO(chave estrangeira).
 
-    Tabela PAIS: Tabela que armazena informações relativas ao país.<br>
-    idpais: campo que armazena um número de identificação do pais(chave primária).<br>
-    nome: campo que armazena o nome do país.<br>
+    Tabela PAIS: Tabela que armazena informações relativas ao país.
+    idpais: campo que armazena um número de identificação do pais(chave primária).
+    nome: campo que armazena o nome do país.
 
-    Tabela CONSUMIDOR: Tabela que armazena informações relativas ao consumidor.<br>
-    idconsumidor: campo que armazena um número de identificação do consumidor(chave primária).<br>
-    login: campo que armazena o login do consumidor.<br>
-    senha: campo que armazena a senha do consumidor.<br>
-    nivel:<br>
-    datacadastro: campo que armazena a data de cadastro do consumidor.<br>
-    administrador:<br>
-    idpessoa: campo que faz referência a um registro da tabela PESSOA(chave estrangeira).<br>
+    Tabela CONSUMIDOR: Tabela que armazena informações relativas ao consumidor.
+    idconsumidor: campo que armazena um número de identificação do consumidor(chave primária).
+    login: campo que armazena o login do consumidor.
+    senha: campo que armazena a senha do consumidor.
+    nivel:
+    datacadastro: campo que armazena a data de cadastro do consumidor.
+    administrador:
+    idpessoa: campo que faz referência a um registro da tabela PESSOA(chave estrangeira).
 
-    Tabela LISTACOMPRA: Tabela que armazena informações relativas a lista de compra do consumidor.<br>
-    idlistacompra: campo que armazena um número de identificação da lista de compra(chave primária).<br>
-    nome: campo que armazena o nome da lista.<br>
-    dataultimamodificacao: campo que armazena a data da última modificação que ocorreu na lista.<br>
-    idconsumidor: campo que faz referência a um registro da tabela CONSUMIDOR(chave estrangeira).<br>
+    Tabela LISTACOMPRA: Tabela que armazena informações relativas a lista de compra do consumidor.
+    idlistacompra: campo que armazena um número de identificação da lista de compra(chave primária).
+    nome: campo que armazena o nome da lista.
+    dataultimamodificacao: campo que armazena a data da última modificação que ocorreu na lista.
+    idconsumidor: campo que faz referência a um registro da tabela CONSUMIDOR(chave estrangeira).
     
-    Tabela MEDIDA: Tabela que armazena informações relativas a medida do produto.<br>
-    idmedida: campo que armazena um número de identificação da medida (chave primária).<br>
-    descricao: campo que armazena a descrição da medida.<br>
-    tipomedida: campo que armazena o tipo de medida do produto(Litro/Grama/Unidade).<br>
+    Tabela MEDIDA: Tabela que armazena informações relativas a medida do produto.
+    idmedida: campo que armazena um número de identificação da medida (chave primária).
+    descricao: campo que armazena a descrição da medida.
+    tipomedida: campo que armazena o tipo de medida do produto(Litro/Grama/Unidade).
 
-    Tabela PRODUTO: Tabela que armazena informações relativas ao produto.<br>
-    idproduto: campo que armazena um número de identificação do produto (chave primária).<br>
-    nome: campo que armazena o nome do produto.<br>
-    unidade:<br>
-    valido:<br>
-    idmarca: campo que faz referência a um registro da tabela MARCA(chave estrangeira).<br>
-    idmedida: campo que faz referência a um registro da tabela MEDIDA(chave estrangeira).<br>
-
-    Tabela ITEMCOMPRA: Tabela que armazena informações relativas ao item da lista de uma compra realizada.<br>
-    iditemcompra: campo que armazena um número de identificação do item da lista da compra realizada(chave primária).<br>
+    Tabela PRODUTO: Tabela que armazena informações relativas ao produto.
+    idproduto: campo que armazena um número de identificação do produto (chave primária).
+    nome: campo que armazena o nome do produto.
+    unidade:
     valido:
-    preco: campo que armazena o preço do item da lista da compra realizada.<br>
-    quantidade: campo que armazena a quantidade do item da lista da compra realizada.<br>
-    idproduto: campo que faz referência a um registro da tabela PRODUTO(chave estrangeira).<br>
-    idcompra: campo que faz referência a um registro da tabela COMPRA(chave estrangeira).<br>
+    idmarca: campo que faz referência a um registro da tabela MARCA(chave estrangeira).
+    idmedida: campo que faz referência a um registro da tabela MEDIDA(chave estrangeira).
 
-    Tabela ITEMLISTACOMPRA: Tabela que armazena informações relativas ao item da lista de compra.<br>
-    iditemlistacompra: campo que armazena um número de identificação do item na lista de compra (chave primária).<br>
-    quantidade: campo que armazena a quantidade do item na lista de compra.<br>
-    idlistacompra: campo que faz referência a um registro da tabela LISTACOMPRA(chave estrangeira).<br>
-    idproduto: campo que faz referência a um registro da tabela PRODUTO(chave estrangeira).<br>
+    Tabela ITEMCOMPRA: Tabela que armazena informações relativas ao item da lista de uma compra realizada.
+    iditemcompra: campo que armazena um número de identificação do item da lista da compra realizada(chave primária).
+    valido:
+    preco: campo que armazena o preço do item da lista da compra realizada.
+    quantidade: campo que armazena a quantidade do item da lista da compra realizada.
+    idproduto: campo que faz referência a um registro da tabela PRODUTO(chave estrangeira).
+    idcompra: campo que faz referência a um registro da tabela COMPRA(chave estrangeira).
 
-    Tabela ESTABELECIMENTO: Tabela que armazena informações relativas ao estabelecimento.<br>
-    idestabelecimento: campo que armazena um número de identificação do estabelecimento(chave primária).<br>
-    nome: campo que armazena o nome do estabelecimento.<br>
-    unidade: campo que armazena a unidade que se encontra o estabelecimento.<br>
-    logo: campo que armazena o logo do estabelecimento.<br>
-    idendereco: campo que faz referência a um registro da tabela ENDERECO(chave estrangeira).<br>
+    Tabela ITEMLISTACOMPRA: Tabela que armazena informações relativas ao item da lista de compra.
+    iditemlistacompra: campo que armazena um número de identificação do item na lista de compra (chave primária).
+    quantidade: campo que armazena a quantidade do item na lista de compra.
+    idlistacompra: campo que faz referência a um registro da tabela LISTACOMPRA(chave estrangeira).
+    idproduto: campo que faz referência a um registro da tabela PRODUTO(chave estrangeira).
+
+    Tabela ESTABELECIMENTO: Tabela que armazena informações relativas ao estabelecimento.
+    idestabelecimento: campo que armazena um número de identificação do estabelecimento(chave primária).
+    nome: campo que armazena o nome do estabelecimento.
+    unidade: campo que armazena a unidade que se encontra o estabelecimento.
+    logo: campo que armazena o logo do estabelecimento.
+    idendereco: campo que faz referência a um registro da tabela ENDERECO(chave estrangeira).
 
 ### 6	MODELO LÓGICO<br>
 ### 7	MODELO FÍSICO<br>
