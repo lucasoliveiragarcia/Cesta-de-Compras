@@ -168,6 +168,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     idendereco: campo que faz referência a um registro da tabela ENDERECO(chave estrangeira).
 
 ### 6	MODELO LÓGICO<br>
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/ModeloLogico.jpg?raw=true "Modelo Lógico")
 ### 7	MODELO FÍSICO<br>
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
