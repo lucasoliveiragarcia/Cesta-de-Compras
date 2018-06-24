@@ -122,7 +122,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     idconsumidor: campo que armazena um número de identificação do consumidor(chave primária).
     login: campo que armazena o login do consumidor.
     senha: campo que armazena a senha do consumidor.
-    nivel:
+    nivel: campo que armazena o nivel do consumidor.
     datacadastro: campo que armazena a data de cadastro do consumidor.
     administrador: campo que armazena a informação se o consumidor é administrador ou não.
     idpessoa: campo que faz referência a um registro da tabela PESSOA(chave estrangeira).
