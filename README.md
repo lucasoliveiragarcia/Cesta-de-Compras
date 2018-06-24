@@ -179,9 +179,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-        a) inclusão das instruções para criação das tabelas e estruturas de amazenamento do BD
-        b) inclusão das instruções de inserção dos dados nas referidas tabelas
-        c) inclusão das instruções para execução de outros procedimentos necessários
+     https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/inserts_inicial.sql
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
