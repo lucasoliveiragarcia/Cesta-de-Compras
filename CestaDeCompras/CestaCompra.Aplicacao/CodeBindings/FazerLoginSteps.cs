@@ -24,26 +24,20 @@ namespace CestaCompra.Aplicacao.CodeBindings
             ScenarioContext.Current.Pending();
         }
         
-        [Given(@"eu digito o meu (.*) errado")]
-        public void DadoEuDigitoOMeuErrado(string p0)
+        [Given(@"o rodrigues\.(.*) esta correto")]
+        public void DadoORodrigues_EstaCorreto(int p0)
         {
             ScenarioContext.Current.Pending();
         }
         
-        [Given(@"eu digito a minha (.*)")]
-        public void DadoEuDigitoAMinha(string p0)
+        [Given(@"a '(.*)' esta correta")]
+        public void DadoAEstaCorreta(string p0)
         {
             ScenarioContext.Current.Pending();
         }
         
-        [Given(@"eu digito o meu (.*)")]
-        public void DadoEuDigitoOMeu(string p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"eu digito a minha (.*) errada")]
-        public void DadoEuDigitoAMinhaErrada(string p0)
+        [Given(@"o (.*) ou a (.*) esteja errada")]
+        public void DadoOOuAEstejaErrada(string p0, string p1)
         {
             ScenarioContext.Current.Pending();
         }
@@ -60,8 +54,8 @@ namespace CestaCompra.Aplicacao.CodeBindings
             ScenarioContext.Current.Pending();
         }
         
-        [Then(@"o sistema informa falha de login dados incorretos")]
-        public void EntaoOSistemaInformaFalhaDeLoginDadosIncorretos()
+        [Then(@"o sistema informa dados incorretos")]
+        public void EntaoOSistemaInformaDadosIncorretos()
         {
             ScenarioContext.Current.Pending();
         }

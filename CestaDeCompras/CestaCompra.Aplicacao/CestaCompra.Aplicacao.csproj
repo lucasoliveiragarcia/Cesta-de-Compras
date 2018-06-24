@@ -61,32 +61,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
-    <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
-    <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
-    <Compile Include="Features\ListaCompraAplicacao.feature.cs">
+    <Compile Include="CodeBindings\CadastrarEstabelecimentoSteps.cs" />
+    <Compile Include="CodeBindings\CriarListaDeComprasSteps.cs" />
+    <Compile Include="CodeBindings\FazerLoginSteps.cs" />
+    <Compile Include="CodeBindings\RealizarCompraSteps.cs" />
+    <Compile Include="Features\CriarListaCompra.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ListaCompraAplicacao.feature</DependentUpon>
+      <DependentUpon>CriarListaCompra.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\RealizaCompraAplicacao.feature.cs">
+    <Compile Include="Features\FazerLogin.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RealizaCompraAplicacao.feature</DependentUpon>
+      <DependentUpon>FazerLogin.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SupermercadoAplicacao.feature.cs">
+    <Compile Include="Features\RealizarCompra.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SupermercadoAplicacao.feature</DependentUpon>
+      <DependentUpon>RealizarCompra.feature</DependentUpon>
     </Compile>
-    <Compile Include="CodeBindings\ListaCompraAplicacaoSteps.cs" />
+    <Compile Include="Features\CadastrarEstabelecimento.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CadastrarEstabelecimento.feature</DependentUpon>
+    </Compile>
     <Compile Include="ConsumidorAplicacao.cs" />
     <Compile Include="PessoaAplicacao.cs" />
-    <Compile Include="Features\PessoaAplicacao.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PessoaAplicacao.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,23 +101,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\ListaCompraAplicacao.feature">
+    <None Include="Features\CriarListaCompra.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ListaCompraAplicacao.feature.cs</LastGenOutput>
+      <LastGenOutput>CriarListaCompra.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\RealizaCompraAplicacao.feature">
+    <None Include="Features\FazerLogin.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>RealizaCompraAplicacao.feature.cs</LastGenOutput>
+      <LastGenOutput>FazerLogin.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\SupermercadoAplicacao.feature">
+    <None Include="Features\RealizarCompra.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SupermercadoAplicacao.feature.cs</LastGenOutput>
+      <LastGenOutput>RealizarCompra.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\CadastrarEstabelecimento.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CadastrarEstabelecimento.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Features\PessoaAplicacao.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PessoaAplicacao.feature.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
