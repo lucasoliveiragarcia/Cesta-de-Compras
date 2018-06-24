@@ -124,7 +124,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     senha: campo que armazena a senha do consumidor.
     nivel:
     datacadastro: campo que armazena a data de cadastro do consumidor.
-    administrador:
+    administrador: campo que armazena a informação se o consumidor é administrador ou não.
     idpessoa: campo que faz referência a um registro da tabela PESSOA(chave estrangeira).
 
     Tabela LISTACOMPRA: Tabela que armazena informações relativas a lista de compra do consumidor.
