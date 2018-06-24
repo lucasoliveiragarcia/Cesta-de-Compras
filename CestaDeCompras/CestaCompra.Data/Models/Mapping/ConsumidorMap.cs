@@ -14,7 +14,7 @@ namespace CestaCompra.Data.Models.Mapping
             this.HasKey(t => t.IdConsumidor);
 
             //Propriedades & Column Mappings
-            this.Property(t => t.Admnistrador)
+            this.Property(t => t.Administrador)
                 .IsRequired()
                 .HasColumnName("admnistrador"); 
 
