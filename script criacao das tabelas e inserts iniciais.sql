@@ -22,7 +22,7 @@ CREATE TABLE EstabelecimentoProduto (
 IdEstabelecimentoProduto SERIAL PRIMARY KEY,
 IdProduto INTEGER,
 IdEstabelecimento INTEGER,
-Preco DECIMAL(10)
+Preco DECIMAL(10,2)
 );
 
 CREATE TABLE Pessoa (
@@ -39,7 +39,7 @@ CREATE TABLE Compra (
 IdCompra SERIAL PRIMARY KEY,
 IdConsumidor INTEGER,
 IdEstabelecimento INTEGER,
-ValorTotal DECIMAL(18),
+ValorTotal DECIMAL(10,2),
 DataCompra TIMESTAMP
 );
 
@@ -96,7 +96,7 @@ IdItemCompra SERIAL PRIMARY KEY,
 IdProduto INTEGER,
 IdCompra INTEGER,
 Valido VARCHAR(10),
-Preco DECIMAL(10),
+Preco DECIMAL(10,2),
 Quantidade BIGINT,
 FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto),
 FOREIGN KEY(IdCompra) REFERENCES Compra (IdCompra)
@@ -165,7 +165,8 @@ INSERT INTO pais (idpais, nome)
         (8,  'Alemanha'      ),
         (9,  'México'        ),
         (10, 'Egito'         );
-		INSERT INTO estado (idpais, idestado, nome)
+
+        INSERT INTO estado (idpais, idestado, nome)
         VALUES  (1, 1,  'Espirito Santo'    ),
         (1, 2,  'São Paulo'         ),
         (1, 3,  'Goias'             ),
@@ -174,7 +175,7 @@ INSERT INTO pais (idpais, nome)
         (1, 6,  'Rio de Janeiro'    ),
         (1, 7,  'Bahia'             ),
         (1, 8,  'Rio de Janeiro'    ),
-		(2, 9,  'Texas'             ),
+        (2, 9,  'Texas'             ),
         (2, 10, 'Califórnia'        );
 		
 INSERT INTO cidade (idcidade,idestado, nome) VALUES  (1,1, 'Colina de Laranjeiras'),(2,5, 'Martins da Mata')
@@ -213,7 +214,7 @@ INSERT INTO pessoa(idpessoa, idendereco, nome, sobrenome, email, dataNascimento)
 ,(2,1 ,'Diogo','Oliveira','Diogo@email.com','2009-04-18')
 ,(3,1,'Maria Fernanda','da Luz','MariaFernanda@email.com','1996-03-08')
 ,(4,3, 'Arthur','Rezende','Arthur@email.com','2013-02-12')
-,(5,4, 'Ana Luiza','Novaes','Ana Luiza@email.com','1983-12-12')
+,(5,4, 'Ana Luiza','Novaes','AnaLuiza@email.com','1983-12-12')
 ,(6,5, 'Caroline','Moreira','Caroline@email.com','1996-01-25')
 ,(7,6, 'Sophia','Rocha','Sophia@email.com','2014-02-23')
 ,(8,7, 'Luiza','Campos','Luiza@email.com','2016-10-22')
@@ -308,8 +309,4 @@ INSERT INTO itemlistacompra(iditemlistacompra,idlistacompra ,idproduto,quantidad
 (8,1,8,16),
 (9,1,9,31),
 (10,1,10,9);
-
-
-
-
 
