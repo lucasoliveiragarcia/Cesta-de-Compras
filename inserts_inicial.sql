@@ -1,19 +1,3 @@
-DROP TABLE IF EXISTS Estado;
-DROP TABLE IF EXISTS Marca;
-DROP TABLE IF EXISTS Endereco;
-DROP TABLE IF EXISTS EstabelecimentoProduto;
-DROP TABLE IF EXISTS Pessoa;
-DROP TABLE IF EXISTS Compra;
-DROP TABLE IF EXISTS Cidade;
-DROP TABLE IF EXISTS Pais;
-DROP TABLE IF EXISTS Consumidor;
-DROP TABLE IF EXISTS ListaCompra;
-DROP TABLE IF EXISTS Medida;
-DROP TABLE IF EXISTS Produto;
-DROP TABLE IF EXISTS ItemCompra;
-DROP TABLE IF EXISTS ItemListaCompra;
-DROP TABLE IF EXISTS Estabelecimento;
-
 CREATE TABLE Estado (
 IdEstado SERIAL PRIMARY KEY,
 IdPais SERIAL,
@@ -148,7 +132,7 @@ ALTER TABLE Compra ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento
 INSERT INTO Marca (idmarca, nome)
     VALUES  (1,'Garoto'),
 		    (2,'Nestle'),
-		    (3,'SepÈ'),
+		    (3,'Sep√©'),
 		    (4,'Coca Cola'),
 		    (5,'Unilever'),
 		    (6,'Seara'),
@@ -173,17 +157,17 @@ INSERT INTO medida (idmedida,descricao,tipomedida)
 INSERT INTO pais (idpais, nome)
             VALUES  (1,  'Brasil'        ),
         (2,  'Estados Unidos'),
-        (3,  'FranÁa'        ),
-        (4,  'It·lia'        ),
-        (5,  'Canad·'        ),
+        (3,  'Fran√ßa'        ),
+        (4,  'It√°lia'        ),
+        (5,  'Canad√°'        ),
         (6,  'Chile'         ),
         (7,  'Russia'        ),
         (8,  'Alemanha'      ),
-        (9,  'MÈxico'        ),
+        (9,  'M√©xico'        ),
         (10, 'Egito'         );
 		INSERT INTO estado (idpais, idestado, nome)
         VALUES  (1, 1,  'Espirito Santo'    ),
-        (1, 2,  'S„o Paulo'         ),
+        (1, 2,  'S√£o Paulo'         ),
         (1, 3,  'Goias'             ),
         (1, 4,  'Amazonas'          ),
         (1, 5,  'Mato Grosso do Sul'),
@@ -191,13 +175,13 @@ INSERT INTO pais (idpais, nome)
         (1, 7,  'Bahia'             ),
         (1, 8,  'Rio de Janeiro'    ),
 		(2, 9,  'Texas'             ),
-        (2, 10, 'CalifÛrnia'        );
+        (2, 10, 'Calif√≥rnia'        );
 		
 INSERT INTO cidade (idcidade,idestado, nome) VALUES  (1,1, 'Colina de Laranjeiras'),(2,5, 'Martins da Mata')
 ,(3,6, 'Barros da Serra')
 ,(4,5, 'Sales de FariasFernandes')
-,(5,5, 'Silveira de Goi·s')
-,(6,1, 'Arag„o dos Dourados')
+,(5,5, 'Silveira de Goi√°s')
+,(6,1, 'Arag√£o dos Dourados')
 ,(7,3, 'Jesus')
 ,(8,8, 'da Cruz')
 ,(9,8, 'Ribeiro')
@@ -206,8 +190,8 @@ INSERT INTO cidade (idcidade,idestado, nome) VALUES  (1,1, 'Colina de Laranjeira
 INSERT INTO endereco (idendereco, idcidade, cep, logradouro, numero, complemento) VALUES  (1, 1,'29167081','Primeiro','371','proximo a nada'),(2, 10, '32690530','Ladeira Miguel Nunes','2050','algum complemento')
 ,(3, 1, '54547386','Quadra de Moraes','6385','algum complemento')
 ,(4, 1, '87218147','Estrada de Correia','2547','algum complemento')
-,(5, 2, '97043329','¡rea Carolina Silveira','5819','algum complemento')
-,(6, 2, '83197045','PraÁa Enrico Teixeira','2880','algum complemento')
+,(5, 2, '97043329','√Årea Carolina Silveira','5819','algum complemento')
+,(6, 2, '83197045','Pra√ßa Enrico Teixeira','2880','algum complemento')
 ,(7, 6, '42942225','Quadra Caldeira','490','algum complemento')
 ,(8, 7, '13899302','Rua da Luz','7838','algum complemento')
 ,(9, 8, '23229810','Viaduto Evelyn Cardoso','3875','algum complemento')
@@ -216,13 +200,13 @@ INSERT INTO endereco (idendereco, idcidade, cep, logradouro, numero, complemento
 INSERT INTO estabelecimento(idestabelecimento ,idendereco ,nome , unidade ,logo)
     VALUES  (1,  1, 'EPA PLUS',     'Serra',1),
 	(2,  2, 'Extrabom',   'Serra',2),
-	(3,  3, 'Wallmart',   'VitÛria',3),
+	(3,  3, 'Wallmart',   'Vit√≥ria',3),
 	(4,  4, 'Carone',     'Serra',4),
 	(5,  5, 'Meridional', 'Aracruz',5),
 	(6,  6, 'Devens',     'Aracruz',6),
 	(7,  7, 'Carrefour',  'Serra',7),
 	(8,  8, 'Extrabom',   'Vila Velha',8),
-	(9,  9, 'Carrefour',  'VitÛria',9),
+	(9,  9, 'Carrefour',  'Vit√≥ria',9),
 	(10, 10, 'Wallmart',   'Linhares',10);
 
 INSERT INTO pessoa(idpessoa, idendereco, nome, sobrenome, email, dataNascimento) VALUES    (1,1, 'Eduardo','Couto','eduardo@email.com','1998/02/01') 
@@ -233,17 +217,17 @@ INSERT INTO pessoa(idpessoa, idendereco, nome, sobrenome, email, dataNascimento)
 ,(6,5, 'Caroline','Moreira','Caroline@email.com','1996-01-25')
 ,(7,6, 'Sophia','Rocha','Sophia@email.com','2014-02-23')
 ,(8,7, 'Luiza','Campos','Luiza@email.com','2016-10-22')
-,(9,8, 'Jo„o Felipe','Barbosa','JoaoFelipe@email.com','2015-03-27')
+,(9,8, 'Jo√£o Felipe','Barbosa','JoaoFelipe@email.com','2015-03-27')
 ,(10,6, 'Vinicius','Novaes','Vinicius@email.com','2008-09-29');
 
 INSERT INTO consumidor(idconsumidor, idpessoa, login, senha, nivel, datacadastro,administrador) VALUES    (1, 1, 'educouto', '123',1, '2018/02/01',1) 
 ,(2,2, 'Diego','123',1,'1977-04-04',1)
-,(3,3, 'Jo„o','123',1,'2011-12-26',1)
+,(3,3, 'Jo√£o','123',1,'2011-12-26',1)
 ,(4,4, 'Noah','123',1,'2008-05-17',1)
 ,(5,5, 'Ana','123',1,'1978-04-26',1)
 ,(6,6, 'Gustavo Henrique','123',1,'1993-01-01',1)
 ,(7,7, 'Clarice','123',1,'2006-07-06',1)
-,(8,8, 'AndrÈ','123',1,'1971-07-29',1)
+,(8,8, 'Andr√©','123',1,'1971-07-29',1)
 ,(9,9, 'Benjamin','123',1,'2013-03-19',1)
 ,(10,10, 'Julia','123',1,'1986-05-06',1);
 
@@ -258,10 +242,10 @@ INSERT INTO listaCompra (idlistaCompra, idconsumidor, nome, dataultimamodificaca
 ,(10, 10,'Compra de 15 dias','1994-03-13');
 
 INSERT INTO produto (idproduto, nome, idmedida, idmarca, unidade, valido) VALUES    (1, 'Biscoito Mabel', 1, 1,280,1) ,(2, 'Banana',1,1,1,1)
-,(3, 'MaÁa',1,1,1,1)
+,(3, 'Ma√ßa',1,1,1,1)
 ,(4, 'Peira',1,1,1,1)
 ,(5, 'Arroz',1,1,1,1)
-,(6, 'Feij„o',1,1,1,1)
+,(6, 'Feij√£o',1,1,1,1)
 ,(7, 'Suco de Caju',1,1,1,1)
 ,(8, 'Coca-Cola',1,1,1,1)
 ,(9, 'Milho',1,1,1,1)
