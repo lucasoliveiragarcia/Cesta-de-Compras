@@ -61,10 +61,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeBindings\AdicionarItemListaSteps.cs" />
+    <Compile Include="CodeBindings\CadastrarConsumidorSteps.cs" />
     <Compile Include="CodeBindings\CadastrarEstabelecimentoSteps.cs" />
+    <Compile Include="CodeBindings\ConsultarListaCompraSteps.cs" />
+    <Compile Include="CodeBindings\ConsultarMenorPrecoSteps.cs" />
     <Compile Include="CodeBindings\CriarListaDeComprasSteps.cs" />
     <Compile Include="CodeBindings\FazerLoginSteps.cs" />
     <Compile Include="CodeBindings\RealizarCompraSteps.cs" />
+    <Compile Include="Features\AdicionarItemLista.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdicionarItemLista.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CadastrarConsumidor.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CadastrarConsumidor.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ConsultarListaCompra.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConsultarListaCompra.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ConsultarMenorPreco.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConsultarMenorPreco.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CriarListaCompra.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +125,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\AdicionarItemLista.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AdicionarItemLista.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\CadastrarConsumidor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CadastrarConsumidor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ConsultarListaCompra.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConsultarListaCompra.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ConsultarMenorPreco.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConsultarMenorPreco.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\CriarListaCompra.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CriarListaCompra.feature.cs</LastGenOutput>

@@ -65,11 +65,9 @@ namespace CestaCompra.Aplicacao.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sucesso em Realizar Compra")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void SucessoEmRealizarCompra()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Realizar Compra", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Realizar Compra", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8

@@ -2,7 +2,7 @@
 
 Funcionalidade: RealizarCompra
 	
-@mytag
+
 
 Cenário: Sucesso em Realizar Compra
 Dado Eu acesso <minhas listas de compras>
