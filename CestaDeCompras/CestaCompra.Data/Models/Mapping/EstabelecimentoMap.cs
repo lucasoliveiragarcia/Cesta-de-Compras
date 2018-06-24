@@ -25,7 +25,7 @@ namespace CestaCompra.Data.Models.Mapping
                 .HasColumnName("unidade");
 
             this.Property(t => t.Logo)
-                .IsRequired()
+                .IsOptional()
                 .HasColumnName("logo");
 
             this.Property(t => t.IdEstabelecimento)

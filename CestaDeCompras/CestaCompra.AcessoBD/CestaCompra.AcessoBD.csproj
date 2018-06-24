@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepositorioCidade.cs" />
+    <Compile Include="RepositorioEndereco.cs" />
     <Compile Include="RepositorioConsumidor.cs" />
     <Compile Include="RepositorioPessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 
 namespace CestaCompra.Data.Configuracao
 {
     public abstract class Repositorio<TEntity> : IRepositorio<TEntity> where TEntity : class
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
         private readonly System.Data.Entity.DbSet<TEntity> _context;
+
+        private void getInstancia() {
+            if (_unitOfWork == null)
+                this._unitOfWork = new ContextCestaBD();
+        }
 
         public Repositorio(IUnitOfWork unitoOfWork)
         {
+            getInstancia();
             _context = ((Data.ContextCestaBD)_unitOfWork).Set<TEntity>();
             _unitOfWork = unitoOfWork;
         }
@@ -23,6 +28,7 @@ namespace CestaCompra.Data.Configuracao
         public TEntity Inserir(TEntity entity)
         {
             _context.Add(entity);
+            ((ContextCestaBD)_unitOfWork).Entry(entity).State = System.Data.Entity.EntityState.Added;
             return entity;
         }
 
@@ -42,7 +48,16 @@ namespace CestaCompra.Data.Configuracao
             return _context.FirstOrDefault(filter);
         }
 
-        public IQueryable<TEntity> ObterTodos()
+        public TEntity ObterPorId(int id)
+        {
+            return _context.Find(id);
+        }
+
+        public List<TEntity> ObterTodos()
+        {
+            return _context.ToList<TEntity>();
+        }
+        public IQueryable<TEntity> ObterTodosQuery()
         {
             return _context;
         }

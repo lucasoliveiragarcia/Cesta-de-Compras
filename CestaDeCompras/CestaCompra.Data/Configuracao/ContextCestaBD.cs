@@ -11,6 +11,8 @@ using System.ComponentModel.DataAnnotations;
 using CestaCompra.Data.Models.Mapping;
 using CestaCompra.Data.Configuracao;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CestaCompra.Data
 {
@@ -35,7 +37,12 @@ namespace CestaCompra.Data
         public DbSet<Produto> Produto { get; set; }
         public DbSet<EstabelecimentoProduto> EstabelecimentoProduto { get; set; }
         public DbSet<Medida> Medida { get; set; }
-        
+
+        public static ContextCestaBD Create()
+        {
+            return new ContextCestaBD();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

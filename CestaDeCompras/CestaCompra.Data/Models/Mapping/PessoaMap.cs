@@ -11,7 +11,6 @@ namespace CestaCompra.Data.Models.Mapping
     {
         public PessoaMap()
         {
-            
             //Chave Primaria
             this.HasKey(t => t.IdPessoa);
 
@@ -47,6 +46,5 @@ namespace CestaCompra.Data.Models.Mapping
            .WithOptional(d => d.Pessoa)
            .Map(m => m.MapKey("idendereco"));
         }
-
     }
 }

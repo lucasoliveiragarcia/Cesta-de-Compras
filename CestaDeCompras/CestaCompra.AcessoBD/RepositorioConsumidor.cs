@@ -11,14 +11,19 @@ namespace CestaCompra.AcessoBD
     {
         public RepositorioConsumidor(IUnitOfWork unitOfWork) : base(unitOfWork) { }
         
-        public IQueryable<Consumidor> ObterPorLogin(string login)
+        public Consumidor ObterPorLogin(string login)
         {
-            return Context.Where(consumidor => consumidor.Login == login);
+            return Context.Where(consumidor => consumidor.Login == login).SingleOrDefault();
+        }
+        public Consumidor ObterPorLoginSenha(string login, string senha)
+        {
+            return Context.Where(consumidor => consumidor.Login == login && consumidor.Senha == senha).SingleOrDefault();
         }
     }
 
     public interface IRepositorioConsumidor : IRepositorio<Consumidor>
     {
-        IQueryable<Consumidor> ObterPorLogin(string login);
+        Consumidor ObterPorLogin(string login);
+        Consumidor ObterPorLoginSenha(string login, string senha);
     }
 }

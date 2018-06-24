@@ -4,11 +4,22 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using BCrypt.Net;
 using System.IO;
+using CestaCompra.AcessoBD;
+using CestaCompra.Data;
+using Microsoft.AspNet.Identity.Owin;
+using CestaCompra.Data.Configuracao;
+using CestaCompra.Apresentacao.App_Start;
+using Ninject;
+using CestaCompra.Data.Models;
+using System.Collections.Generic;
 
 namespace CestaCompra.Apresentacao
 {
     public partial class _Login  : System.Web.UI.Page
     {
+        private ContextCestaBD cestaCompraDB = new ContextCestaBD();
+        private IRepositorioConsumidor repositorioConsumidor;
+
         private SiteMaster _masterPage;
         private SiteMaster MasterPage
         {
@@ -24,46 +35,38 @@ namespace CestaCompra.Apresentacao
             }
         }
 
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            
-
-        }
-        
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-
+            this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
         }
 
         
         protected void BtnEntrar_Click(object sender, EventArgs e)
         {
-            //this.AutenticaEArmazenaDadosIniciais();
-            string senhadigitada = this.TxtSenha.Text;
-            //string senhaEncriptada = BCrypt.Net.BCrypt.HashString(this.TxtSenha.Text);
-            string senhaEncriptada = BCrypt.Net.BCrypt.HashString("cesta");
-            if (string.IsNullOrEmpty(senhadigitada))
+            if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
             {
-                MasterPage.SetMensagemMain("Informe uma senha!",eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
             }
 
-            if (BCrypt.Net.BCrypt.Verify(senhadigitada,senhaEncriptada))
+            Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
+            //string mySalt = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
+            //string senhaEncriptada = BCrypt.Net.BCrypt.HashString("123");
+            //string senha2 = BCrypt.Net.BCrypt.HashPassword("123",mySalt);
+            
+            if(objConsumidor == null)
+            {
+                MasterPage.SetMensagemMain("Usuário não encontrado!", eTipoMensagem.Erro);
+            }
+            else if (BCrypt.Net.BCrypt.Verify(this.TxtSenha.Text, objConsumidor.Senha))
             {
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
 
                 FormsAuthentication.SetAuthCookie(this.TxtUsuario.Text, false);
 
                 Response.Redirect(FormsAuthentication.DefaultUrl);
-
-                //FormsAuthentication.Authenticate(TxtUsuario.Text, TxtSenha.Text);
                 
-                //FormsAuthentication.RedirectFromLoginPage(TxtUsuario.Text,false);
             }
             else
             {
