@@ -220,16 +220,17 @@ INSERT INTO pessoa(idpessoa, idendereco, nome, sobrenome, email, dataNascimento)
 ,(9,8, 'João Felipe','Barbosa','JoaoFelipe@email.com','2015-03-27')
 ,(10,6, 'Vinicius','Novaes','Vinicius@email.com','2008-09-29');
 
-INSERT INTO consumidor(idconsumidor, idpessoa, login, senha, nivel, datacadastro,administrador) VALUES    (1, 1, 'educouto', '123',1, '2018/02/01',1) 
-,(2,2, 'Diego','123',1,'1977-04-04',1)
+INSERT INTO consumidor(idconsumidor, idpessoa, login, senha, nivel, datacadastro,administrador) 
+VALUES    (1, 1, 'educouto', '123',1, '2018/02/01',1) 
+,(2,2, 'Diego','123',1,'1977-04-04',0)
 ,(3,3, 'João','123',1,'2011-12-26',1)
-,(4,4, 'Noah','123',1,'2008-05-17',1)
+,(4,4, 'Noah','123',1,'2008-05-17',0)
 ,(5,5, 'Ana','123',1,'1978-04-26',1)
-,(6,6, 'Gustavo Henrique','123',1,'1993-01-01',1)
+,(6,6, 'Gustavo Henrique','123',1,'1993-01-01',0)
 ,(7,7, 'Clarice','123',1,'2006-07-06',1)
-,(8,8, 'André','123',1,'1971-07-29',1)
+,(8,8, 'André','123',1,'1971-07-29',0)
 ,(9,9, 'Benjamin','123',1,'2013-03-19',1)
-,(10,10, 'Julia','123',1,'1986-05-06',1);
+,(10,10, 'Julia','123',1,'1986-05-06',0);
 
 INSERT INTO listaCompra (idlistaCompra, idconsumidor, nome, dataultimamodificacao) VALUES    (1, 1, 'Primeira Lista', '2018/06/03') ,(2, 2,'Compras da feira','2013-09-22')
 ,(3, 3,'Churas da turma','1979-06-09')
