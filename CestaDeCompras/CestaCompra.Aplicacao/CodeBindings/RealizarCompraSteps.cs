@@ -24,7 +24,6 @@ namespace CestaCompra.Aplicacao.CodeBindings
             ScenarioContext.Current.Pending();
         }
         
-        
         [Given(@"O sistema retorna (.*) com os supermercados com o menor preço total em ordem crescente\.")]
         public void DadoOSistemaRetornaComOsSupermercadosComOMenorPrecoTotalEmOrdemCrescente_(string p0)
         {

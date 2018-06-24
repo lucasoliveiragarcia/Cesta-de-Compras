@@ -18,8 +18,20 @@ namespace CestaCompra.Aplicacao.CodeBindings
             ScenarioContext.Current.Pending();
         }
         
+        [Given(@"Eu digito o ‘Lista do mês’")]
+        public void DadoEuDigitoOListaDoMes()
+        {
+            ScenarioContext.Current.Pending();
+        }
+        
         [Given(@"Eu pressiono (.*)")]
         public void DadoEuPressiono(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+        
+        [Given(@"Eu adiciono o primeiro item ‘Suco Caju (.*)ML Bela Ichia’")]
+        public void DadoEuAdicionoOPrimeiroItemSucoCajuMLBelaIchia(int p0)
         {
             ScenarioContext.Current.Pending();
         }
@@ -32,6 +44,12 @@ namespace CestaCompra.Aplicacao.CodeBindings
         
         [When(@"Eu pressiono (.*)")]
         public void QuandoEuPressiono(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+        
+        [Then(@"A lista é criada\.")]
+        public void EntaoAListaECriada_()
         {
             ScenarioContext.Current.Pending();
         }

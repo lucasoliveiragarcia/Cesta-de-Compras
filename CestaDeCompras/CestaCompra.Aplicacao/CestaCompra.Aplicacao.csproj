@@ -61,10 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeBindings\PessoaAplicacaoSteps.cs" />
-    <Compile Include="CodeBindings\RealizaCompraAplicacaoSteps.cs" />
-    <Compile Include="CodeBindings\SupermercadoAplicacaoSteps.cs" />
-    <Compile Include="Features\ListaCompraAplicacao.feature.cs">
+    <Compile Include="CodeBindings\CadastrarEstabelecimentoSteps.cs" />
+    <Compile Include="CodeBindings\CriarListaDeComprasSteps.cs" />
+    <Compile Include="CodeBindings\FazerLoginSteps.cs" />
+    <Compile Include="CodeBindings\RealizarCompraSteps.cs" />
+    <Compile Include="Features\CriarListaCompra.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CriarListaCompra.feature</DependentUpon>
