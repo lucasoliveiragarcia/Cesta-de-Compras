@@ -13,7 +13,7 @@ namespace CestaCompra.Data.Models
 
         public int IdConsumidor { get; set; }
         public DateTime DataCadastro { get; set; }
-        public Boolean Administrador { get; set; }
+        public int Administrador { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
         public double Nivel { get; set; }        
