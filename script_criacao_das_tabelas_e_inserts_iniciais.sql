@@ -130,15 +130,15 @@ ALTER TABLE Compra ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento
 /*Inserts*/
 
 INSERT INTO Marca (idmarca, nome)
-    VALUES  (1,'Garoto'),
-		    (2,'Nestle'),
-		    (3,'Sepé'),
+    VALUES  (1,'Nenhuma'),
+		    (2,'Garoto'),
+		    (3,'Mabel'),
 		    (4,'Coca Cola'),
 		    (5,'Unilever'),
 		    (6,'Seara'),
 		    (7,'Quero'),
-		    (8,'PEPSI'),
-		    (9,'SAMSUMG'),
+		    (8,'Pepsi'),
+		    (9,'Samsung'),
 		    (10,'Gillette');
 		    
     
@@ -243,15 +243,16 @@ INSERT INTO listaCompra (idlistaCompra, idconsumidor, nome, dataultimamodificaca
 ,(9, 9,'Compra de 15 dias','2006-11-19')
 ,(10, 10,'Compra de 15 dias','1994-03-13');
 
-INSERT INTO produto (idproduto, nome, idmedida, idmarca, unidade, valido) VALUES    (1, 'Biscoito Mabel', 1, 1,280,1) ,(2, 'Banana',1,1,1,1)
-,(3, 'Maça',1,1,1,1)
-,(4, 'Peira',1,1,1,1)
-,(5, 'Arroz',1,1,1,1)
-,(6, 'Feijão',1,1,1,1)
-,(7, 'Suco de Caju',1,1,1,1)
-,(8, 'Coca-Cola',1,1,1,1)
-,(9, 'Milho',1,1,1,1)
-,(10, 'Miojo',1,1,1,1);
+INSERT INTO produto (idproduto, nome, idmedida, idmarca, unidade, valido) VALUES    (1, 'Biscoito', 1, 3,280,1) ,
+(2, 'Banana',1,1,1,1)
+,(3, 'Maçã',1,1,1,1)
+,(4, 'Pera',1,1,1,1)
+,(5, 'Laranja',1,1,1,1)
+,(6, 'Melão',1,1,1,1)
+,(7, 'Caju',1,1,1,1)
+,(8, 'Uva',1,1,1,1)
+,(9, 'Limão',1,1,1,1)
+,(10, 'Caixa de Chocolate',1,2,1,1);
 
 INSERT INTO Compra(IdEstabelecimento, valortotal,IdCompra,idconsumidor,datacompra)
 VALUES  
@@ -266,16 +267,18 @@ VALUES
 	(1, 17.00,9,4,'2018-09-09'),
 	(1, 32.00,10,10,'2018-01-09');
 	
-INSERT INTO itemcompra(idproduto,idcompra ,valido , preco,iditemcompra,quantidade) VALUES (1,1,1,15,1,1),
-(5,1,1,1,2,2),
-(4,1,1,26,3,3),
-(4,1,1,35,4,4),
-(5,1,1,33,5,4),
-(6,1,1,15,6,5),
-(3,1,1,16,7,6),
-(1,1,1,16,8,7),
-(3,1,1,31,9,8),
-(2,1,1,9,10,9);
+INSERT INTO itemcompra(idproduto,idcompra ,valido , preco,iditemcompra,quantidade) 
+VALUES 
+(4,1,1,4.20,2,1),
+(4,2,1,5.50,3,1),
+(4,3,1,8.00,4,1),
+(5,4,1,12.30,5,1),
+(6,5,1,3.69,6,1),
+(3,6,1,3.59,7,1),
+(1,7,1,4.59,8,1),
+(3,8,1,18.39,9,1),
+(2,9,1,17.00,10,1),
+(1,10,1,32.00,1,1);
 
 
 
@@ -309,4 +312,6 @@ INSERT INTO itemlistacompra(iditemlistacompra,idlistacompra ,idproduto,quantidad
 (8,1,8,16),
 (9,1,9,31),
 (10,1,10,9);
+
+
 

@@ -142,13 +142,13 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     idproduto: campo que armazena um número de identificação do produto (chave primária).
     nome: campo que armazena o nome do produto.
     unidade:
-    valido:
+    valido: campo que armazena a informação se o produto é válido.
     idmarca: campo que faz referência a um registro da tabela MARCA(chave estrangeira).
     idmedida: campo que faz referência a um registro da tabela MEDIDA(chave estrangeira).
 
     Tabela ITEMCOMPRA: Tabela que armazena informações relativas ao item da lista de uma compra realizada.
     iditemcompra: campo que armazena um número de identificação do item da lista da compra realizada(chave primária).
-    valido:
+    valido: campo que armazena a informação se o item da compra é válido.
     preco: campo que armazena o preço do item da lista da compra realizada.
     quantidade: campo que armazena a quantidade do item da lista da compra realizada.
     idproduto: campo que faz referência a um registro da tabela PRODUTO(chave estrangeira).
@@ -179,7 +179,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-     https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/inserts_inicial.sql
+     https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_inserts_iniciais.sql
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
