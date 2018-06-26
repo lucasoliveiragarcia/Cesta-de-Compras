@@ -191,49 +191,49 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
     select * from cidade
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/cidade.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/cidade.PNG)
     
     select * from compra
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/compra.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/compra.PNG)
     
     select * from consumidor
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/consumidor.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/consumidor.PNG)
     
     select * from endereco
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/endereco.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/endereco.PNG)
     
     select * from estabalecimento
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimento.PNG?raw=true
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimento.PNG)
     
     select * from estabelecimentoproduto
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimentoproduto.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimentoproduto.PNG)
     
     select * from estado
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estado.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estado.PNG)
     
     select * from itemcompra
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemcompra.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemcompra.PNG)
     
     select * from itemlistacompra
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemlistacompra.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemlistacompra.PNG)
     
     select * from listacompra
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/listacompra.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/listacompra.PNG)
     
     select * from marca
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/marca.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/marca.PNG)
     
     select * from medida
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/medida.PNG?raw=true
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/medida.PNG)
     
     select * from pais
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pais.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pais.PNG)
     
     select * from pessoa
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pessoa.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pessoa.PNG)
     
     select * from produto
-    https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/produto.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/produto.PNG)
 <br>
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
@@ -249,39 +249,39 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         select nome,sobrenome,email,datacompra from consumidor 
         join compra on(consumidor.idconsumidor=compra.idconsumidor)
         join pessoa on(consumidor.idpessoa=pessoa.idpessoa)
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/join.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/join.PNG)
         
         create or replace view nome_sobrenome_email_pessoa as
         select nome,sobrenome,email from pessoa;
 
         select * from nome_sobrenome_email_pessoa limit 10;
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view1.PNG?raw=true
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view1.PNG)
         
         create or replace view produtos as 
         select produto.nome as produto,marca.nome as marca from produto join marca on (produto.idmarca=marca.idmarca);
 
         select * from produtos limit 10;
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG)
         
         select exists(select * from compra where valortotal>10.0 and valortotal<20.0)
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG)
 
         select exists (select * from itemcompra where preco > 100.0)
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG)
         
         select not exists (select * from compra where datacompra > '2018-07-20') 
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG)
         
         alter table itemlistacompra add check (quantidade>0)
 
         INSERT INTO itemlistacompra (iditemlistacompra,idlistacompra,idproduto,quantidade) VALUES (1,1,1,0)
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check1.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check1.PNG)
         
         alter table compra add check (valortotal>0)
 
         INSERT INTO compra (idcompra,idconsumidor,idestabelecimento,valortotal,datacompra) 
         VALUES (1,1,1,0,'2008-07-02')
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check2.PNG?raw=true
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check2.PNG)
         
         
 
@@ -305,7 +305,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         EXECUTE PROCEDURE checkPrecoItemCompra();
 
         Insert into ItemCompra (idproduto,idcompra ,valido , preco,iditemcompra,quantidade) VALUES (1,1,1,5.00,11,1);
-        https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/assercao-trigger-funcao-1.PNG?raw=true
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/assercao-trigger-funcao-1.PNG)
 
 <br>
 
