@@ -18,21 +18,20 @@ namespace CestaCompra.Aplicacao.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("SupermercadoAplicacao")]
-    public partial class SupermercadoAplicacaoFeature
+    [NUnit.Framework.DescriptionAttribute("ConsultarListaCompra")]
+    public partial class ConsultarListaCompraFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SupermercadoAplicacao.feature"
+#line 1 "ConsultarListaCompra.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SupermercadoAplicacao", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-br"), "ConsultarListaCompra", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,30 +64,39 @@ namespace CestaCompra.Aplicacao.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cadastrar Supermercado")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void CadastrarSupermercado()
+        [NUnit.Framework.DescriptionAttribute("Sucesso em Consultar Lista")]
+        public virtual void SucessoEmConsultarLista()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastrar Supermercado", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Consultar Lista", ((string[])(null)));
+#line 5
 this.ScenarioSetup(scenarioInfo);
+#line 6
+testRunner.Given("Eu estou logado no Sistema Cesta de Compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 7
+testRunner.And("eu seleciono a opção minhas listas de compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 8
- testRunner.Given("O sistema tenha sido previamente carregado com a Lista de Start-up de Supermercad" +
-                    "os.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.And("o sistema exibe as minhas listas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 9
- testRunner.When("O administrador recebe a informação de novo supermercado.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("eu seleciono uma lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 10
- testRunner.And("O administrador verifica se o supermercado atende aos requisitos de inserção no “" +
-                    "Cadastro de Supermercados”", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("Eu <confirmo> a lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 11
- testRunner.And("O administrador insere todos os dados de cadastramento do supermercado.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.And("O administrador verifica através de testes se o supermercado esta integrado ao si" +
-                    "stema.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("o sistema exibe a lista de itens .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Insucesso ao Consultar Lista")]
+        public virtual void InsucessoAoConsultarLista()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso ao Consultar Lista", ((string[])(null)));
 #line 13
- testRunner.Then("O administrador muda o status do supermercado para “Ativo”  no ambiente de operaç" +
-                    "ão.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
+#line 14
+testRunner.When("eu não <confirmo> a lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 15
+testRunner.Then("o sistema permanece aguardando a confirmação", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
