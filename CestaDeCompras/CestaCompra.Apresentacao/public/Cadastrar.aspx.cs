@@ -56,8 +56,7 @@ namespace CestaCompra.Apresentacao
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                ControlesWeb.Page_Load(Page);
+
         }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -96,7 +95,7 @@ namespace CestaCompra.Apresentacao
             {
                 effDate = DateTime.Parse(TxtDataNascimento.Text);
             }
-            catch (FormatException ex)
+            catch
             {
                 throw new Exception("Data inválida");
             }

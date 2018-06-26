@@ -314,8 +314,6 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Utils\ControlesWeb.cs" />
-    <Compile Include="Utils\PaginaWeb.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

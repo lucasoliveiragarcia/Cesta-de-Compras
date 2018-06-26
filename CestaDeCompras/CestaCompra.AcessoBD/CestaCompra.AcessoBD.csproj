@@ -57,8 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RepositorioCidade.cs" />
+    <Compile Include="RepositorioEstabelecimentoProduto.cs" />
+    <Compile Include="RepositorioItemListaCompra.cs" />
+    <Compile Include="RepositorioProduto.cs" />
+    <Compile Include="RepositorioMedida.cs" />
+    <Compile Include="RepositorioMarca.cs" />
+    <Compile Include="RepositorioItemCompra.cs" />
     <Compile Include="RepositorioEndereco.cs" />
     <Compile Include="RepositorioConsumidor.cs" />
+    <Compile Include="RepositorioCompra.cs" />
+    <Compile Include="RepositorioListaCompra.cs" />
+    <Compile Include="RepositorioEstado.cs" />
     <Compile Include="RepositorioPessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
