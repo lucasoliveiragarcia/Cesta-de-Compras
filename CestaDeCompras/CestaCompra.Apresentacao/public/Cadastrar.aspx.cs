@@ -17,7 +17,6 @@ namespace CestaCompra.Apresentacao
         private IRepositorioConsumidor repositorioConsumidor;
         private IRepositorioCidade repositorioCidade;
         private AplConsumidor aplConsumidor;
-        
 
         private SiteMaster _masterPage;
         private SiteMaster MasterPage
@@ -73,38 +72,35 @@ namespace CestaCompra.Apresentacao
 
         }
 
-        private void ValidarFormulario()
+        private void validarFormulario()
         {
+
+            if (this.TxtNome.Text.Trim() == string.Empty)
+                throw new Exception("Informe o nome.");
+
+            if (this.TxtSobrenome.Text.Trim() == string.Empty)
+                throw new Exception("Informe o sobrenome.");
+
+            if (this.TxtLogin.Text.Trim() == string.Empty)
+                throw new Exception("Informe o login.");
+
+            if (this.TxtSenha.Text.Trim() == string.Empty)
+                throw new Exception("Informe a senha.");
+
+            if (this.TxtEmail.Text.Trim() == string.Empty)
+                throw new Exception("Informe o email.");
+
+            DateTime effDate;
+
             try
             {
-                if (this.TxtNome.Text.Trim() == string.Empty)
-                    throw new Exception("Informe o nome.");
-
-                if (this.TxtSobrenome.Text.Trim() == string.Empty)
-                    throw new Exception("Informe o sobrenome.");
-
-                if (this.TxtLogin.Text.Trim() == string.Empty)
-                    throw new Exception("Informe o login.");
-
-                if (this.TxtSenha.Text.Trim() == string.Empty)
-                    throw new Exception("Informe a senha.");
-
-                if (this.TxtEmail.Text.Trim() == string.Empty)
-                    throw new Exception("Informe o email.");
-
-                DateTime effDate;
-
-                try {
-                    effDate = DateTime.Parse(TxtDataNascimento.Text);
-                }
-                catch(FormatException ex) {
-                    throw new Exception("Data inválida");
-                }
+                effDate = DateTime.Parse(TxtDataNascimento.Text);
             }
-            catch (Exception msg)
+            catch (FormatException ex)
             {
-                MasterPage.SetMensagemMain(msg.Message, eTipoMensagem.Erro);
+                throw new Exception("Data inválida");
             }
+
         }
 
         private void preencherAplConsumidor()
@@ -114,29 +110,23 @@ namespace CestaCompra.Apresentacao
             aplConsumidor.pessoa.DataNascimento = DateTime.Parse(this.TxtDataNascimento.Text);
             aplConsumidor.pessoa.Email = this.TxtEmail.Text;
 
-            aplConsumidor.cidade.IdCidade = Convert.ToInt16(this.Ddl_Cidade.SelectedValue);
-
-            aplConsumidor.endereco.Logradouro = this.TxtLogradouro.Text;
-            aplConsumidor.endereco.Numero = this.TxtNumero.Text;
-            aplConsumidor.endereco.Cep = this.TxtCep.Text;
-
             aplConsumidor.consumidor.Login = this.TxtLogin.Text;
             aplConsumidor.consumidor.Senha = this.TxtSenha.Text;
         }
-        
+
         protected void BtnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                ValidarFormulario();
+                validarFormulario();
 
                 preencherAplConsumidor();
 
                 aplConsumidor.CadastrarConsumidor();
                 
+                Response.Redirect("../login/Login.aspx");
+
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
-                FormsAuthentication.RedirectFromLoginPage(TxtLogin.Text, false);
-                
             }
             catch (Exception msg)
             {
@@ -151,27 +141,7 @@ namespace CestaCompra.Apresentacao
 
         protected void LkbEsqueceuSenha_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Usuario objUsuario = new Usuario();
-                //objUsuario.EnviarEmailEsqueceuSenha(
-                //    Convert.ToString(
-                //        Request.Form["TxtUsuario"]
-                //    )
-                //);
-            }
-            catch (Exception ex)
-            {
-                Label CtrlLblMensagem = (Label)Form.FindControl("LblMensagem");
-                if (CtrlLblMensagem != null)
-                {
-                    CtrlLblMensagem.Text = ex.Message;
-                }
-                else
-                {
-                    throw new Exception(ex.Message);
-                }
-            }
+            throw new Exception("Não implementado...");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,9 @@ namespace CestaCompra.Aplicacao
         public Consumidor consumidor;
         public Endereco endereco;
         public Cidade cidade;
-        
+
         private readonly ContextCestaBD contextCestaBD = new ContextCestaBD();
-        
+
 
         public AplConsumidor()
         {
@@ -39,32 +40,16 @@ namespace CestaCompra.Aplicacao
 
         public void CadastrarConsumidor()
         {
-            try
-            {
-                //contextCestaBD.Database.BeginTransaction();
-                
-                repositorioPessoa.Inserir(this.pessoa);
-                repositorioPessoa.UnitOfWork.Commit();
-                
-                consumidor.Pessoa = pessoa;
-                consumidor.Senha = BCrypt.Net.BCrypt.HashPassword(consumidor.Senha, SALT);
 
-                repositorioConsumidor.Inserir(consumidor);
-                repositorioConsumidor.UnitOfWork.Commit();
+            repositorioPessoa.Inserir(this.pessoa);
+            repositorioPessoa.UnitOfWork.Commit();
 
-                this.cidade = repositorioCidade.ObterPorId(cidade.IdCidade);
-                
-                //endereco.Pessoa = pessoa;
-                //endereco.Cidade = cidade;
-                //repositorioEndereco.Inserir(endereco);
-                //contextCestaBD.CommitAsync();
+            consumidor.Pessoa = pessoa;
+            consumidor.Senha = BCrypt.Net.BCrypt.HashPassword(consumidor.Senha, SALT);
 
-            }
-            catch(Exception ex)
-            {
-                contextCestaBD.Roolback();
-                throw new Exception(ex.Message);
-            }
+            repositorioConsumidor.Inserir(consumidor);
+            repositorioConsumidor.UnitOfWork.Commit();
+            
         }
 
         private void VerificarAcesso(string senhaTela, string senhaEncriptada)
@@ -72,7 +57,7 @@ namespace CestaCompra.Aplicacao
             if (!BCrypt.Net.BCrypt.Verify(senhaTela, senhaEncriptada))
             {
                 throw new Exception("Senha incorreta!");
-            }    
+            }
         }
     }
 }

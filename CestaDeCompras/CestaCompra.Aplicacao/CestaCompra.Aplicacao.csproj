@@ -89,11 +89,11 @@
     <Compile Include="CodeBindings\FazerLoginSteps.cs" />
     <Compile Include="CodeBindings\RealizarCompraSteps.cs" />
     <Compile Include="Features\AdicionarItemLista.feature.cs">
-	<Compile Include="DTO\ConsumidorDTO.cs" />
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AdicionarItemLista.feature</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ConsumidorDTO.cs" />
     <Compile Include="Features\CadastrarConsumidor.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

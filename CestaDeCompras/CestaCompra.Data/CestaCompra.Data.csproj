@@ -123,12 +123,10 @@
     <Compile Include="Models\Mapping\ListaCompraMap.cs" />
     <Compile Include="Models\Mapping\MarcaMap.cs" />
     <Compile Include="Models\Mapping\MedidaMap.cs" />
-    <Compile Include="Models\Mapping\PaisMap.cs" />
     <Compile Include="Models\Mapping\ProdutoMap.cs" />
     <Compile Include="Models\Mapping\PessoaMap.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Medida.cs" />
-    <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

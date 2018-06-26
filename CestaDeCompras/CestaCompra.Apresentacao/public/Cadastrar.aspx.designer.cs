@@ -49,42 +49,6 @@ namespace CestaCompra.Apresentacao {
         protected global::System.Web.UI.WebControls.TextBox TxtEmail;
         
         /// <summary>
-        /// Controle Ddl_Cidade.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Ddl_Cidade;
-        
-        /// <summary>
-        /// Controle TxtLogradouro.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLogradouro;
-        
-        /// <summary>
-        /// Controle TxtNumero.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumero;
-        
-        /// <summary>
-        /// Controle TxtCep.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCep;
-        
-        /// <summary>
         /// Controle TxtLogin.
         /// </summary>
         /// <remarks>

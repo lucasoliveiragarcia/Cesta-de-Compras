@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
@@ -25,11 +21,6 @@ namespace CestaCompra.Data.Models.Mapping
 
             //Table
             this.ToTable("estado");
-
-            //Relacionamentos
-            this.HasRequired(d => d.Pais)
-                .WithMany(d => d.Estados)
-                .Map(m => m.MapKey("idpais"));
         }
     }
 }

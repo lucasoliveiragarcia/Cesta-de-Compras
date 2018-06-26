@@ -96,10 +96,6 @@
       <Project>{D36DA476-5CC4-4A4B-B97C-1CE4F9521D06}</Project>
       <Name>CestaCompra.AcessoBD</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CestaCompra.Aplicacao\CestaCompra.Aplicacao.csproj">
-      <Project>{c44f806b-302a-4dbc-bf36-ce8515bc1c78}</Project>
-      <Name>CestaCompra.Aplicacao</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CestaCompra.Data\CestaCompra.Data.csproj">
       <Project>{7604b9fb-9b27-4737-9752-ecb5bd74c6fc}</Project>
       <Name>CestaCompra.Data</Name>

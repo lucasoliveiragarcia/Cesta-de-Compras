@@ -33,7 +33,6 @@ namespace CestaCompra.Data
         public DbSet<ItemListaCompra> ItemListaCompra { get; set; }
         public DbSet<ListaCompra> ListaCompra { get; set; }
         public DbSet<Marca> Marca { get; set; }
-        public DbSet<Pais> Pais { get; set; }
         public DbSet<Produto> Produto { get; set; }
         public DbSet<EstabelecimentoProduto> EstabelecimentoProduto { get; set; }
         public DbSet<Medida> Medida { get; set; }
@@ -56,7 +55,6 @@ namespace CestaCompra.Data
             modelBuilder.Configurations.Add(new ItemListaCompraMap());
             modelBuilder.Configurations.Add(new ListaCompraMap());
             modelBuilder.Configurations.Add(new MarcaMap());
-            modelBuilder.Configurations.Add(new PaisMap());
             modelBuilder.Configurations.Add(new PessoaMap());
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new EstabelecimentoProdutoMap());

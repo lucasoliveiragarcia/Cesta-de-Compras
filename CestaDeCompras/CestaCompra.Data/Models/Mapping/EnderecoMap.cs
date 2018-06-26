@@ -42,7 +42,7 @@ namespace CestaCompra.Data.Models.Mapping
             ToTable("endereco");
 
             //Relacionamentos
-            HasRequired(d => d.Cidade)
+            HasOptional(d => d.Cidade)
             .WithMany(d => d.Enderecos)
             .Map(m => m.MapKey("idcidade"));             
         }

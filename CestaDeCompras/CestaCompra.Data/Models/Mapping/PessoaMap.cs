@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Web;
-
+﻿using System.Data.Entity.ModelConfiguration;
 
 namespace CestaCompra.Data.Models.Mapping
 {
@@ -19,7 +14,7 @@ namespace CestaCompra.Data.Models.Mapping
                  .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnName("email");
-
+                
             this.Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(100)
@@ -32,8 +27,7 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdPessoa)
                 .IsRequired()
                 .HasColumnName("idpessoa");
-
-
+            
             this.Property(t => t.DataNascimento)
                 .IsRequired()
                 .HasColumnName("datanascimento");
@@ -42,9 +36,9 @@ namespace CestaCompra.Data.Models.Mapping
             this.ToTable("pessoa");
 
             //Relacionamentos
-            HasRequired(d => d.Endereco)
-           .WithOptional(d => d.Pessoa)
-           .Map(m => m.MapKey("idendereco"));
+            HasOptional(d => d.Endereco)
+            .WithOptionalDependent()            
+            .Map(m => m.MapKey("idendereco"));
         }
     }
 }

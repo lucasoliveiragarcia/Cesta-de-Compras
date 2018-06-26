@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using CestaCompra.AcessoBD;
-using CestaCompra.Aplicacao;
+//using CestaCompra.Aplicacao;
 using CestaCompra.Data;
 using CestaCompra.Data.Configuracao;
 using CestaCompra.Data.Models;

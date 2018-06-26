@@ -27,29 +27,6 @@
                         <asp:TextBox runat="server" ID="TxtEmail"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <th scope="row">Cidade</th>
-                    <td>
-                        <asp:DropDownList
-                            ID="Ddl_Cidade" runat="server" DataTextField="Nome" DataValueField="IdCidade" SelectMethod="GetCidades" AppendDataBoundItems="true">
-                            <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                </tr>
-                <tr>
-                    <th scope="row">Logradouro</th>
-                    <td>
-                        <asp:TextBox runat="server" ID="TxtLogradouro"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <th scope="row">Numero</th>
-                    <td>
-                        <asp:TextBox runat="server" ID="TxtNumero" type="number" MaxLength="20"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <th scope="row">CEP</th>
-                    <td>
-                        <asp:TextBox runat="server" ID="TxtCep" type="number" MaxLength="8"></asp:TextBox></td>
-                </tr>
-                <tr>
                     <th scope="row">Login</th>
                     <td>
                         <asp:TextBox runat="server" ID="TxtLogin"></asp:TextBox></td>

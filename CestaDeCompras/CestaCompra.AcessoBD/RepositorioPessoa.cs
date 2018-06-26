@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CestaCompra.Data;
-using CestaCompra.Data.Configuracao;
+﻿using CestaCompra.Data.Configuracao;
 using CestaCompra.Data.Models;
 
 namespace CestaCompra.AcessoBD

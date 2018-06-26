@@ -8,11 +8,11 @@ import time
 fake = Faker()
 fake = Factory.create('pt_BR')
 
-schema = "'dbo'"; #para o projeto usando entity framework utilize => dbo
+schema = "dbo"; #para o projeto usando entity framework utilize => dbo
 
 QTD_MARCA = 10;
 QTD_TIPO_MEDIDA = 10;
-QTD_PAIS = 11;
+#QTD_PAIS = 11;
 QTD_ESTADO = 12;
 QTD_CIDADE = 100;
 QTD_ENDERECO = 150;
@@ -33,11 +33,11 @@ def main():
 
 def gerarArquivo():
 
-    arquivoSql = open("insertCestaCompras.sql", 'wt')    
-    arquivoSql.write("SET schema "+schema+";") #Schema padrão do postgres é Public
+    arquivoSql = open("insertDados.sql", 'wt')
+    arquivoSql.write("SET schema '"+schema+"';") #Schema padrão do postgres é Public
     arquivoSql.write(getScriptMarca())
     arquivoSql.write(getScriptMedida())
-    arquivoSql.write(getScriptPais())
+    #arquivoSql.write(getScriptPais()) # Removido do Escopo
     arquivoSql.write(getScriptEstado())
     arquivoSql.write(getScriptCidade())
     arquivoSql.write(getScriptEndereco())
@@ -74,7 +74,7 @@ def getScriptMarca():
 		    (9,'SAMSUMG'),
 		    (10,'Gillette');
 		    """
-    return sql;
+    return sql + setNextVal("marca");
 
 def getScriptMedida():
     sql = """
@@ -90,7 +90,7 @@ def getScriptMedida():
 		(9,'CM',9),
 		(10,'Gigas',10);
     """
-    return sql
+    return sql + setNextVal("medida")
 
 def getScriptPais():
     sql = """  \nINSERT INTO pais (idpais, nome)
@@ -105,23 +105,23 @@ def getScriptPais():
         (9,  'México'        ),
         (10, 'Egito'         ),
         (11, 'China'         );  """
-    return sql
+    return sql + setNextVal("pais")
 
 def getScriptEstado():
-    sql = """ \nINSERT INTO estado (idpais, idestado, nome)
-        VALUES  (1, 1,  'Espirito Santo'    ),
-        (1, 2,  'São Paulo'         ),
-        (1, 3,  'Goias'             ),
-        (1, 4,  'Amazonas'          ),
-        (1, 5,  'Mato Grosso do Sul'),
-        (1, 6,  'Rio de Janeiro'    ),
-        (1, 7,  'Bahia'             ),
-        (1, 8,  'Rio de Janeiro'    ),
-		(2, 9,  'Texas'             ),
-        (2, 10, 'Califórnia'        ),
-        (2, 11, 'Flórida'           ),
-        (2, 12, 'Alasca'            ); """
-    return sql
+    sql = """ \nINSERT INTO estado (idestado, nome)
+        VALUES  (1,  'Espirito Santo'    ),
+        (2,  'São Paulo'         ),
+        (3,  'Goias'             ),
+        (4,  'Amazonas'          ),
+        (5,  'Mato Grosso do Sul'),
+        (6,  'Rio de Janeiro'    ),
+        (7,  'Bahia'             ),
+        (8,  'Rio de Janeiro'    ),
+		(9,  'Texas'             ),
+        (10, 'Califórnia'        ),
+        (11, 'Flórida'           ),
+        (12, 'Alasca'            ); """
+    return sql + setNextVal("estado")
 
 def getScriptCidade(qtd = QTD_CIDADE):
     sql = " \nINSERT INTO cidade (idcidade,idestado, nome) VALUES "
@@ -134,7 +134,7 @@ def getScriptCidade(qtd = QTD_CIDADE):
         idEstado = random.randint(1,8)
         sql += "\n"
     sql +=";"
-    return sql;
+    return sql + setNextVal("cidade");
 
 def getScriptEndereco(qtd = QTD_ENDERECO):
     sql = " \nINSERT INTO endereco (idendereco, idcidade, cep, logradouro, numero, complemento) VALUES  "
@@ -150,10 +150,10 @@ def getScriptEndereco(qtd = QTD_ENDERECO):
                                                        'algum complemento',idEstado)
         sql += "\n"
     sql += ";"
-    return sql
+    return sql + setNextVal("endereco")
 
 def getScriptEstabelecimento(QTD =  QTD_ESTABLECIMENTO):
-    return """\nINSERT INTO estabelecimento(idestabelecimento ,idendereco ,nome , unidade ,logo)
+    sql = """\nINSERT INTO estabelecimento(idestabelecimento ,idendereco ,nome , unidade ,logo)
     VALUES  (1,  1, 'EPA PLUS',     'Serra',      'logo.jpg'),
 	(2,  2, 'Extrabom',   'Serra',  'logo.jpg'),
 	(3,  3, 'Wallmart',   'Vitória',    'logo.jpg'),
@@ -164,6 +164,8 @@ def getScriptEstabelecimento(QTD =  QTD_ESTABLECIMENTO):
 	(8,  8, 'Extrabom',   'Vila Velha','logo.jpg'),
 	(9,  9, 'Carrefour',  'Vitória', 'logo.jpg'),
 	(10, 10, 'Wallmart',   'Linhares', 'logo.jpg');"""
+
+    return sql + setNextVal("estabelecimento");
 
 def getScriptPessoa(QTD = QTD_PESSOA):
     registros = 0
@@ -190,7 +192,7 @@ def getScriptPessoa(QTD = QTD_PESSOA):
             registros = 0
 
     sql += ";"
-    return sql
+    return sql + setNextVal("pessoa")
 
 def getScriptConsumidor(QTD = QTD_PESSOA):
     sql = " \nINSERT INTO consumidor(idconsumidor, idpessoa, login, senha, nivel, datacadastro) VALUES   "
@@ -207,7 +209,7 @@ def getScriptConsumidor(QTD = QTD_PESSOA):
                                                     dataCadastro)
         sql += "\n"
     sql += ";"
-    return sql
+    return sql + setNextVal("consumidor")
 
 def getScriptListaCompra(QTD = QTD_LISTA_COMPRA):
     nomesListas = ['Churas da turma', 'Compra de 30 dias', 'Compra de 15 dias','Compras da feira']
@@ -221,7 +223,7 @@ def getScriptListaCompra(QTD = QTD_LISTA_COMPRA):
         sql += ",({0}, {1},'{2}','{3}')".format(i,i, nomesListas[indexNomeLista], dataModificacao)
         sql += "\n"
     sql += ";"
-    return sql
+    return sql + setNextVal("listacompra")
 
 def getScriptProduto(QTD = QTD_PRODUTO):
     nomeProdutos = ['Banana', 'Maça', 'Peira','Arroz', 'Feijão','Suco de Caju', 'Coca-Cola','Milho', 'Miojo', 'Queijo',
@@ -239,10 +241,10 @@ def getScriptProduto(QTD = QTD_PRODUTO):
     sql += ';'
     QTD_PRODUTO = len(nomeProdutos);
 
-    return sql
+    return sql + setNextVal("produto")
 
 def getScriptListaCompraxProduto(QTD = QTD_LISTA_COMPRA_PRODUTO):
-    return """INSERT INTO listacompraxproduto (idlistaCompra, idproduto, quantidade)
+    sql = """INSERT INTO listacompraxproduto (idlistaCompra, idproduto, quantidade)
     VALUES (01, 1, 10),
        (01, 7, 2),
        (01, 5, 1),
@@ -254,6 +256,7 @@ def getScriptListaCompraxProduto(QTD = QTD_LISTA_COMPRA_PRODUTO):
        (04, 4, 1),
        (04, 4, 1);       
 	"""
+    return sql + setNextVal("listacompraxproduto")
 
 def getIdProdutosAleatorio():
     lstIdProdutos = []
@@ -328,7 +331,10 @@ def getScriptCompra(QTD = QTD_COMPRA):
     print('Quantidade de Itens: ', countItemCompra)
     print()
 
-    return sqlretorno
+    return sqlretorno + setNextVal("compra") + setNextVal("itemcompra")
+
+def setNextVal(tabela):
+    return " SELECT setval(pg_get_serial_sequence('{0}.{1}', 'id{1}'), coalesce(max(id{1}), 0)+1 , false) FROM {0}.{1}; ".format(schema, tabela)
 
 def getDataAleatoria():
     return fake.date(pattern="%Y-%m-%d %H:%M:%S", end_datetime=None)
