@@ -11,7 +11,7 @@ before_package:
 - cmd: >-
     choco install "msbuild-sonarqube-runner" -y
     
-    SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13" /d:sonar.exclusions=CestaCompra.Apresentacao/Scripts,CestaCompra.Apresentacao/Scripts/WebForms/,CestaCompra.Apresentacao/Scripts/WebForms/MSAjax,CestaCompra.Aplicacao/CodeBindings/*,CestaCompra.Aplicacao/Features/*,**/*.feature.cs,**/*.feature /d:sonar.javascript.exclusions=**/Script/**,**/WebForms/**
+    SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13" /d:sonar.exclusions=**/App_Start/**,CestaCompra.Apresentacao/Scripts,CestaCompra.Apresentacao/Scripts/WebForms/,CestaCompra.Apresentacao/Scripts/WebForms/MSAjax,CestaCompra.Aplicacao/CodeBindings/*,CestaCompra.Aplicacao/Features/*,**/*.feature.cs,**/*.feature /d:sonar.javascript.exclusions=**/Script/**,**/WebForms/**
     
     MsBuild.exe /t:Rebuild
     
