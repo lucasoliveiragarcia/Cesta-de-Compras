@@ -93,7 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdicionarItemLista.feature</DependentUpon>
     </Compile>
-    <Compile Include="DTO\ConsumidorDTO.cs" />
+    <Compile Include="Dto\ConsumidorDto.cs" />
     <Compile Include="Features\CadastrarConsumidor.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

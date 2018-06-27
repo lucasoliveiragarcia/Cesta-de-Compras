@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CestaCompra.Aplicacao.DTO
 {
-    class ConsumidorDTO
+    class ConsumidorDto
     {
         public int IdPessoa { get; set; }
         public string Email { get; set; }
