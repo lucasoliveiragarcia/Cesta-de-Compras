@@ -87,9 +87,9 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     cep: campo que armazena o Código de endereço postal do endereço.
     idcidade: campo que faz referência a um registro da tabela CIDADE (chave estrangeira).
 
-    Tabela ESTABELECIMENTOPRODUTO: 
-    idestabelecimentoproduto:
-    preco:
+    Tabela ESTABELECIMENTOPRODUTO: Tabela que armazena as informações relativas aos produtos de cada supermercado
+    idestabelecimentoproduto: campo que armazena um número de identificação da relação entre os produtos de cada supermercado (chave primária).
+    preco: campo que armazena preço do produto no supermercado.
     idproduto:campo que faz referência a um registro da tabela PRODUTO (chave estrangeira).
     idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO (chave estrangeira).
 
