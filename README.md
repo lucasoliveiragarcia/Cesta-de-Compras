@@ -1,4 +1,4 @@
-# TRABALHO 01 : Cesta de Compras [![Build status](https://ci.appveyor.com/api/projects/status/iao8pt0jse80i4ps?svg=true)](https://ci.appveyor.com/project/lucasoliveiragarcia/cesta-de-compras)
+# TRABALHO 01 : Cesta de Compras [![Build status](https://ci.appveyor.com/api/projects/status/iao8pt0jse80i4ps?svg=true)](https://ci.appveyor.com/project/lucasoliveiragarcia/cesta-de-compras) [![Build status](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=code_smells)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=bugs)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=coverage)](https://sonarcloud.io/dashboard?id=cestacompra2018)
 
 Trabalho desenvolvido durante a disciplina de BD
 
