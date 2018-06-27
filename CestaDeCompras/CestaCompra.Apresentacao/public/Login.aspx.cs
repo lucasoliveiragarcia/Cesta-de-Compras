@@ -34,9 +34,7 @@ namespace CestaCompra.Apresentacao
                 _masterPage = value;
             }
         }
-
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
@@ -51,9 +49,6 @@ namespace CestaCompra.Apresentacao
             }
 
             Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
-            //string mySalt = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
-            //string senhaEncriptada = BCrypt.Net.BCrypt.HashString("123");
-            //string senha2 = BCrypt.Net.BCrypt.HashPassword("123",mySalt);
             
             if(objConsumidor == null)
             {
@@ -63,10 +58,11 @@ namespace CestaCompra.Apresentacao
             {
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
 
-                FormsAuthentication.SetAuthCookie(this.TxtUsuario.Text, false);
+                FormsAuthentication.SetAuthCookie(objConsumidor.IdConsumidor.ToString(), false);
+
+                Session["nomeConsumidor"] = objConsumidor.Pessoa.Nome;
 
                 Response.Redirect(FormsAuthentication.DefaultUrl);
-                
             }
             else
             {
@@ -98,7 +94,5 @@ namespace CestaCompra.Apresentacao
                 }
             }
         }
-
-
     }
 }

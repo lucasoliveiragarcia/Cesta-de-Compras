@@ -4,6 +4,10 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
+using CestaCompra.AcessoBD;
+using CestaCompra.Apresentacao.App_Start;
+using CestaCompra.Data.Models;
+using Ninject;
 
 namespace CestaCompra.Apresentacao
 {
@@ -11,26 +15,48 @@ namespace CestaCompra.Apresentacao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User != null)
+            try
             {
-                if(!string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
+                if (HttpContext.Current.User != null)
                 {
-                    Label lblUser = new Label();
-                    lblUser.Text = HttpContext.Current.User.Identity.Name;
-                    DivUserInfo.Controls.Add(lblUser);
+                    if (!string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
+                    {
+                        if (Session["nomeConsumidor"] == null)
+                        {
+                            IRepositorioConsumidor repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
+                            Consumidor consumidor = repositorioConsumidor.ObterPorId(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+                            Session["nomeConsumidor"] = consumidor.Pessoa.Nome;
+                        }
 
-                    LinkButton LkbLogout = new LinkButton();
-                    LkbLogout.Text = "Logout";
-                    LkbLogout.Click += Logout;
+                        Label lblUser = new Label();
+                        lblUser.Text = Session["nomeConsumidor"].ToString();
+                        DivUserInfo.Controls.Add(lblUser);
 
-                    DivUserInfo.Controls.Add(LkbLogout);
+                        LinkButton LkbLogout = new LinkButton();
+                        LkbLogout.Text = " Logout";
+                        LkbLogout.Click += Logout;
+
+                        DivUserInfo.Controls.Add(LkbLogout);
+
+                    }
                 }
+                else
+                {
+                    Session["nomeConsumidor"] = null;
+                    FormsAuthentication.RedirectToLoginPage();
+                }
+            }
+            catch
+            {
+                Session["nomeConsumidor"] = null;
+                this.Logout(null,null);
             }
         }
 
         private void Logout(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            Session["idconsumidor"] = null;
             Session.Abandon();
 
             //Apagar os Cookies de Autenticação
@@ -50,7 +76,7 @@ namespace CestaCompra.Apresentacao
         {
             this.LblMensagemMain.Text = text;
 
-            if (tipoMensagem ==  eTipoMensagem.Sucesso)
+            if (tipoMensagem == eTipoMensagem.Sucesso)
                 this.LblMensagemMain.ForeColor = Color.Blue;
             else
                 this.LblMensagemMain.ForeColor = Color.Red;
