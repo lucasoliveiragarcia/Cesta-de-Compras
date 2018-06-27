@@ -87,9 +87,9 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     cep: campo que armazena o Código de endereço postal do endereço.
     idcidade: campo que faz referência a um registro da tabela CIDADE (chave estrangeira).
 
-    Tabela ESTABELECIMENTOPRODUTO: 
-    idestabelecimentoproduto:
-    preco:
+    Tabela ESTABELECIMENTOPRODUTO: Tabela que armazena as informações relativas aos produtos de cada supermercado
+    idestabelecimentoproduto: campo que armazena um número de identificação da relação entre os produtos de cada supermercado (chave primária).
+    preco: campo que armazena preço do produto no supermercado.
     idproduto:campo que faz referência a um registro da tabela PRODUTO (chave estrangeira).
     idestabelecimento: campo que faz referência a um registro da tabela ESTABELECIMENTO (chave estrangeira).
 
@@ -190,7 +190,50 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
 OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 
 #### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
-    Data de Entrega: (Data a ser definida)
+    select * from cidade
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/cidade.PNG)
+    
+    select * from compra
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/compra.PNG)
+    
+    select * from consumidor
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/consumidor.PNG)
+    
+    select * from endereco
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/endereco.PNG)
+    
+    select * from estabalecimento
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimento.PNG)
+    
+    select * from estabelecimentoproduto
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimentoproduto.PNG)
+    
+    select * from estado
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estado.PNG)
+    
+    select * from itemcompra
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemcompra.PNG)
+    
+    select * from itemlistacompra
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemlistacompra.PNG)
+    
+    select * from listacompra
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/listacompra.PNG)
+    
+    select * from marca
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/marca.PNG)
+    
+    select * from medida
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/medida.PNG)
+    
+    select * from pais
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pais.PNG)
+    
+    select * from pessoa
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pessoa.PNG)
+    
+    select * from produto
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/produto.PNG)
 <br>
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
@@ -202,6 +245,46 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         c) as funcionalidades informadas no minimundo ou nos mockups(protótipos), que representarem 
         views do sistema (relatórios, informações disponíveis para os usuários, etc) devem estar 
         presentes aqui. 
+        
+        select nome,sobrenome,email,datacompra from consumidor 
+        join compra on(consumidor.idconsumidor=compra.idconsumidor)
+        join pessoa on(consumidor.idpessoa=pessoa.idpessoa)
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/join.PNG)
+        
+        create or replace view nome_sobrenome_email_pessoa as
+        select nome,sobrenome,email from pessoa;
+
+        select * from nome_sobrenome_email_pessoa limit 10;
+  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view1.PNG)
+        
+        create or replace view produtos as 
+        select produto.nome as produto,marca.nome as marca from produto join marca on (produto.idmarca=marca.idmarca);
+
+        select * from produtos limit 10;
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG)
+        
+        select exists(select * from compra where valortotal>10.0 and valortotal<20.0)
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG)
+
+        select exists (select * from itemcompra where preco > 100.0)
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG)
+        
+        select not exists (select * from compra where datacompra > '2018-07-20') 
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG)
+        
+        alter table itemlistacompra add check (quantidade>0)
+
+        INSERT INTO itemlistacompra (iditemlistacompra,idlistacompra,idproduto,quantidade) VALUES (1,1,1,0)
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check1.PNG)
+        
+        alter table compra add check (valortotal>0)
+
+        INSERT INTO compra (idcompra,idconsumidor,idestabelecimento,valortotal,datacompra) 
+        VALUES (1,1,1,0,'2008-07-02')
+ ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/check2.PNG)
+        
+        
+
 <br>
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
@@ -210,6 +293,20 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         b) Código do objeto (função/trigger/asserção)
         c) exemplo de dados para aplicação
         d) resultados em forma de tabela/imagem
+        
+        CREATE OR REPLACE FUNCTION checkPrecoItemCompra() RETURNS TRIGGER AS ' BEGIN
+        IF EXISTS ( select valortotal as valor_da_compra,preco as valor_do_item from itemcompra
+			join compra on(itemcompra.idcompra=compra.idcompra) where preco>valortotal) THEN
+        RAISE EXCEPTION ''Erro: Preço do item da compra maior que o valor total da compra!''; END IF; RETURN NULL; END
+        '
+        LANGUAGE plpgsql;
+        CREATE TRIGGER checkPrecoItemCompraTrigger AFTER INSERT OR UPDATE OF preco ON itemcompra
+        FOR EACH ROW
+        EXECUTE PROCEDURE checkPrecoItemCompra();
+
+        Insert into ItemCompra (idproduto,idcompra ,valido , preco,iditemcompra,quantidade) VALUES (1,1,1,5.00,11,1);
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/assercao-trigger-funcao-1.PNG)
+
 <br>
 
 #### 9.5	Administração do banco de dados<br>

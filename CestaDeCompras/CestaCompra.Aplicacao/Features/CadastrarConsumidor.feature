@@ -13,8 +13,8 @@ Quando Eu confirmo pressionando <cadastrar>
 Então o sistema conclui o cadastro e me habilita como usuário e eu posso começar a usar o aplicativo.
 
 Exemplos:
-| Nome    | Sobrenome | Data Nasc  | E-mail                | Senha  | Logradouro       | Numero | Compl.  | CEP       | Cidade     |
-| Clovis  | Sena      | 20/04/1953 | clovis.sena@gmail.com | xyz$33 | Rua Joao Vicente | 25     | Apto 45 | 29105-010 | Vila Velha |
+| Nome   | Sobrenome | Data Nasc  | E-mail                | Login  | Senha |
+| Clovis | Sena      | 20/04/1953 | clovis.sena@gmail.com | CSena$ |xyz$33 | 
 
 Cenário: Falha em Cadastrar Consumidor
 Dado eu não preencho corretamente os dados solicitados
