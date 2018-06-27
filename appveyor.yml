@@ -6,7 +6,7 @@ before_build:
     nuget restore -verbosity quiet
 build:
   publish_wap: true
-  verbosity: minimal
+  verbosity: quiet
 before_package:
 - cmd: >-
     choco install "msbuild-sonarqube-runner" -y
