@@ -65,8 +65,8 @@ namespace CestaCompra.Aplicacao.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sucesso em Cadastrar Consumidor")]
-        [NUnit.Framework.TestCaseAttribute("Clovis", "Sena", "20/04/1953", "clovis.sena@gmail.com", "xyz$33", "Rua Joao Vicente", "25", "Apto 45", "29105-010", "Vila Velha", null)]
-        public virtual void SucessoEmCadastrarConsumidor(string nome, string sobrenome, string dataNasc, string e_Mail, string senha, string logradouro, string numero, string compl_, string cEP, string cidade, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Clovis", "Sena", "20/04/1953", "clovis.sena@gmail.com", "CSena$", "xyz$33", null)]
+        public virtual void SucessoEmCadastrarConsumidor(string nome, string sobrenome, string dataNasc, string e_Mail, string login, string senha, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Cadastrar Consumidor", exampleTags);
 #line 6
