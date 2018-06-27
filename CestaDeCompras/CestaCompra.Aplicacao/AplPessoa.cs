@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,17 @@ namespace CestaCompra.Aplicacao
 {
     public class AplPessoa
     {
-        private IRepositorioPessoa pessoaRepositorio;
+        private readonly IRepositorioPessoa pessoaRepositorio;
         private readonly ContextCestaBD contextCestaBD = new ContextCestaBD();
 
         public AplPessoa()
         {
             this.pessoaRepositorio = new RepositorioPessoa(contextCestaBD);
+        }
+
+        public DataSet GetListas()
+        {
+            return new DataSet();
         }
     }
 }
