@@ -3,7 +3,7 @@ before_build:
 - ps: >-
     cd CestaDeCompras
 
-    nuget restore
+    nuget restore -verbosity quiet
 build:
   publish_wap: true
   verbosity: minimal
