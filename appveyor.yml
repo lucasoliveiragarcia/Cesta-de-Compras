@@ -40,13 +40,6 @@ before_package:
     
     SonarQube.Scanner.MSBuild.exe end /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13"
     
- # Post-install test scripts.
-test_script:
-  - SET PGUSER=postgres
-  - SET PGPASSWORD=Password12!
-  - PATH=C:\Program Files\PostgreSQL\9.4\bin\;%PATH%
-  - createdb BancoCestaCompra
-    
 deploy:
 - provider: WebDeploy
   server: https://eduardocoutto-001-site1.htempurl.com:8172/msdeploy.axd?site=eduardocoutto-001-site1
@@ -56,6 +49,7 @@ deploy:
     secure: Orw8GZWzSrtxBpvT3LK37A==
   on:
     branch: master
+    
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
