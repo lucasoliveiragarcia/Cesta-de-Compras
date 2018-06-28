@@ -38,12 +38,18 @@ namespace CestaCompra.Apresentacao
                             Session["nomeConsumidor"] = consumidor.Pessoa.Nome;
                         }
 
-                        Label lblUser = new Label();
-                        lblUser.Text = Session["nomeConsumidor"].ToString();
+                        Label lblUser = new Label
+                        {
+                            Text = Session["nomeConsumidor"].ToString()
+                        };
+
                         DivUserInfo.Controls.Add(lblUser);
 
-                        LinkButton LkbLogout = new LinkButton();
-                        LkbLogout.Text = " Logout";
+                        LinkButton LkbLogout = new LinkButton
+                        {
+                            Text = " Logout"
+                        };
+
                         LkbLogout.Click += Logout;
 
                         DivUserInfo.Controls.Add(LkbLogout);
@@ -73,32 +79,34 @@ namespace CestaCompra.Apresentacao
             FormsAuthentication.SignOut();
             Session["idconsumidor"] = null;
             Session.Abandon();
-
-            //Apagar os Cookies de Autenticação
-            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-            cookie1.Expires = DateTime.Now.AddYears(-1);
+            
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "")
+            {
+                Expires = DateTime.Now.AddYears(-1)
+            };
             Response.Cookies.Add(cookie1);
-
-            //Apagar Session Cook ie
-            HttpCookie cookie2 = new HttpCookie("ASP.NET_SessionId", "");
-            cookie2.Expires = DateTime.Now.AddYears(-1);
+            
+            HttpCookie cookie2 = new HttpCookie("ASP.NET_SessionId", "")
+            {
+                Expires = DateTime.Now.AddYears(-1)
+            };
             Response.Cookies.Add(cookie2);
 
             FormsAuthentication.RedirectToLoginPage();
         }
 
-        public void SetMensagemMain(string text, eTipoMensagem tipoMensagem)
+        public void SetMensagemMain(string text, ETipoMensagem tipoMensagem)
         {
             this.LblMensagemMain.Text = text;
 
-            if (tipoMensagem == eTipoMensagem.Sucesso)
+            if (tipoMensagem == ETipoMensagem.Sucesso)
                 this.LblMensagemMain.ForeColor = Color.Blue;
             else
                 this.LblMensagemMain.ForeColor = Color.Red;
         }
     }
 
-    public enum eTipoMensagem
+    public enum ETipoMensagem
     {
         Sucesso = 1,
         Erro = 2

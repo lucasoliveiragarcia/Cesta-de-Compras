@@ -42,7 +42,7 @@ namespace CestaCompra.Apresentacao
             {
                 if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
                 {
-                    MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
+                    MasterPage.SetMensagemMain("Informe uma senha!", ETipoMensagem.Erro);
                 }
 
                 Consumidor objConsumidor = MasterPage.RepositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
@@ -55,7 +55,7 @@ namespace CestaCompra.Apresentacao
 
                 aplConsumidor.VerificarAcesso(this.TxtSenha.Text, objConsumidor.Senha);
 
-                MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
+                MasterPage.SetMensagemMain("Sucesso!", ETipoMensagem.Sucesso);
 
                 FormsAuthentication.SetAuthCookie(objConsumidor.IdConsumidor.ToString(), false);
 
@@ -65,7 +65,7 @@ namespace CestaCompra.Apresentacao
             }
             catch (Exception msg)
             {
-                MasterPage.SetMensagemMain(msg.Message, eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(msg.Message, ETipoMensagem.Erro);
             }
         }
 
@@ -73,11 +73,11 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                MasterPage.SetMensagemMain("Não implementado", eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain("Não implementado", ETipoMensagem.Erro);
             }
             catch (Exception ex)
             {
-                MasterPage.SetMensagemMain(ex.Message, eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(ex.Message, ETipoMensagem.Erro);
             }
         }
     }

@@ -72,7 +72,7 @@ namespace CestaCompra.Apresentacao
             }
             catch (Exception erro )
             {
-                MasterPage.SetMensagemMain(erro.Message, eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
             }
         }
         protected void GvwLista_Sorting(object sender, GridViewSortEventArgs e)
@@ -83,7 +83,7 @@ namespace CestaCompra.Apresentacao
             }
             catch (Exception erro)
             {
-                MasterPage.SetMensagemMain(erro.Message, eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
             }
         }
 

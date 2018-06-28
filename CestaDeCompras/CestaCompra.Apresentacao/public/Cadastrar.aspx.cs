@@ -11,9 +11,8 @@ using Ninject;
 
 namespace CestaCompra.Apresentacao
 {
-    public partial class _Cadastrar : System.Web.UI.Page
+    public partial class Cadastrar : System.Web.UI.Page
     {
-        private ContextCestaBD cestaCompraDB = new ContextCestaBD();
         private IRepositorioConsumidor repositorioConsumidor;
         private IRepositorioCidade repositorioCidade;
         private AplConsumidor aplConsumidor;
@@ -27,82 +26,49 @@ namespace CestaCompra.Apresentacao
                     _masterPage = Page.Master as SiteMaster;
                 return _masterPage;
             }
-            set
-            {
-                _masterPage = value;
-            }
-        }
-
-        private int Id
-        {
-            get
-            {
-                int id = 0;
-                try
-                {
-                    id = Convert.ToInt32(ViewState["Id"]);
-                }
-                catch
-                {
-                    id = 0;
-                }
-                return id;
-            }
-            set
-            {
-                ViewState["Id"] = value;
-            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            aplConsumidor = new AplConsumidor();
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
             this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
             this.repositorioCidade = NinjectWebCommon.Kernel.Get<IRepositorioCidade>();
-            aplConsumidor = new AplConsumidor();
         }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-
-        }
-
-        private void validarFormulario()
+        
+        private void ValidarFormulario()
         {
 
             if (this.TxtNome.Text.Trim() == string.Empty)
-                throw new Exception("Informe o nome.");
+                throw new AccessViolationException("Informe o nome.");
 
             if (this.TxtSobrenome.Text.Trim() == string.Empty)
-                throw new Exception("Informe o sobrenome.");
+                throw new AccessViolationException("Informe o sobrenome.");
 
             if (this.TxtLogin.Text.Trim() == string.Empty)
-                throw new Exception("Informe o login.");
+                throw new AccessViolationException("Informe o login.");
 
             if (this.TxtSenha.Text.Trim() == string.Empty)
-                throw new Exception("Informe a senha.");
+                throw new AccessViolationException("Informe a senha.");
 
             if (this.TxtEmail.Text.Trim() == string.Empty)
-                throw new Exception("Informe o email.");
-
-            DateTime effDate;
-
+                throw new AccessViolationException("Informe o email.");
+            
             try
             {
-                effDate = DateTime.Parse(TxtDataNascimento.Text);
+                DateTime.Parse(TxtDataNascimento.Text);
             }
             catch
             {
-                throw new Exception("Data inválida");
+                throw new AccessViolationException("Data inválida");
             }
 
         }
 
-        private void preencherAplConsumidor()
+        private void PreencherAplConsumidor()
         {
             aplConsumidor.pessoa.Nome = this.TxtNome.Text;
             aplConsumidor.pessoa.Sobrenome = this.TxtSobrenome.Text;
@@ -117,19 +83,19 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                validarFormulario();
+                ValidarFormulario();
 
-                preencherAplConsumidor();
+                PreencherAplConsumidor();
 
                 aplConsumidor.CadastrarConsumidor();
                 
                 Response.Redirect("../login/Login.aspx");
 
-                MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
+                MasterPage.SetMensagemMain("Sucesso!", ETipoMensagem.Sucesso);
             }
             catch (Exception msg)
             {
-                MasterPage.SetMensagemMain(msg.Message, eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(msg.Message, ETipoMensagem.Erro);
             }
         }
 
@@ -140,7 +106,7 @@ namespace CestaCompra.Apresentacao
 
         protected void LkbEsqueceuSenha_Click(object sender, EventArgs e)
         {
-            throw new Exception("Não implementado...");
+            throw new NotImplementedException("Não implementado...");
         }
     }
 }
