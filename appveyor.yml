@@ -1,5 +1,18 @@
 version: 1.0.{build}
 
+environment:
+  # postgres
+  POSTGRES_PORT: tcp://localhost:5432
+  POSTGRES_ENV_POSTGRES_USER: postgres
+  POSTGRES_ENV_POSTGRES_PASSWORD: Password12!
+  POSTGRES_ENV_POSTGRES_DB: BancoCestaCompra
+  POSTGRES_PATH: C:\Program Files\PostgreSQL\9.4
+  PGUSER: postgres
+  PGPASSWORD: Password12!
+  
+init:
+  - SET PATH=%POSTGRES_PATH%\bin;%PATH%
+
 services:
   - postgresql
   
@@ -8,6 +21,11 @@ before_build:
     cd CestaDeCompras
 
     nuget restore -verbosity quiet
+build_script:
+  # postgres
+  - createdb BancoCestaCompra
+  - psql -d sqlectron -a -f spec/databases/postgresql/schema/schema.sql
+  
 build:
   publish_wap: true
   verbosity: quiet
@@ -20,6 +38,13 @@ before_package:
     MsBuild.exe /t:Rebuild
     
     SonarQube.Scanner.MSBuild.exe end /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13"
+    
+ # Post-install test scripts.
+test_script:
+  - SET PGUSER=postgres
+  - SET PGPASSWORD=Password12!
+  - PATH=C:\Program Files\PostgreSQL\9.4\bin\;%PATH%
+  - createdb BancoCestaCompra
     
 deploy:
 - provider: WebDeploy
