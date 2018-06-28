@@ -22,8 +22,7 @@ namespace CestaCompra.Aplicacao
         public Cidade cidade;
 
         private readonly ContextCestaBD contextCestaBD = new ContextCestaBD();
-
-
+        
         public AplConsumidor()
         {
             this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);

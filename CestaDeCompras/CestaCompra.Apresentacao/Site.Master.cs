@@ -8,23 +8,33 @@ using CestaCompra.AcessoBD;
 using CestaCompra.Apresentacao.App_Start;
 using CestaCompra.Data.Models;
 using Ninject;
+using CestaCompra.Data.Configuracao;
 
 namespace CestaCompra.Apresentacao
 {
     public partial class SiteMaster : MasterPage
     {
+        #region [ Repositorios ]
+        private IRepositorioConsumidor repositorioConsumidor;
+
+        public IRepositorioConsumidor RepositorioConsumidor
+        { get => repositorioConsumidor;
+          set => repositorioConsumidor = value;
+        }
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                this.IniciarRepositorios();
+
                 if (HttpContext.Current.User != null)
                 {
                     if (!string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
                     {
                         if (Session["nomeConsumidor"] == null)
                         {
-                            IRepositorioConsumidor repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
-                            Consumidor consumidor = repositorioConsumidor.ObterPorId(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+                            Consumidor consumidor = RepositorioConsumidor.ObterPorId(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
                             Session["nomeConsumidor"] = consumidor.Pessoa.Nome;
                         }
 
@@ -53,6 +63,11 @@ namespace CestaCompra.Apresentacao
             }
         }
 
+        private void IniciarRepositorios()
+        {
+            this.RepositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
+        }
+        
         private void Logout(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();

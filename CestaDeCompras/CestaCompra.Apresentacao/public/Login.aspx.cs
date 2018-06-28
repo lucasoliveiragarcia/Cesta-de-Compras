@@ -18,7 +18,6 @@ namespace CestaCompra.Apresentacao
 {
     public partial class Login : System.Web.UI.Page
     {
-        private IRepositorioConsumidor repositorioConsumidor;
         private AplConsumidor aplConsumidor;
 
         private SiteMaster _masterPage;
@@ -34,13 +33,8 @@ namespace CestaCompra.Apresentacao
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
-                this.aplConsumidor = new AplConsumidor();
-            }
+            aplConsumidor = new AplConsumidor();
         }
-
 
         protected void BtnEntrar_Click(object sender, EventArgs e)
         {
@@ -51,14 +45,14 @@ namespace CestaCompra.Apresentacao
                     MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
                 }
 
-                Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
+                Consumidor objConsumidor = MasterPage.RepositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
 
                 if (objConsumidor == null)
                 {
                     const string msg = "Usuário não encontrado!";
                     throw new InvalidOperationException(msg);
                 }
-                
+
                 aplConsumidor.VerificarAcesso(this.TxtSenha.Text, objConsumidor.Senha);
 
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
