@@ -21,16 +21,17 @@ before_build:
     cd CestaDeCompras
 
     nuget restore -verbosity quiet
-build_script:
-  # postgres
-  - createdb BancoCestaCompra
-  - psql -d sqlectron -a -f spec/databases/postgresql/schema/schema.sql
-  
+    
 build:
   publish_wap: true
   verbosity: quiet
 before_package:
 - cmd: >-
+    # postgres
+    createdb BancoCestaCompra
+    
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/script_criacao_das_tabelas_e_inserts_iniciais.sql" 
+    
     choco install "msbuild-sonarqube-runner" -y
     
     SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13" /d:sonar.exclusions=**/App_Start/**,**/Scripts/**,**/WebForms/**,**/WebForms/**,**/CodeBindings/**,**/Features/**,**/Web.*.config,**/*.feature.cs,**/*.feature /d:sonar.javascript.exclusions=**/Script/**,**/WebForms/**
