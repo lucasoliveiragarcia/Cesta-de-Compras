@@ -1,4 +1,8 @@
 version: 1.0.{build}
+
+services:
+  - postgresql
+  
 before_build:
 - ps: >-
     cd CestaDeCompras
