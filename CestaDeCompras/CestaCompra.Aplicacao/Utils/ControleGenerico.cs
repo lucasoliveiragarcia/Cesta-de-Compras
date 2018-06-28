@@ -5,7 +5,7 @@ using System.Web.UI;
 
 namespace CestaCompra.Apresentacao
 {
-    public class ControleGenerico
+    public static class ControleGenerico
     {
         public static int GetIdUsuarioCorrente(Page objPage)
         {

@@ -12,13 +12,14 @@ using CestaCompra.Apresentacao.App_Start;
 using Ninject;
 using CestaCompra.Data.Models;
 using System.Collections.Generic;
+using CestaCompra.Aplicacao;
 
 namespace CestaCompra.Apresentacao
 {
-    public partial class _Login  : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
-        private ContextCestaBD cestaCompraDB = new ContextCestaBD();
         private IRepositorioConsumidor repositorioConsumidor;
+        private AplConsumidor aplConsumidor;
 
         private SiteMaster _masterPage;
         private SiteMaster MasterPage
@@ -29,33 +30,37 @@ namespace CestaCompra.Apresentacao
                     _masterPage = Page.Master as SiteMaster;
                 return _masterPage;
             }
-            set
-            {
-                _masterPage = value;
-            }
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
+            if (!IsPostBack)
+            {
+                this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
+                this.aplConsumidor = new AplConsumidor();
+            }
         }
 
-        
+
         protected void BtnEntrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
+            try
             {
-                MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
-            }
+                if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
+                {
+                    MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
+                }
 
-            Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
-            
-            if(objConsumidor == null)
-            {
-                MasterPage.SetMensagemMain("Usuário não encontrado!", eTipoMensagem.Erro);
-            }
-            else if (BCrypt.Net.BCrypt.Verify(this.TxtSenha.Text, objConsumidor.Senha))
-            {
+                Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
+
+                if (objConsumidor == null)
+                {
+                    const string msg = "Usuário não encontrado!";
+                    throw new InvalidOperationException(msg);
+                }
+                
+                aplConsumidor.VerificarAcesso(this.TxtSenha.Text, objConsumidor.Senha);
+
                 MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
 
                 FormsAuthentication.SetAuthCookie(objConsumidor.IdConsumidor.ToString(), false);
@@ -64,9 +69,9 @@ namespace CestaCompra.Apresentacao
 
                 Response.Redirect(FormsAuthentication.DefaultUrl);
             }
-            else
+            catch (Exception msg)
             {
-                MasterPage.SetMensagemMain("Senha incorreta!", eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(msg.Message, eTipoMensagem.Erro);
             }
         }
 
@@ -74,24 +79,11 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                //Usuario objUsuario = new Usuario();
-                //objUsuario.EnviarEmailEsqueceuSenha(
-                //    Convert.ToString(
-                //        Request.Form["TxtUsuario"]
-                //    )
-                //);
+                MasterPage.SetMensagemMain("Não implementado", eTipoMensagem.Erro);
             }
             catch (Exception ex)
             {
-                Label CtrlLblMensagem = (Label)Form.FindControl("LblMensagem");
-                if (CtrlLblMensagem != null)
-                {
-                    CtrlLblMensagem.Text = ex.Message;
-                }
-                else
-                {
-                    throw new Exception(ex.Message);
-                }
+                MasterPage.SetMensagemMain(ex.Message, eTipoMensagem.Erro);
             }
         }
     }

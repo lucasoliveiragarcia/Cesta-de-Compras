@@ -11,10 +11,8 @@ namespace CestaCompra.Apresentacao
 {
     public partial class ListaCompra : Page
     {
-        AplConsumidor aplConsumidor = new AplConsumidor();
         AplListaCompra aplListaCompra = new AplListaCompra();
-        Consumidor consumidor = new Consumidor();
-
+        
         private int Idconsumidor
         {
             get
@@ -33,59 +31,59 @@ namespace CestaCompra.Apresentacao
             }
         }
 
+        private SiteMaster _masterPage;
+        private SiteMaster MasterPage
+        {
+            get
+            {
+                if (_masterPage == null)
+                    _masterPage = Page.Master as SiteMaster;
+                return _masterPage;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                //consumidor = aplConsumidor.GetConsumidorPorId(HttpContext.Current.User.Identity.Name);
-            }
+            ListarCompras();
+        }
 
+        private void ListarCompras()
+        {
             GvwLista.DataSource = aplListaCompra.ListarListasCompra(this.Idconsumidor);
             GvwLista.DataBind();
         }
 
         protected void Editar_Command(object sender, CommandEventArgs e)
         {
-            try
-            {
-               
-            }
-            catch (Exception erro)
-            {
-               
-            }
+            throw new NotImplementedException();
         }
 
         protected void BtnCriarNovaLista_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         protected void Paginacao_Grid(object sender, GridViewPageEventArgs e)
         {
             try
             {
-                //this.GvwLista.PageIndex = e.NewPageIndex;
-                //this.FiltraPesquisa();
-                //this.GvwLista.DataBind();
-                //this.LblCount.Text = string.Format("{0} registro(s) apresentado(s)", this.GvwLista.Rows.Count);
+                this.GvwLista.PageIndex = e.NewPageIndex;
+                this.GvwLista.DataBind();
             }
-            catch (Exception erro)
+            catch (Exception erro )
             {
-                //PaginaWeb.Mensagem(Page, erro.Message, TipoMensagem.Error);
-                //return;
+                MasterPage.SetMensagemMain(erro.Message, eTipoMensagem.Erro);
             }
         }
         protected void GvwLista_Sorting(object sender, GridViewSortEventArgs e)
         {
             try
             {
-                //this.FiltraPesquisa();
+                ListarCompras();
             }
             catch (Exception erro)
             {
-                //PaginaWeb.Mensagem(Page, erro.Message, TipoMensagem.Error);
-                //return;
+                MasterPage.SetMensagemMain(erro.Message, eTipoMensagem.Erro);
             }
         }
 
