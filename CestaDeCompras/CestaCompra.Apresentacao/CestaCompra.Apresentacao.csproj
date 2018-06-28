@@ -198,6 +198,7 @@
   <ItemGroup>
     <Content Include="Estilos\Padrao.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Pagina\Historico\Historico.aspx" />
     <Content Include="public\Cadastrar.aspx" />
     <Content Include="Pagina\MenuPrincipal\MenuPrincipal.aspx" />
     <Content Include="Pagina\ListaCompra\ListaCompra.aspx" />
@@ -259,6 +260,13 @@
     <Compile Include="App_Start\ContextCestaDBNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Pagina\Historico\Historico.aspx.cs">
+      <DependentUpon>Historico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina\Historico\Historico.aspx.designer.cs">
+      <DependentUpon>Historico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="public\Cadastrar.aspx.cs">
       <DependentUpon>Cadastrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
