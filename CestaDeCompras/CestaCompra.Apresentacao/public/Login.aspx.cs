@@ -12,13 +12,13 @@ using CestaCompra.Apresentacao.App_Start;
 using Ninject;
 using CestaCompra.Data.Models;
 using System.Collections.Generic;
+using CestaCompra.Aplicacao;
 
 namespace CestaCompra.Apresentacao
 {
-    public partial class _Login  : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
-        private ContextCestaBD cestaCompraDB = new ContextCestaBD();
-        private IRepositorioConsumidor repositorioConsumidor;
+        private AplConsumidor aplConsumidor;
 
         private SiteMaster _masterPage;
         private SiteMaster MasterPage
@@ -29,48 +29,43 @@ namespace CestaCompra.Apresentacao
                     _masterPage = Page.Master as SiteMaster;
                 return _masterPage;
             }
-            set
-            {
-                _masterPage = value;
-            }
         }
-
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.repositorioConsumidor = NinjectWebCommon.Kernel.Get<IRepositorioConsumidor>();
+            aplConsumidor = new AplConsumidor();
         }
 
-        
         protected void BtnEntrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
+            try
             {
-                MasterPage.SetMensagemMain("Informe uma senha!", eTipoMensagem.Erro);
-            }
+                if (string.IsNullOrEmpty(this.TxtSenha.Text.Trim()))
+                {
+                    MasterPage.SetMensagemMain("Informe uma senha!", ETipoMensagem.Erro);
+                }
 
-            Consumidor objConsumidor = repositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
-            //string mySalt = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
-            //string senhaEncriptada = BCrypt.Net.BCrypt.HashString("123");
-            //string senha2 = BCrypt.Net.BCrypt.HashPassword("123",mySalt);
-            
-            if(objConsumidor == null)
-            {
-                MasterPage.SetMensagemMain("Usuário não encontrado!", eTipoMensagem.Erro);
-            }
-            else if (BCrypt.Net.BCrypt.Verify(this.TxtSenha.Text, objConsumidor.Senha))
-            {
-                MasterPage.SetMensagemMain("Sucesso!", eTipoMensagem.Sucesso);
+                Consumidor objConsumidor = MasterPage.RepositorioConsumidor.ObterPorLogin(this.TxtUsuario.Text.Trim());
 
-                FormsAuthentication.SetAuthCookie(this.TxtUsuario.Text, false);
+                if (objConsumidor == null)
+                {
+                    const string msg = "Usuário não encontrado!";
+                    throw new InvalidOperationException(msg);
+                }
+
+                aplConsumidor.VerificarAcesso(this.TxtSenha.Text, objConsumidor.Senha);
+
+                MasterPage.SetMensagemMain("Sucesso!", ETipoMensagem.Sucesso);
+
+                FormsAuthentication.SetAuthCookie(objConsumidor.IdConsumidor.ToString(), false);
+
+                Session["nomeConsumidor"] = objConsumidor.Pessoa.Nome;
 
                 Response.Redirect(FormsAuthentication.DefaultUrl);
-                
             }
-            else
+            catch (Exception msg)
             {
-                MasterPage.SetMensagemMain("Senha incorreta!", eTipoMensagem.Erro);
+                MasterPage.SetMensagemMain(msg.Message, ETipoMensagem.Erro);
             }
         }
 
@@ -78,27 +73,12 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                //Usuario objUsuario = new Usuario();
-                //objUsuario.EnviarEmailEsqueceuSenha(
-                //    Convert.ToString(
-                //        Request.Form["TxtUsuario"]
-                //    )
-                //);
+                MasterPage.SetMensagemMain("Não implementado", ETipoMensagem.Erro);
             }
             catch (Exception ex)
             {
-                Label CtrlLblMensagem = (Label)Form.FindControl("LblMensagem");
-                if (CtrlLblMensagem != null)
-                {
-                    CtrlLblMensagem.Text = ex.Message;
-                }
-                else
-                {
-                    throw new Exception(ex.Message);
-                }
+                MasterPage.SetMensagemMain(ex.Message, ETipoMensagem.Erro);
             }
         }
-
-
     }
 }

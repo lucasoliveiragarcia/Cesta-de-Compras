@@ -71,7 +71,7 @@ namespace CestaCompra.Aplicacao.Features
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("Eu acessei uma lista de compras específica.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("Eu acessei uma lista de compras especifica.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 9
 testRunner.And("Eu seleciono <adicionar> produto.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 10
@@ -85,7 +85,7 @@ testRunner.And("Eu seleciono a <quantidade> desejada.", ((string)(null)), ((Tech
 #line 14
 testRunner.When("Eu pressiono <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 15
-testRunner.Then("O item é incluído na lista de compras.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("O item e incluido na lista de compras.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -100,7 +100,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 18
 testRunner.When("eu não <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 19
-testRunner.Then("o sistema retorna \"Item não foi incluido\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema retorna \"Item nao foi incluido\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

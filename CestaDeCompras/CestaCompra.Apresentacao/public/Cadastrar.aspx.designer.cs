@@ -10,7 +10,7 @@
 namespace CestaCompra.Apresentacao {
     
     
-    public partial class _Cadastrar {
+    public partial class Cadastrar {
         
         /// <summary>
         /// Controle TxtNome.

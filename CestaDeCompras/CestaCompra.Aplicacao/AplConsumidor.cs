@@ -14,24 +14,19 @@ namespace CestaCompra.Aplicacao
     {
         private readonly string SALT = "$2a$10$rBV2JDeWW3.vKyeQcM8fFO";
 
-        private IRepositorioConsumidor repositorioConsumidor;
-        private IRepositorioEndereco repositorioEndereco;
-        private IRepositorioPessoa repositorioPessoa;
-        private IRepositorioCidade repositorioCidade;
+        private readonly IRepositorioConsumidor repositorioConsumidor;
+        private readonly IRepositorioPessoa repositorioPessoa;
         public Pessoa pessoa;
         public Consumidor consumidor;
         public Endereco endereco;
         public Cidade cidade;
 
         private readonly ContextCestaBD contextCestaBD = new ContextCestaBD();
-
-
+        
         public AplConsumidor()
         {
             this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
-            this.repositorioEndereco = new RepositorioEndereco(contextCestaBD);
             this.repositorioPessoa = new RepositorioPessoa(contextCestaBD);
-            this.repositorioCidade = new RepositorioCidade(contextCestaBD);
             this.pessoa = new Pessoa();
             this.consumidor = new Consumidor();
             this.endereco = new Endereco();
@@ -52,7 +47,17 @@ namespace CestaCompra.Aplicacao
             
         }
 
-        private void VerificarAcesso(string senhaTela, string senhaEncriptada)
+        public Consumidor GetConsumidorPorId(string idConsumidor)
+        {
+            return GetConsumidorPorId(Convert.ToInt32(idConsumidor));
+        }
+
+        public Consumidor GetConsumidorPorId(int idConsumidor)
+        {
+            return repositorioConsumidor.ObterPorId(idConsumidor);
+        }
+
+        public void VerificarAcesso(string senhaTela, string senhaEncriptada)
         {
             if (!BCrypt.Net.BCrypt.Verify(senhaTela, senhaEncriptada))
             {
