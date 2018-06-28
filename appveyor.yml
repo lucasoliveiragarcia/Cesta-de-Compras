@@ -27,7 +27,7 @@ build:
   verbosity: quiet
 before_package:
 - cmd: >-
-    # postgres
+    
     createdb BancoCestaCompra
     
     psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/script_criacao_das_tabelas_e_inserts_iniciais.sql" 
