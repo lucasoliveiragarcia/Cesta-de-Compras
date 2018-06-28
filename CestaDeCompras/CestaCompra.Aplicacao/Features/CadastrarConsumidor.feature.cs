@@ -74,19 +74,17 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 testRunner.Given("eu acesso o site <Cesta de Compras>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 8
-testRunner.And("eu escolho a opção <Cadastrar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.And("eu escolho a opcao <Cadastrar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 9
 testRunner.And("O sistema exibe a tela de cadastramento de consumidor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 10
 testRunner.And("Eu preencho todos os dados solicitados.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 11
-testRunner.And("Eu informo <nome>, <sobrenome>, <datanasc>, <login>, <email>,<senha>,<logradouro>" +
-                    ",<numero>,<complemento>,<cep>,<cidade>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.And("Eu informo <nome>, <sobrenome>, <datanasc>, <email>, <login>, <senha>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 12
 testRunner.When("Eu confirmo pressionando <cadastrar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 13
-testRunner.Then("o sistema conclui o cadastro e me habilita como usuário e eu posso começar a usar" +
-                    " o aplicativo.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema conclui o cadastro e me habilita para usar o aplicativo.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -99,9 +97,9 @@ testRunner.Then("o sistema conclui o cadastro e me habilita como usuário e eu p
 #line 19
 this.ScenarioSetup(scenarioInfo);
 #line 20
-testRunner.Given("eu não preencho corretamente os dados solicitados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("eu nao preencho corretamente os dados solicitados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 21
-testRunner.Then("o sistema retorna dados incorretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema retorna \"entrada de dados incorreta\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
