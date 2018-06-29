@@ -13,13 +13,13 @@ namespace CestaCompra.Apresentacao {
     public partial class ListaCompra {
         
         /// <summary>
-        /// Controle BtnCriarNovaLista.
+        /// Controle TxtNomeLista.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCriarNovaLista;
+        protected global::System.Web.UI.WebControls.Label TxtNomeLista;
         
         /// <summary>
         /// Controle GvwLista.

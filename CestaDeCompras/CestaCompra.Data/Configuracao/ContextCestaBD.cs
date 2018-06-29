@@ -6,17 +6,14 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using CestaCompra.Data.Models;
 using System.Data.Entity.ModelConfiguration.Conventions;
-// add a reference to System.ComponentModel.DataAnnotations DLL 
 using System.ComponentModel.DataAnnotations;
 using CestaCompra.Data.Models.Mapping;
 using CestaCompra.Data.Configuracao;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CestaCompra.Data
 {
-    public class ContextCestaBD: DbContext, IUnitOfWork
+    public class ContextCestaBD : DbContext, IUnitOfWork
     {
         public ContextCestaBD() : base("ContextCestaBD")
         {
@@ -45,7 +42,6 @@ namespace CestaCompra.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            
             modelBuilder.Configurations.Add(new CidadeMap());
             modelBuilder.Configurations.Add(new CompraMap());
             modelBuilder.Configurations.Add(new ItemCompraMap());
@@ -59,14 +55,9 @@ namespace CestaCompra.Data
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new EstabelecimentoProdutoMap());
             modelBuilder.Configurations.Add(new MedidaMap());
-            modelBuilder.Configurations.Add(new ConsumidorMap());
-            
-            //Adiciona Chave primarias automaticamente
-            //modelBuilder.Properties().Where(p => p.Name == "id" + p.ReflectedType.Name.ToLower()).Configure(p => p.IsKey());
+            modelBuilder.Configurations.Add(new ConsumidorMap());           
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<DateTime>().Configure(p => p.HasColumnType("timestamp"));
-            //modelBuilder.Properties<float>().Configure(p => p.HasColumnType("decimal"));
-            //modelBuilder.Properties<double>().Configure(p => p.HasColumnType("numeric"));
         }
 
         public int Commit()

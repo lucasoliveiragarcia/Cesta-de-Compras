@@ -16,8 +16,8 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades & Column Mappings
             this.Property(t => t.Administrador)
                 .IsRequired()
-                .HasColumnName("admnistrador"); 
-
+                .HasColumnName("admnistrador");
+            
             this.Property(t => t.Login)
                 .IsRequired()
                 .HasMaxLength(40)
@@ -35,7 +35,7 @@ namespace CestaCompra.Data.Models.Mapping
             this.Property(t => t.IdConsumidor)
                 .IsRequired()
                 .HasColumnName("idconsumidor");
-
+            
             this.Property(t => t.DataCadastro)
                 .IsRequired()
                 .HasColumnName("datacadastro");

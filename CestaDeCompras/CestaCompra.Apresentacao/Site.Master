@@ -15,7 +15,6 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -40,32 +39,36 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/Pagina/MenuPrincipal/MenuPrincipal">Cesta de Compras</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Pagina/MenuPrincipal/MenuPrincipal">Início</a></li>
-                        <li><a runat="server" href="~/Pagina/ListaCompra/ListaCompra">Listas de Compra</a></li>
-                        <li><a runat="server" href="~/Pagina/ListaCompra/ListaCompra">Compras</a></li>
-                        <li><a runat="server" href="~/Pagina/ListaCompra/ListaCompra">Ajuda</a></li>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/Pagina/MenuPrincipal/MenuPrincipal">Cesta de Compras</a>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" runat="server" href="~/Pagina/MenuPrincipal/MenuPrincipal">Menu<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Pagina/ListaCompra/ListagemListaCompra">Listas de Compra</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Pagina/ListaCompra/ListaCompra">Compras</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" runat="server" href="~/Pagina/ListaCompra/ListaCompra">Ajuda</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="container body-content">
-            <asp:Label runat="server" ID="LblMensagemMain" ></asp:Label>
-            
-            <div id="DivUserInfo" runat="server" style="float: right">
+        </nav>
 
+        <div class="container body-content">
+            <div id="DivUserInfo" class="nav-link" runat="server" style="float: right">
             </div>
+            <asp:Label runat="server" ID="LblMensagemMain"></asp:Label>
 
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -74,7 +77,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - Cesta de Compras</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

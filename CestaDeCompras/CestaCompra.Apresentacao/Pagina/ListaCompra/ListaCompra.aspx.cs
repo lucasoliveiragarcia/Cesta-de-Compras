@@ -12,22 +12,26 @@ namespace CestaCompra.Apresentacao
     public partial class ListaCompra : Page
     {
         AplListaCompra aplListaCompra = new AplListaCompra();
-        
-        private int Idconsumidor
+
+        #region [ Propriedades ]
+        public int Id
         {
             get
             {
                 int id = 0;
                 try
                 {
-                    id = Convert.ToInt32(HttpContext.Current.User.Identity.Name);
+                    id = Convert.ToInt32(ViewState["Id"]);
                 }
                 catch
                 {
-                    Response.Redirect("../../Public/Login/Login.aspx");
                     id = 0;
                 }
                 return id;
+            }
+            set
+            {
+                ViewState["Id"] = value;
             }
         }
 
@@ -41,15 +45,29 @@ namespace CestaCompra.Apresentacao
                 return _masterPage;
             }
         }
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListarCompras();
+            ControleGenerico.Page_Load(Page);
+
+            if (!IsPostBack && this.Id > 0)
+            {
+                aplListaCompra.SetListaCompra(this.Id);
+                this.PreencherCampos();
+            }
+
+            ListarItemsAdicionados();
         }
 
-        private void ListarCompras()
+        private void PreencherCampos()
         {
-            GvwLista.DataSource = aplListaCompra.ListarListasCompra(this.Idconsumidor);
+            this.TxtNomeLista.Text = this.aplListaCompra.listaCompra.Nome;
+        }
+
+        private void ListarItemsAdicionados()
+        {
+            GvwLista.DataSource = aplListaCompra.ListarItemsListaCompra(this.MasterPage.Id);
             GvwLista.DataBind();
         }
 
@@ -70,7 +88,7 @@ namespace CestaCompra.Apresentacao
                 this.GvwLista.PageIndex = e.NewPageIndex;
                 this.GvwLista.DataBind();
             }
-            catch (Exception erro )
+            catch (Exception erro)
             {
                 MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
             }
@@ -79,7 +97,7 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                ListarCompras();
+                ListarItemsAdicionados();
             }
             catch (Exception erro)
             {

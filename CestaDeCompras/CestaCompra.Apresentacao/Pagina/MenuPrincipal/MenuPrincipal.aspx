@@ -4,7 +4,7 @@
     <h2><%: Title %></h2>
 
     <div class="list-group">
-        <a href="../../Pagina/ListaCompra/ListaCompra" class="list-group-item list-group-item-action">Minhas Listas de Compra</a>
+        <a href="../../Pagina/ListaCompra/ListagemListaCompra" class="list-group-item list-group-item-action">Minhas Listas de Compra</a>
         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Fazer Compras</a>
         <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Sugerir Item</a>
         <a href="#" class="list-group-item list-group-item-action list-group-item-success">Histórico</a>

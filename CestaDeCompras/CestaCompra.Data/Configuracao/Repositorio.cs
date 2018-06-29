@@ -7,19 +7,13 @@ namespace CestaCompra.Data.Configuracao
 {
     public abstract class Repositorio<TEntity> : IRepositorio<TEntity> where TEntity : class
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly System.Data.Entity.DbSet<TEntity> _context;
-
-        private void getInstancia() {
-            if (_unitOfWork == null)
-                this._unitOfWork = new ContextCestaBD();
-        }
-
+        
         public Repositorio(IUnitOfWork unitoOfWork)
         {
-            getInstancia();
-            _context = ((Data.ContextCestaBD)_unitOfWork).Set<TEntity>();
             _unitOfWork = unitoOfWork;
+            _context = ((Data.ContextCestaBD)_unitOfWork).Set<TEntity>();
         }
 
         public IUnitOfWork UnitOfWork { get { return _unitOfWork; }}
