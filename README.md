@@ -170,6 +170,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
 ### 6	MODELO LÓGICO<br>
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/ModeloLogico.jpg?raw=true "Modelo Lógico")
 ### 7	MODELO FÍSICO<br>
+<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/modelofisico.sql">Modelo Físico</a>
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         Detalhamento sobre as informações e processo de obtenção ou geração dos dados.
@@ -179,7 +180,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-     https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_inserts_iniciais.sql
+     <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_inserts_iniciais.sql">Criação das tabelas e inserção dos dados inicias</a>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
@@ -334,6 +335,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
+	Desenvolvemos um script na linguagem python para gerar milhares de dados. <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/CestaComprasFakeGeneratorEF.py
+">Scripts de geração de dados para o banco.</a>
         a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
         b) tabelas diretamente relacionadas a tabela principal 100 mil registros
         c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
