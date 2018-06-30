@@ -57,7 +57,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/ModeloConceitual.jpg?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/ModelagemBanco/modeloconceitual.jpg?raw=true "Modelo Conceitual")
     
      5.2 NOTACAO UML (Caso esteja fazendo a disciplina de Projeto)
 
