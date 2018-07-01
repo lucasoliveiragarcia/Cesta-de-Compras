@@ -6,7 +6,7 @@ environment:
   POSTGRES_ENV_POSTGRES_USER: postgres
   POSTGRES_ENV_POSTGRES_PASSWORD: Password12!
   POSTGRES_ENV_POSTGRES_DB: BancoCestaCompra
-  POSTGRES_PATH: C:\Program Files\PostgreSQL\9.4
+  POSTGRES_PATH: C:\Program Files\PostgreSQL\9.6
   PGUSER: postgres
   PGPASSWORD: Password12!
   
@@ -14,7 +14,7 @@ init:
   - SET PATH=%POSTGRES_PATH%\bin;%PATH%
 
 services:
-  - postgresql
+  - postgresql96
   
 before_build:
 - ps: >-
@@ -30,7 +30,9 @@ before_package:
     
     createdb BancoCestaCompra
     
-    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/script_criacao_das_tabelas_e_inserts_iniciais.sql" 
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
+    
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
     
     choco install "msbuild-sonarqube-runner" -y
     

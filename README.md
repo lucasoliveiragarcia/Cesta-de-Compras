@@ -153,7 +153,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-     <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_inserts_iniciais.sql">Criação das tabelas e inserção dos dados inicias</a>
+     <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_1.5M_dados.sql">Criação das tabelas e inserção dos dados</a>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
@@ -167,7 +167,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
     select * from cidade
   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/cidade.PNG)
     
-    select * from compra
+    select * from compra limit 10;
   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/compra.PNG)
     
     select * from consumidor
@@ -176,7 +176,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
     select * from endereco
  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/endereco.PNG)
     
-    select * from estabalecimento
+    select * from estabalecimento limit 10;
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estabelecimento.PNG)
     
     select * from estabelecimentoproduto
@@ -185,7 +185,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
     select * from estado
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estado.PNG)
     
-    select * from itemcompra
+    select * from itemcompra limit 10;
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/itemcompra.PNG)
     
     select * from itemlistacompra
@@ -203,7 +203,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
     select * from pessoa
   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pessoa.PNG)
     
-    select * from produto
+    select * from produto limit 10;
   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/produto.PNG)
 <br>
 
@@ -219,7 +219,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         
         select nome,sobrenome,email,datacompra from consumidor 
         join compra on(consumidor.idconsumidor=compra.idconsumidor)
-        join pessoa on(consumidor.idpessoa=pessoa.idpessoa)
+        join pessoa on(consumidor.idpessoa=pessoa.idpessoa) limit 10;
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/join.PNG)
         
         create or replace view nome_sobrenome_email_pessoa as
@@ -234,13 +234,13 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         select * from produtos limit 10;
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG)
         
-        select exists(select * from compra where valortotal>10.0 and valortotal<20.0)
+        select exists(select * from compra where valortotal>10.0 and valortotal<100.0)
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG)
 
         select exists (select * from itemcompra where preco > 100.0)
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG)
         
-        select not exists (select * from compra where datacompra > '2018-07-20') 
+        select not exists (select * from itemcompra where preco < 100) 
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG)
         
         alter table itemlistacompra add check (quantidade>0)
@@ -305,8 +305,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
-	Desenvolvemos um script na linguagem python para gerar milhares de dados. <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/CestaComprasFakeGeneratorEF.py
-">Scripts de geração de dados para o banco.</a>
+	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados nas tabelas necessárias. <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>
         a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
         b) tabelas diretamente relacionadas a tabela principal 100 mil registros
         c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
