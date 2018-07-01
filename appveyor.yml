@@ -31,6 +31,7 @@ before_package:
     createdb BancoCestaCompra
     
     psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
+    
     psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
     
     choco install "msbuild-sonarqube-runner" -y
