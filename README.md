@@ -114,10 +114,6 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     nome: campo que armazena o nome da cidade.
     idestado: campo que faz referência a um registro da tabela ESTADO(chave estrangeira).
 
-    Tabela PAIS: Tabela que armazena informações relativas ao país.
-    idpais: campo que armazena um número de identificação do pais(chave primária).
-    nome: campo que armazena o nome do país.
-
     Tabela CONSUMIDOR: Tabela que armazena informações relativas ao consumidor.
     idconsumidor: campo que armazena um número de identificação do consumidor(chave primária).
     login: campo que armazena o login do consumidor.
@@ -141,7 +137,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     Tabela PRODUTO: Tabela que armazena informações relativas ao produto.
     idproduto: campo que armazena um número de identificação do produto (chave primária).
     nome: campo que armazena o nome do produto.
-    unidade: campo que armazena a quantidade de unidades do produto.
+    unidade: campo que armazena o valor da unidade do produto.
     valido: campo que armazena a informação se o produto é válido.
     idmarca: campo que faz referência a um registro da tabela MARCA(chave estrangeira).
     idmedida: campo que faz referência a um registro da tabela MEDIDA(chave estrangeira).
@@ -225,10 +221,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/marca.PNG)
     
     select * from medida
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/medida.PNG)
-    
-    select * from pais
-  ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pais.PNG)
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/medida.PNG)   
     
     select * from pessoa
   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/pessoa.PNG)
