@@ -1,17 +1,40 @@
 version: 1.0.{build}
+
+environment:
+  # postgres
+  POSTGRES_PORT: tcp://localhost:5432
+  POSTGRES_ENV_POSTGRES_USER: postgres
+  POSTGRES_ENV_POSTGRES_PASSWORD: Password12!
+  POSTGRES_ENV_POSTGRES_DB: BancoCestaCompra
+  POSTGRES_PATH: C:\Program Files\PostgreSQL\9.4
+  PGUSER: postgres
+  PGPASSWORD: Password12!
+  
+init:
+  - SET PATH=%POSTGRES_PATH%\bin;%PATH%
+
+services:
+  - postgresql
+  
 before_build:
 - ps: >-
     cd CestaDeCompras
 
     nuget restore -verbosity quiet
+    
 build:
   publish_wap: true
   verbosity: quiet
 before_package:
 - cmd: >-
+    
+    createdb BancoCestaCompra
+    
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/script_criacao_das_tabelas_e_inserts_iniciais.sql" 
+    
     choco install "msbuild-sonarqube-runner" -y
     
-    SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13" /d:sonar.exclusions=**/App_Start/**,**/Scripts/**,**/WebForms/**,**/WebForms/**,**/CodeBindings/**,**/Features/**,**/Web.*.config,**/*.feature.cs,**/*.feature /d:sonar.javascript.exclusions=**/Script/**,**/WebForms/**
+    SonarQube.Scanner.MSBuild.exe begin /k:"cestacompra2018" /d:sonar.organization="cestacompra" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="f273613ef5ec4248d4a4d8489642270d871c2b13" /d:sonar.exclusions=**/App_Start/**,**/Scripts/**,**/WebForms/**,**/WebForms/**,**/CodeBindings/**,**/Features/**,**/Web.*.config,**/*.feature.cs,**/*.feature,**/esm/**,**/umd/** /d:sonar.javascript.exclusions=**/Script/**,**/WebForms/**,**/esm/**,**/umd/**
     
     MsBuild.exe /t:Rebuild
     
@@ -26,6 +49,7 @@ deploy:
     secure: Orw8GZWzSrtxBpvT3LK37A==
   on:
     branch: master
+    
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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

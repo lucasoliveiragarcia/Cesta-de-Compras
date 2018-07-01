@@ -207,6 +207,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Pagina\ListaCompra\AdicionarListaCompra.aspx" />
     <Content Include="Pagina\ListaCompra\ListaCompra.aspx" />
+    <Content Include="Pagina\Historico\Historico.aspx" />
     <Content Include="public\Cadastrar.aspx" />
     <Content Include="Pagina\MenuPrincipal\MenuPrincipal.aspx" />
     <Content Include="Pagina\ListaCompra\ListagemListaCompra.aspx" />
@@ -306,6 +307,13 @@
     </Compile>
     <Compile Include="Pagina\ListaCompra\ListaCompra.aspx.designer.cs">
       <DependentUpon>ListaCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina\Historico\Historico.aspx.cs">
+      <DependentUpon>Historico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina\Historico\Historico.aspx.designer.cs">
+      <DependentUpon>Historico.aspx</DependentUpon>
     </Compile>
     <Compile Include="public\Cadastrar.aspx.cs">
       <DependentUpon>Cadastrar.aspx</DependentUpon>

@@ -294,6 +294,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         c) exemplo de dados para aplicação
         d) resultados em forma de tabela/imagem
         
+	Objetivo: Impedir que o preço do item da compra seja maior que o valor total da compra
         CREATE OR REPLACE FUNCTION checkPrecoItemCompra() RETURNS TRIGGER AS ' BEGIN
         IF EXISTS ( select valortotal as valor_da_compra,preco as valor_do_item from itemcompra
 			join compra on(itemcompra.idcompra=compra.idcompra) where preco>valortotal) THEN
@@ -308,6 +309,20 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/assercao-trigger-funcao-1.PNG)
 
 <br>
+
+	Objetivo: Alterar o preço de um produto de um determinado supermercado
+	CREATE OR REPLACE FUNCTION DefinePrecoProduto(idestabprod integer,novo_preco numeric,idprod int,idestab int) 
+	Returns void AS ' update estabelecimentoproduto set preco=novo_preco where idestabelecimentoproduto=idestabprod 
+	and idproduto=idprod and idestab=idestabelecimento ' LANGUAGE SQL;
+	
+	Preço antigo
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/funcao_preco_antigo.PNG)	
+	
+	select DefinePrecoProduto(1,20.00,1,1);
+	
+	Preço novo
+   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/funcao_preco_novo.PNG)	
+	
 
 #### 9.5	Administração do banco de dados<br>
         Descrição detalhada sobre como serão executadas no banco de dados as <br>
