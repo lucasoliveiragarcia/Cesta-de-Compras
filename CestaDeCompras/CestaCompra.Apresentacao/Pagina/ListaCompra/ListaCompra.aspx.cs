@@ -2,6 +2,7 @@
 using CestaCompra.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -51,13 +52,20 @@ namespace CestaCompra.Apresentacao
         {
             ControleGenerico.Page_Load(Page);
 
-            if (!IsPostBack && this.Id > 0)
+            if (!IsPostBack)
             {
-                aplListaCompra.SetListaCompra(this.Id);
-                this.PreencherCampos();
-            }
+                if(this.Id > 0)
+                {
+                    aplListaCompra.SetListaCompra(this.Id);
+                    this.PreencherCampos();
 
-            ListarItemsAdicionados();
+                    ListarItemsAdicionados();
+                }
+                else
+                {
+                    Response.Redirect("../../Pagina/ListaCompra/ListagemListaCompra.aspx");
+                }   
+            }
         }
 
         private void PreencherCampos()
@@ -65,15 +73,76 @@ namespace CestaCompra.Apresentacao
             this.TxtNomeLista.Text = this.aplListaCompra.listaCompra.Nome;
         }
 
+        protected void BtnPesquisarProduto_Click(object sender, EventArgs e)
+        {
+            DataSet dsProdutosAdd = ControleGenerico.ToDataSet(aplListaCompra.GetProdutos(this.TxtNomePesquisaProduto.Text.Trim()));
+
+            GvwAddProduto.DataSource = dsProdutosAdd;
+            GvwAddProduto.DataBind();
+        }
+        
         private void ListarItemsAdicionados()
         {
-            GvwLista.DataSource = aplListaCompra.ListarItemsListaCompra(this.MasterPage.Id);
+            GvwLista.DataSource = aplListaCompra.ListarItemsListaCompra(this.Id);
             GvwLista.DataBind();
         }
-
-        protected void Editar_Command(object sender, CommandEventArgs e)
+        
+        protected void LkbAdicionarProduto_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.mvwPrincipal.SetActiveView(this.viewAdicionarProduto);
+        }
+
+        protected void LkbRemoverProduto_Click(object sender, EventArgs e)
+        {
+            //A Fazer
+        }
+
+        protected void LkbSalvarListaCompra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GridViewRowCollection rows = GvwLista.Rows;
+
+                foreach (GridViewRow row in rows)
+                {
+                    if (row.RowType == DataControlRowType.DataRow)
+                    {
+                        Label LblIdItemListaCompra = (Label)row.FindControl("iditemlistacompra");
+                        TextBox TextQuantidade = (TextBox)row.FindControl("TxtQuantidade");
+
+                        aplListaCompra.AtualizarQuantidadeItemListaCompra(
+                           this.Id,
+                           Convert.ToInt32(LblIdItemListaCompra.Text),
+                           Convert.ToInt32(TextQuantidade.Text)
+                        );
+                    }
+                }
+                MasterPage.SetMensagemMain("Salvo com sucesso!", ETipoMensagem.Sucesso);
+            }
+            catch (Exception erro)
+            {
+                MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
+            }
+        }
+        
+        protected void AdicionarProduto_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                int idProduto = Convert.ToInt32(((Button)sender).CommandArgument);
+
+                aplListaCompra.AdicionarProdutoLista(this.Id, idProduto);
+                
+                this.mvwPrincipal.SetActiveView(viewPrincipal);
+
+                this.ListarItemsAdicionados();
+
+                MasterPage.SetMensagemMain("Item Adicionado com sucesso!", ETipoMensagem.Sucesso);
+            }
+            catch(Exception erro)
+            {
+                MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
+            }   
         }
 
         protected void BtnCriarNovaLista_Click(object sender, EventArgs e)
@@ -104,6 +173,5 @@ namespace CestaCompra.Apresentacao
                 MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
             }
         }
-
     }
 }

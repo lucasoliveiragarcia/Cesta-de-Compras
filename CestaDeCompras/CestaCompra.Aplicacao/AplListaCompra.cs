@@ -13,16 +13,12 @@ namespace CestaCompra.Aplicacao
 {
     public class AplListaCompra
     {
-
         private readonly IRepositorioConsumidor repositorioConsumidor;
-        private readonly IRepositorioPessoa repositorioPessoa;
-        private readonly IRepositorioCidade repositorioCidade;
         private readonly IRepositorioListaCompra repositorioListaCompra;
+        private readonly IRepositorioProduto repositorioProduto;
         private readonly IRepositorioItemListaCompra repositorioItemListaCompra;
         public Pessoa pessoa;
         public Consumidor consumidor;
-        public Endereco endereco;
-        public Cidade cidade;
         public ListaCompra listaCompra;
 
         private ContextCestaBD contextCestaBD;
@@ -31,14 +27,11 @@ namespace CestaCompra.Aplicacao
         {
             this.contextCestaBD = new ContextCestaBD();
             this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
-            this.repositorioPessoa = new RepositorioPessoa(contextCestaBD);
-            this.repositorioCidade = new RepositorioCidade(contextCestaBD);
             this.repositorioListaCompra = new RepositorioListaCompra(contextCestaBD);
             this.repositorioItemListaCompra = new RepositorioItemListaCompra(contextCestaBD);
+            this.repositorioProduto = new RepositorioProduto(contextCestaBD);
             this.pessoa = new Pessoa();
             this.consumidor = new Consumidor();
-            this.endereco = new Endereco();
-            this.cidade = new Cidade();
             this.listaCompra = new ListaCompra();
         }
 
@@ -56,6 +49,7 @@ namespace CestaCompra.Aplicacao
         {
             return repositorioListaCompra.GetListaCompras(idconsumidor);
         }
+
         public DataSet ListarItemsListaCompra(int IdListaCompra)
         {
             return repositorioItemListaCompra.GetItemsListaCompra(IdListaCompra);
@@ -68,13 +62,14 @@ namespace CestaCompra.Aplicacao
             if (string.IsNullOrEmpty(nomeLista))
                 throw new InvalidOperationException("Informe o nome da lista");
 
-            ListaCompra listaCompra = new ListaCompra();
-
             this.consumidor = repositorioConsumidor.ObterPorId(this.consumidor.IdConsumidor);
             
-            listaCompra.Nome = nomeLista;
-            listaCompra.Consumidor = this.consumidor;
-            listaCompra.DataUltimaModificacao = DateTime.Now;
+            ListaCompra listaCompra = new ListaCompra
+            {
+                Nome = nomeLista,
+                Consumidor = this.consumidor,
+                DataUltimaModificacao = DateTime.Now
+            };
 
             repositorioListaCompra.Inserir(listaCompra);
 
@@ -83,10 +78,56 @@ namespace CestaCompra.Aplicacao
             return listaCompra.IdListaCompra;
         }
 
+        public int AdicionarProdutoLista(int IdListaCompra, int IdProduto)
+        {
+            if (IdListaCompra == 0)
+                throw new ArgumentException("Informe a lista de compra");
+
+            if (IdProduto == 0)
+                throw new ArgumentException("Informe o produto");
+            
+            ItemListaCompra itemListaCompra = new ItemListaCompra
+            {
+                ListaCompra = repositorioListaCompra.ObterPorId(IdListaCompra),
+                Produto = repositorioProduto.ObterPorId(IdProduto)
+            };
+
+            repositorioItemListaCompra.Inserir(itemListaCompra);
+
+            repositorioItemListaCompra.UnitOfWork.Commit();
+
+            return itemListaCompra.IdItemListaCompra;
+        }
+
+        public void AtualizarQuantidadeItemListaCompra(int IdListaCompra, int  idItemListaCompra, int quantidade)
+        {
+            if (IdListaCompra == 0)
+                throw new ArgumentException("Informe a lista de compra");
+
+            if (idItemListaCompra == 0)
+                throw new ArgumentException("Informe o produto");
+
+            ItemListaCompra itemListaCompra = repositorioItemListaCompra.ObterPorId(idItemListaCompra);
+
+            if(itemListaCompra == null || itemListaCompra.IdItemListaCompra == 0)
+                throw new InvalidOperationException("Item não encontrado!");
+
+            itemListaCompra.Quantidade = quantidade;
+            
+            repositorioItemListaCompra.Atualizar(itemListaCompra);
+
+            repositorioItemListaCompra.UnitOfWork.Commit();
+        }
+
         private void ValidarCriacaoLista()
         {
             if (this.consumidor.IdConsumidor == 0)
                 throw new InvalidOperationException("Informe o consumidor");
+        }
+
+        public List<Produto> GetProdutos(string pesquisar)
+        {
+            return this.repositorioProduto.PesquisarProduto(pesquisar);
         }
     }
 }

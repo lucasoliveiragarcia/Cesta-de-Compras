@@ -65,28 +65,22 @@ namespace CestaCompra.Aplicacao.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sucesso em Criar Lista")]
-        [NUnit.Framework.TestCaseAttribute("‘Lista do mês’", "‘Suco Caju 500ML Bela Ichia’", null)]
-        [NUnit.Framework.TestCaseAttribute("‘Churrasco’", "‘Refrigerante Guaraná 2L Kuat’", null)]
-        public virtual void SucessoEmCriarLista(string nomeDaLista, string itens, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("‘Lista do mês’", null)]
+        [NUnit.Framework.TestCaseAttribute("‘Churrasco’", null)]
+        public virtual void SucessoEmCriarLista(string nomeDaLista, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Criar Lista", exampleTags);
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
-testRunner.Given("Eu estou no <menu principal>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("Eu estou na tela de listas de compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 7
-testRunner.And("Eu seleciono a opção <minhas listas de compras>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.And("Eu seleciono a opção de criar lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 8
-testRunner.And("Eu seleciono a opção <criar lista>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 9
 testRunner.And(string.Format("Eu digito o {0}", nomeDaLista), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 9
+testRunner.When("Eu pressiono Confirmar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 10
-testRunner.And("Eu pressiono <Avançar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 11
-testRunner.And(string.Format("Eu adiciono o primeiro item {0}", itens), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 12
-testRunner.When("Eu pressiono <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 13
 testRunner.Then("A lista é criada.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
@@ -97,14 +91,14 @@ testRunner.Then("A lista é criada.", ((string)(null)), ((TechTalk.SpecFlow.Tabl
         public virtual void InsucessoAoCriarLista()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso ao Criar Lista", ((string[])(null)));
-#line 20
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 21
-testRunner.Given("que eu não adicionei nenhum item na lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line 22
-testRunner.When("Eu pressiono <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 23
-testRunner.Then("o sistema retorna \"Lista não foi criada pois esta vazia.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 18
+testRunner.Given("que eu não informei o nome da lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 19
+testRunner.When("Eu pressiono Confirmar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 20
+testRunner.Then("o sistema retorna uma mensagem de erro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

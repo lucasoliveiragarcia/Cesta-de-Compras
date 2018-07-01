@@ -16,7 +16,6 @@ namespace CestaCompra.Data.Models.Mapping
             //Propriedades & Column Mappings
             this.Property(t => t.IdItemListaCompra)
                 .IsRequired()
-                .HasMaxLength(10)
                 .HasColumnName("iditemlistacompra");
 
             this.Property(t => t.Quantidade)

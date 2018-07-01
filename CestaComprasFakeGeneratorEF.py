@@ -196,7 +196,7 @@ def getScriptPessoa(QTD = QTD_PESSOA):
 
 def getScriptConsumidor(QTD = QTD_PESSOA):
     sql = " \nINSERT INTO consumidor(idconsumidor, idpessoa, login, senha, nivel, datacadastro) VALUES   "
-    sql += " (1, 1, 'educouto', '123',1, '2018/02/01') "
+    sql += " (1, 1, 'educouto', '$2a$10$rBV2JDeWW3.vKyeQcM8fFOpc3eZhvN379HNeC1n7OMFK/GfCQ66GS',1, '2018/02/01') "
 
     for i in range(2, QTD):
         nome = fake.first_name()
@@ -204,7 +204,7 @@ def getScriptConsumidor(QTD = QTD_PESSOA):
         idEndereco = random.randint(1, 100)
         sql += ",({0},{1}, '{2}','{3}',{4},'{5}')".format(i,i,
                                                     nome,
-                                                    123,
+                                                    '$2a$10$rBV2JDeWW3.vKyeQcM8fFOpc3eZhvN379HNeC1n7OMFK/GfCQ66GS',
                                                     1,
                                                     dataCadastro)
         sql += "\n"

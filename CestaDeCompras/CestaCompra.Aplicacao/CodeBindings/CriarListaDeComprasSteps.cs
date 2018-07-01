@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CestaCompra.AcessoBD;
+using CestaCompra.Data;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace CestaCompra.Aplicacao.CodeBindings
@@ -6,58 +8,76 @@ namespace CestaCompra.Aplicacao.CodeBindings
     [Binding]
     public class CriarListaDeComprasSteps
     {
-        [Given(@"Eu estou no (.*)")]
-        public void DadoEuEstouNo(string p0)
+        private ContextCestaBD contextCestaBD;
+        AplListaCompra aplListaCompra;
+        IRepositorioConsumidor repositorioConsumidor;
+        string nomeLista;
+        int IdListaCompra;
+
+        [Given(@"Eu estou na tela de listas de compras")]
+        public void DadoEuEstouNaTelaDeListasDeCompras()
         {
-            ScenarioContext.Current.Pending();
+            this.contextCestaBD = new ContextCestaBD();
+            aplListaCompra = new AplListaCompra();
+            this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
         }
         
-        [Given(@"Eu seleciono a opção (.*)")]
-        public void DadoEuSelecionoAOpcao(string p0)
+        [Given(@"Eu seleciono a opção de criar lista")]
+        public void DadoEuSelecionoAOpcaoDeCriarLista()
         {
-            ScenarioContext.Current.Pending();
+            nomeLista = "";
+            IdListaCompra = 0;
+            aplListaCompra.consumidor = repositorioConsumidor.ObterPorLogin("educouto");
         }
         
         [Given(@"Eu digito o ‘Lista do mês’")]
         public void DadoEuDigitoOListaDoMes()
         {
-            ScenarioContext.Current.Pending();
+            nomeLista = "Lista do mês";
+
+        }
+
+        [Given(@"Eu digito o ‘Churrasco’")]
+        public void DadoEuDigitoOChurrasco()
+        {
+            nomeLista = "Churrasco";
         }
         
-        [Given(@"Eu pressiono (.*)")]
-        public void DadoEuPressiono(string p0)
+        [Given(@"que eu não informei o nome da lista")]
+        public void DadoQueEuNaoInformeiONomeDaLista()
         {
-            ScenarioContext.Current.Pending();
+            this.contextCestaBD = new ContextCestaBD();
+            aplListaCompra = new AplListaCompra();
+            this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
+            aplListaCompra.consumidor = repositorioConsumidor.ObterPorLogin("educouto");
+
+            IdListaCompra = 0;
+            nomeLista = "";
         }
         
-        [Given(@"Eu adiciono o primeiro item ‘Suco Caju (.*)ML Bela Ichia’")]
-        public void DadoEuAdicionoOPrimeiroItemSucoCajuMLBelaIchia(int p0)
+        [When(@"Eu pressiono Confirmar")]
+        public void QuandoEuPressionoConfirmar()
         {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"que eu não adicionei nenhum item na lista")]
-        public void DadoQueEuNaoAdicioneiNenhumItemNaLista()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"Eu pressiono (.*)")]
-        public void QuandoEuPressiono(string p0)
-        {
-            ScenarioContext.Current.Pending();
+            try
+            {
+                IdListaCompra = aplListaCompra.CriarListaCompra(nomeLista);
+            }
+            catch
+            {
+                IdListaCompra = 0;
+            }
         }
         
         [Then(@"A lista é criada\.")]
         public void EntaoAListaECriada_()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(IdListaCompra > 0);
         }
         
-        [Then(@"o sistema retorna ""(.*)""")]
-        public void EntaoOSistemaRetorna(string p0)
+        [Then(@"o sistema retorna uma mensagem de erro")]
+        public void EntaoOSistemaRetornaUmaMensagemDeErro()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(IdListaCompra == 0);
         }
     }
 }
