@@ -1,3 +1,7 @@
+CREATE SCHEMA IF NOT EXISTS dbo;
+
+SET schema 'dbo';
+
 CREATE TABLE Estado (
 IdEstado SERIAL PRIMARY KEY,
 IdPais SERIAL,
