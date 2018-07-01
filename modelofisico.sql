@@ -116,7 +116,7 @@ IdEstabelecimento SERIAL PRIMARY KEY,
 IdEndereco INTEGER,
 Nome VARCHAR(100),
 Unidade VARCHAR(100),
-Logo INT,
+Logo VARCHAR(100),
 FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
 );
 
