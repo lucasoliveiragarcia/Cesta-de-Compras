@@ -141,7 +141,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
     Tabela PRODUTO: Tabela que armazena informações relativas ao produto.
     idproduto: campo que armazena um número de identificação do produto (chave primária).
     nome: campo que armazena o nome do produto.
-    unidade:
+    unidade: campo que armazena a quantidade de unidades do produto.
     valido: campo que armazena a informação se o produto é válido.
     idmarca: campo que faz referência a um registro da tabela MARCA(chave estrangeira).
     idmedida: campo que faz referência a um registro da tabela MEDIDA(chave estrangeira).
