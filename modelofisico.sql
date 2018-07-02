@@ -1,6 +1,5 @@
 CREATE TABLE Estado (
 IdEstado SERIAL PRIMARY KEY,
-IdPais SERIAL,
 Nome VARCHAR(100)
 );
 
@@ -48,11 +47,6 @@ IdCidade SERIAL PRIMARY KEY,
 IdEstado INTEGER,
 Nome VARCHAR(100),
 FOREIGN KEY(IdEstado) REFERENCES Estado (IdEstado)
-);
-
-CREATE TABLE Pais (
-IdPais SERIAL PRIMARY KEY,
-Nome VARCHAR(100)
 );
 
 CREATE TABLE Consumidor (
@@ -120,7 +114,6 @@ Logo VARCHAR(100),
 FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
 );
 
-ALTER TABLE Estado ADD FOREIGN KEY(IdPais) REFERENCES Pais (IdPais);
 ALTER TABLE Endereco ADD FOREIGN KEY(IdCidade) REFERENCES Cidade (IdCidade);
 ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto);
 ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento (IdEstabelecimento);
