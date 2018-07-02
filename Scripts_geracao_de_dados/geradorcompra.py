@@ -29,13 +29,13 @@ def getScriptCompra():
 	iditemcompra=1;
 	cont=1
 	idcompra=1	
-	for i in range(1,20001):		
+	for i in range(1,100001):		
 		idestabelecimento=random.randint(1,10)		
-		valortotal=round(random.uniform(50,100),2)
+		valortotal=round(random.uniform(150,200),2)
 		
 		idconsumidor=random.randint(1,10)
 		datacompra=fake.date(pattern="%Y-%m-%d %H:%M:%S", end_datetime=None)	
-		if cont!=20000:
+		if cont!=100000:
 			sql += "("+str(idestabelecimento)+","+str(valortotal)+","+str(idcompra)+","+str(idconsumidor)+",'"+str(datacompra)+"'),\n"
 		else:
 			sql += "("+str(idestabelecimento)+","+str(valortotal)+","+str(idcompra)+","+str(idconsumidor)+",'"+str(datacompra)+"');"

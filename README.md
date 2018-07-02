@@ -153,7 +153,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-     <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_1.5M_dados.sql">Criação das tabelas e inserção dos dados</a>
+   <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Script_Criacao_das_tabelas_e_1.5M_de_registros">Criação das tabelas e inserção dos dados</a>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
@@ -208,15 +208,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
-        a) Descrição da view sobre que grupos de usuários (operacional/estratégico) <br>
-        e necessidade ela contempla.
-        b) Descrição das permissões de acesso e usuários correlacionados (após definição <br>
-        destas características)
-    Data de Entrega: (Data a ser definida)
-        c) as funcionalidades informadas no minimundo ou nos mockups(protótipos), que representarem 
-        views do sistema (relatórios, informações disponíveis para os usuários, etc) devem estar 
-        presentes aqui. 
-        
+        Join entre 3 tabelas para verificar as datas de compra de cada consumidor
+	
         select nome,sobrenome,email,datacompra from consumidor 
         join compra on(consumidor.idconsumidor=compra.idconsumidor)
         join pessoa on(consumidor.idpessoa=pessoa.idpessoa) limit 10;
@@ -234,11 +227,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         select * from produtos limit 10;
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG)
         
-        select exists(select * from compra where valortotal>10.0 and valortotal<100.0)
+        select exists(select * from compra where valortotal>150.0 and valortotal<200.0)
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG)
-
-        select exists (select * from itemcompra where preco > 100.0)
-   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG)
         
         select not exists (select * from itemcompra where preco < 100) 
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG)
@@ -258,13 +248,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 <br>
 
-#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
-        Detalhamento sobre funcionalidade de cada código.
-        a) Objetivo
-        b) Código do objeto (função/trigger/asserção)
-        c) exemplo de dados para aplicação
-        d) resultados em forma de tabela/imagem
-        
+#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>     
 	Objetivo: Impedir que o preço do item da compra seja maior que o valor total da compra
         CREATE OR REPLACE FUNCTION checkPrecoItemCompra() RETURNS TRIGGER AS ' BEGIN
         IF EXISTS ( select valortotal as valor_da_compra,preco as valor_do_item from itemcompra
@@ -305,16 +289,43 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
-	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados nas tabelas necessárias. 
-<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>
-        a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
-        b) tabelas diretamente relacionadas a tabela principal 100 mil registros
-        c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
-        d) registrar o tempo de inserção em cada uma das tabelas do banco de dados
-        e) especificar a quantidade de registros inseridos em cada tabela
-        Para melhor compreensão verifiquem o exemplo na base de testes:<br>
-        https://github.com/discipbd2/base-de-testes-locadora
-        
+	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados. 
+<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a> 
+
+	 Base de dados com 1,5 Milhão de Registros Relacionados
+   	a) tabela cidade: 10 registros
+   	b) tabela compra: 100000 registros
+   	c) tabela consumidor: 10 registros
+   	d) tabela endereco: 10 registros
+   	e) tabela estabelecimento: 100000 registros
+   	g) tabela estabelecimentoproduto: 10 registros
+   	h) tabela estado: 10 registros
+   	i)tabela itemcompra: 1500000 registros
+   	j)  tabela itemlistacompra: 10 registros
+   	k)  tabela listacompra: 10  registros
+   	l)  tabela marca: 10 registros
+ 	m)  tabela medida: 10 registros
+  	n)  tabela pessoa: 10 registros
+  	o)  tabela produto: 100000 registros
+  
+	A criação de tabela e inclusão de dados foi realizada em um computador AMD Phenom(™) II X4 850 Processor 3.30 GHZ com 4GB de Ram 	e Hd SATA de 500GB, utilizando-se do Windows 7 
+
+	Tempo de inserção:
+
+	   a) tabela cidade: 343 msec
+	   b) tabela compra: 5 secs 533 msec
+	   c) tabela consumidor: 104 msec
+	   d) tabela endereco: 133 msec
+	   e) tabela estabelecimento: 8 secs 705 msec
+	   g) tabela estabelecimentoproduto: 395 msec
+	   h) tabela estado: 141 msec
+	   i)tabela itemcompra: 122 sec
+	   j)  tabela itemlistacompra: 233 msec
+	   k)  tabela listacompra: 101 msec
+	   l)  tabela marca: 90 msec
+	  m)  tabela medida:  97 msec
+	  n)  tabela pessoa: 153 msec
+	  o)  tabela produto: 8 secs 64 msec
 
 
 #### 9.7	Backup do Banco de Dados<br>
@@ -325,26 +336,22 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_sql.PNG?raw=true "Comando SQL")
 		
 	Tempo de execução
-	Backup: 5s
-	SQL: 3s
-	
-	Tamanho do arquivo gerado (backup)
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_backup.PNG?raw=true "Tamanho arquivo gerado(backup)")
-	
-	Tamanho do arquivo gerado (sql)
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_sql.PNG?raw=true "Tamanho arquivo gerado(sql)")
+	Aproximadamente 10 segundos nos dois casos
+	Tamanho do arquivo gerado (backup): 15MB
+	Tamanho do arquivo gerado (sql): 46MB
+
 	
 	Comando restore (backup)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_backup.PNG?raw=true "Comando restore (backup)")
 	
 	Tempo restore (backup)
-	Aproximadamente 12 segundos.
+	Aproximadamente 30 segundos.
 	
 	Comando restore (sql)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_sql.PNG?raw=true "Comando restore (sql)")
 	
 	Tempo restore (sql)
-	Aproximadamente 15 segundos.
+	Aproximadamente 40 segundos.
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
