@@ -227,11 +227,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         select * from produtos limit 10;
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/view2.PNG)
         
-        select exists(select * from compra where valortotal>10.0 and valortotal<100.0)
+        select exists(select * from compra where valortotal>150.0 and valortotal<200.0)
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists1.PNG)
-
-        select exists (select * from itemcompra where preco > 100.0)
-   ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists2.PNG)
         
         select not exists (select * from itemcompra where preco < 100) 
    ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/exists3.PNG)
@@ -292,7 +289,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
-	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados nas tabelas necessárias. 
+	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados. 
 <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>       
 
 #### 9.7	Backup do Banco de Dados<br>
@@ -303,26 +300,22 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_sql.PNG?raw=true "Comando SQL")
 		
 	Tempo de execução
-	Backup: 5s
-	SQL: 3s
-	
-	Tamanho do arquivo gerado (backup)
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_backup.PNG?raw=true "Tamanho arquivo gerado(backup)")
-	
-	Tamanho do arquivo gerado (sql)
-![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_sql.PNG?raw=true "Tamanho arquivo gerado(sql)")
+	Aproximadamente 10 segundos nos dois casos
+	Tamanho do arquivo gerado (backup): 15MB
+	Tamanho do arquivo gerado (sql): 46MB
+
 	
 	Comando restore (backup)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_backup.PNG?raw=true "Comando restore (backup)")
 	
 	Tempo restore (backup)
-	Aproximadamente 12 segundos.
+	Aproximadamente 30 segundos.
 	
 	Comando restore (sql)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_sql.PNG?raw=true "Comando restore (sql)")
 	
 	Tempo restore (sql)
-	Aproximadamente 15 segundos.
+	Aproximadamente 40 segundos.
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
