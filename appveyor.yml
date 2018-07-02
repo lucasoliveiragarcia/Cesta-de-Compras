@@ -29,9 +29,9 @@ before_package:
 - cmd: >-
 
 before_test:
-- cmd: psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql"
-- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
-- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
+- cmd: psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql" -q
+- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" -q
+- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" -q
 
 after_test:
 
