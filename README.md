@@ -290,7 +290,43 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
 	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados. 
-<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>       
+<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a> 
+
+	 Base de dados com 1,5 Milhão de Registros Relacionados
+   	a) tabela cidade: 10 registros
+   	b) tabela compra: 100000 registros
+   	c) tabela consumidor: 10 registros
+   	d) tabela endereco: 10 registros
+   	e) tabela estabelecimento: 100000 registros
+   	g) tabela estabelecimentoproduto: 10 registros
+   	h) tabela estado: 10 registros
+   	i)tabela itemcompra: 1500000 registros
+   	j)  tabela itemlistacompra: 10 registros
+   	k)  tabela listacompra: 10  registros
+   	l)  tabela marca: 10 registros
+ 	m)  tabela medida: 10 registros
+  	n)  tabela pessoa: 10 registros
+  	o)  tabela produto: 100000 registros
+  
+	A criação de tabela e inclusão de dados foi realizada em um computador AMD Phenom(™) II X4 850 Processor 3.30 GHZ com 4GB de Ram 	e Hd SATA de 500GB, utilizando-se do Windows 7 
+
+	Tempo de inserção:
+
+	   a) tabela cidade: 343 msec
+	   b) tabela compra: 5 secs 533 msec
+	   c) tabela consumidor: 104 msec
+	   d) tabela endereco: 133 msec
+	   e) tabela estabelecimento: 8 secs 705 msec
+	   g) tabela estabelecimentoproduto: 395 msec
+	   h) tabela estado: 141 msec
+	   i)tabela itemcompra: 122 sec
+	   j)  tabela itemlistacompra: 233 msec
+	   k)  tabela listacompra: 101 msec
+	   l)  tabela marca: 90 msec
+	  m)  tabela medida:  97 msec
+	  n)  tabela pessoa: 153 msec
+	  o)  tabela produto: 8 secs 64 msec
+
 
 #### 9.7	Backup do Banco de Dados<br>
 	Comando (backup)
