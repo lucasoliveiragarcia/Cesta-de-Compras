@@ -1,5 +1,21 @@
 version: 1.0.{build}
 
+environment:
+  # postgres
+  POSTGRES_PORT: tcp://localhost:5432
+  POSTGRES_ENV_POSTGRES_USER: postgres
+  POSTGRES_ENV_POSTGRES_PASSWORD: Password12!
+  POSTGRES_ENV_POSTGRES_DB: BancoCestaCompra
+  POSTGRES_PATH: C:\Program Files\PostgreSQL\9.6
+  PGUSER: postgres
+  PGPASSWORD: Password12!
+  
+init:
+  - SET PATH=%POSTGRES_PATH%\bin;%PATH%
+
+services:
+  - postgresql96
+
 before_build:
 - ps: >-
     cd CestaDeCompras
@@ -11,6 +27,12 @@ build:
   verbosity: quiet
 before_package:
 - cmd: >-
+    
+    psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql" 
+
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
+    
+    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
     
     choco install "msbuild-sonarqube-runner" -y
     
