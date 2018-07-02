@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS dbo
-;
+
+CREATE SCHEMA IF NOT EXISTS dbo;
 
 CREATE TABLE "dbo"."cidade"("idcidade" serial4 NOT NULL,"nome" varchar(100) NOT NULL DEFAULT '',"idestado" int4 NOT NULL DEFAULT 0,CONSTRAINT "PK_dbo.cidade" PRIMARY KEY ("idcidade"))
 ;
