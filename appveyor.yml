@@ -27,14 +27,16 @@ build:
   verbosity: quiet
 before_package:
 - cmd: >-
-    
-    psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql" 
 
-    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
-    
-    psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
-    
-    MsBuild.exe /t:Rebuild
+before_test:
+- cmd: MsBuild.exe /t:Rebuild
+- cmd: psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql"
+- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
+- cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
+
+after_test:
+- cmd: ipconfig
+
     
     
 deploy:
