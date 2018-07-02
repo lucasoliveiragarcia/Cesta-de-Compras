@@ -317,16 +317,33 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 
 #### 9.7	Backup do Banco de Dados<br>
-        Detalhamento do backup.
-        a) Tempo
-        b) Tamanho
-        c) Teste de restauração (backup)
-        d) Tempo para restauração
-        e) Teste de restauração (script sql)
-        f) Tempo para restauração (script sql)
-<br>
-
-Data de Entrega: (Data a ser definida)
+	Comando (backup)
+	![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_backup.PNG?raw=true "Comando Bakup")
+	
+	Comando (sql)
+		![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_sql.PNG?raw=true "Comando SQL")
+		
+	Tempo de execução
+	Backup: 5s
+	SQL: 3s
+	
+	Tamanho do arquivo gerado (backup)
+	![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_backup.PNG?raw=true "Tamanho arquivo gerado(backup)")
+	
+	Tamanho do arquivo gerado (sql)
+	![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanho_arquivo_sql.PNG?raw=true "Tamanho arquivo gerado(sql)")
+	
+	Comando restore (backup)
+	![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_backup.PNG?raw=true "Comando restore (backup)")
+	
+	Tempo restore (backup)
+	Aproximadamente 12 segundos.
+	
+	Comando restore (sql)
+	![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_sql.PNG?raw=true "Comando restore (sql)")
+	
+	Tempo restore (sql)
+	Aproximadamente 15 segundos.
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
