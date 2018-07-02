@@ -58,15 +58,6 @@ namespace CestaCompra.Apresentacao {
         protected global::System.Web.UI.WebControls.LinkButton LkbAdicionarProduto;
         
         /// <summary>
-        /// Controle LkbRemoverProduto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LkbRemoverProduto;
-        
-        /// <summary>
         /// Controle LkbSalvarListaCompra.
         /// </summary>
         /// <remarks>

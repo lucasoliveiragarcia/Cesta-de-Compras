@@ -99,6 +99,23 @@ namespace CestaCompra.Aplicacao
             return itemListaCompra.IdItemListaCompra;
         }
 
+        public int RemoverItemListaCompra(int IdListaCompra, int IdItemListaCompra)
+        {
+            if (IdListaCompra == 0)
+                throw new ArgumentException("Informe a lista de compra");
+
+            if (IdItemListaCompra == 0)
+                throw new ArgumentException("Informe o produto");
+
+            ItemListaCompra itemListaCompra = repositorioItemListaCompra.ObterPorId(IdItemListaCompra);
+
+            repositorioItemListaCompra.Excluir(itemListaCompra);
+
+            repositorioItemListaCompra.UnitOfWork.Commit();
+
+            return itemListaCompra.IdItemListaCompra;
+        }
+
         public void AtualizarQuantidadeItemListaCompra(int IdListaCompra, int  idItemListaCompra, int quantidade)
         {
             if (IdListaCompra == 0)

@@ -51,7 +51,7 @@
                     <div id="DivLista">
                         <asp:GridView ID="GvwLista" runat="server" Width="50%" CellSpaci10g="1" CellPadding="0"
                             AllowSorting="True" GridLines="None" AutoGenerateColumns="False" AllowPaging="True"
-                            PageSize="20" OnPageIndexChanging="Paginacao_Grid" OnSorting="GvwLista_Sorting"
+                            PageSize="20" OnPageIndexChanging="Paginacao_Grid" OnSorting="GvwLista_Sorting" AlternatingRowStyle-BackColor="White"
                             CssClass="table table-hover table-striped" ShowHeader="true" DataKeyNames="iditemlistacompra">
                             <Columns>
                                 <asp:TemplateField HeaderText="iditemlistacompra" HeaderStyle-Wrap="false" ItemStyle-Wrap="false" Visible="false">
@@ -63,7 +63,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Produto">
                                     <ItemTemplate>
-                                        <asp:Button ID="BtnAbriLista" class="btn btn-success col-md-12" runat="server" TabIndex="1" Text='<%# Eval("nomeProduto") %>'/>
+                                        <asp:Button ID="BtnProduto" class="btn btn-success col-md-12" runat="server" TabIndex="1" Text='<%# Eval("nomeProduto") %>' />
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Center" Wrap="False" />
                                     <ItemStyle HorizontalAlign="Left" Wrap="False" />
@@ -75,12 +75,19 @@
                                     <HeaderStyle HorizontalAlign="Center" Wrap="False" />
                                     <ItemStyle HorizontalAlign="Left" Wrap="False" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderStyle-Width="15px">
+                                    <ItemTemplate>
+                                        <asp:Button ID="BtnRemoverProduto" class="btn btn-danger col-md-12" runat="server" TabIndex="1" Text="Remover"
+                                            OnCommand="RemoverProduto_Command" CommandArgument='<%# Eval("iditemlistacompra") %>' />
+                                    </ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                                    <ItemStyle HorizontalAlign="Left" Wrap="False" />
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                     </div>
 
                     <asp:LinkButton ID="LkbAdicionarProduto" runat="server" CssClass="btn btn-primary" OnClick="LkbAdicionarProduto_Click"><i class="glyphicon glyphicon-trash"></i>Adicionar Produto</asp:LinkButton>
-                    <asp:LinkButton ID="LkbRemoverProduto" runat="server" CssClass="btn btn-danger" OnClientClick="return getConfirmation(this, 'Confirmação','Deseja realmente excluir esse produto?');" OnClick="LkbRemoverProduto_Click"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</asp:LinkButton>
                     <asp:LinkButton ID="LkbSalvarListaCompra" runat="server" CssClass="btn btn-danger" OnClick="LkbSalvarListaCompra_Click"><i class="glyphicon glyphicon-trash"></i>Salvar</asp:LinkButton>
                 </form>
             </asp:View>

@@ -33,20 +33,20 @@ def main():
 
 def gerarArquivo():
 
-    arquivoSql = open("insertDados.sql", 'wt')
-    arquivoSql.write("SET schema '"+schema+"';") #Schema padrão do postgres é Public
-    arquivoSql.write(getScriptMarca())
-    arquivoSql.write(getScriptMedida())
-    #arquivoSql.write(getScriptPais()) # Removido do Escopo
-    arquivoSql.write(getScriptEstado())
-    arquivoSql.write(getScriptCidade())
-    arquivoSql.write(getScriptEndereco())
-    arquivoSql.write(getScriptEstabelecimento())
-    arquivoSql.write(getScriptPessoa())
-    arquivoSql.write(getScriptConsumidor())
-    arquivoSql.write(getScriptListaCompra())
-    arquivoSql.write(getScriptProduto())
-    arquivoSql.write(getScriptCompra())
+    arquivoSql = open("insertDados.sql", 'wt', encoding="utf-8")
+    write("SET schema '"+schema+"';",arquivoSql) #Schema padrão do postgres é Public
+    write(getScriptMarca(),arquivoSql)
+    write(getScriptMedida(),arquivoSql)
+    #arquivoSql.write(getScriptPais().encode("utf-8")) # Removido do Escopo
+    write(getScriptEstado(),arquivoSql)
+    write(getScriptCidade(),arquivoSql)
+    write(getScriptEndereco(),arquivoSql)
+    write(getScriptEstabelecimento(),arquivoSql)
+    write(getScriptPessoa(),arquivoSql)
+    write(getScriptConsumidor(),arquivoSql)
+    write(getScriptListaCompra(),arquivoSql)
+    write(getScriptProduto(),arquivoSql)
+    write(getScriptCompra(),arquivoSql)
 
     arquivoSql.close()
 
@@ -54,6 +54,9 @@ def gerarArquivo():
     input()
 
     return;
+	
+def write(texto, arquivo):
+	arquivo.write(texto)
 
 def porcentagem(atual, total):
     porce = 100 * atual / (total)
@@ -65,7 +68,7 @@ def getScriptMarca():
     \nINSERT INTO Marca (idmarca, nome)
     VALUES  (1,'Nenhuma'),
 		    (2,'Nestle'),
-		    (3,'Sepé'),
+		    (3,'Tigre'),
 		    (4,'Coca Cola'),
 		    (5,'Unilever'),
 		    (6,'Seara'),
@@ -96,21 +99,20 @@ def getScriptPais():
     sql = """  \nINSERT INTO pais (idpais, nome)
             VALUES  (1,  'Brasil'        ),
         (2,  'Estados Unidos'),
-        (3,  'França'        ),
-        (4,  'Itália'        ),
-        (5,  'Canadá'        ),
+        (3,  'Franca'        ),
+        (4,  'China'        ),
+        (5,  'Bolivia'        ),
         (6,  'Chile'         ),
         (7,  'Russia'        ),
         (8,  'Alemanha'      ),
-        (9,  'México'        ),
-        (10, 'Egito'         ),
-        (11, 'China'         );  """
+        (9,  'Egito'        ),
+        (10, 'China'         );  """
     return sql + setNextVal("pais")
 
 def getScriptEstado():
     sql = """ \nINSERT INTO estado (idestado, nome)
         VALUES  (1,  'Espirito Santo'    ),
-        (2,  'São Paulo'         ),
+        (2,  'Sao Paulo'         ),
         (3,  'Goias'             ),
         (4,  'Amazonas'          ),
         (5,  'Mato Grosso do Sul'),
@@ -118,8 +120,8 @@ def getScriptEstado():
         (7,  'Bahia'             ),
         (8,  'Rio de Janeiro'    ),
 		(9,  'Texas'             ),
-        (10, 'Califórnia'        ),
-        (11, 'Flórida'           ),
+        (10, 'California'        ),
+        (11, 'Florida'           ),
         (12, 'Alasca'            ); """
     return sql + setNextVal("estado")
 
@@ -156,13 +158,13 @@ def getScriptEstabelecimento(QTD =  QTD_ESTABLECIMENTO):
     sql = """\nINSERT INTO estabelecimento(idestabelecimento ,idendereco ,nome , unidade ,logo)
     VALUES  (1,  1, 'EPA PLUS',     'Serra',      'logo.jpg'),
 	(2,  2, 'Extrabom',   'Serra',  'logo.jpg'),
-	(3,  3, 'Wallmart',   'Vitória',    'logo.jpg'),
+	(3,  3, 'Wallmart',   'Vitoria',    'logo.jpg'),
 	(4,  4, 'Carone',     'Serra', 	    'logo.jpg'),
 	(5,  5, 'Meridional', 'Aracruz',    'logo.jpg'),
 	(6,  6, 'Devens',     'Aracruz',    'logo.jpg'),
 	(7,  7, 'Carrefour',  'Serra', 'logo.jpg'),
 	(8,  8, 'Extrabom',   'Vila Velha','logo.jpg'),
-	(9,  9, 'Carrefour',  'Vitória', 'logo.jpg'),
+	(9,  9, 'Carrefour',  'Vitoria', 'logo.jpg'),
 	(10, 10, 'Wallmart',   'Linhares', 'logo.jpg');"""
 
     return sql + setNextVal("estabelecimento");

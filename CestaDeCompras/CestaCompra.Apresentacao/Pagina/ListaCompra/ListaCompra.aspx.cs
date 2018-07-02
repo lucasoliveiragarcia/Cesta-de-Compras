@@ -145,6 +145,24 @@ namespace CestaCompra.Apresentacao
             }   
         }
 
+        protected void RemoverProduto_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                int iditemlistacompra = Convert.ToInt32(((Button)sender).CommandArgument);
+
+                aplListaCompra.RemoverItemListaCompra(this.Id, iditemlistacompra);
+                
+                this.ListarItemsAdicionados();
+
+                MasterPage.SetMensagemMain("Item Removido com sucesso!", ETipoMensagem.Sucesso);
+            }
+            catch (Exception erro)
+            {
+                MasterPage.SetMensagemMain(erro.Message, ETipoMensagem.Erro);
+            }
+        }
+
         protected void BtnCriarNovaLista_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
