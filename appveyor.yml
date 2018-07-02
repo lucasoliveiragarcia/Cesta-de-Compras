@@ -29,16 +29,13 @@ before_package:
 - cmd: >-
 
 before_test:
-- cmd: MsBuild.exe /t:Rebuild
+
+
+after_test:
 - cmd: psql -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarBancoDeDados.sql"
 - cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/CriarTabelas.sql" 
 - cmd: psql -d BancoCestaCompra -a -f "C:/projects/cesta-de-compras/ModelagemBanco/ScriptsEntityFramework/insertDados.sql" 
 
-after_test:
-- cmd: ipconfig
-
-    
-    
 deploy:
 - provider: WebDeploy
   server: https://eduardocoutto-001-site1.htempurl.com:8172/msdeploy.axd?site=eduardocoutto-001-site1
