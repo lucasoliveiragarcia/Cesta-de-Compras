@@ -153,7 +153,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
         c) fontes de estudo para desenvolvimento do projeto
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
-     <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/script_criacao_das_tabelas_e_1.5M_dados.sql">Criação das tabelas e inserção dos dados</a>
+   <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Script_Criacao_das_tabelas_e_1.5M_de_registros">Criação das tabelas e inserção dos dados</a>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	GERACAO DE DADOS (MÍNIMO DE 10 REGISTROS PARA CADA TABELA NO BANCO DE DADOS)<br>
@@ -208,15 +208,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
-        a) Descrição da view sobre que grupos de usuários (operacional/estratégico) <br>
-        e necessidade ela contempla.
-        b) Descrição das permissões de acesso e usuários correlacionados (após definição <br>
-        destas características)
-    Data de Entrega: (Data a ser definida)
-        c) as funcionalidades informadas no minimundo ou nos mockups(protótipos), que representarem 
-        views do sistema (relatórios, informações disponíveis para os usuários, etc) devem estar 
-        presentes aqui. 
-        
+        Join entre 3 tabelas para verificar as datas de compra de cada consumidor
+	
         select nome,sobrenome,email,datacompra from consumidor 
         join compra on(consumidor.idconsumidor=compra.idconsumidor)
         join pessoa on(consumidor.idpessoa=pessoa.idpessoa) limit 10;
@@ -258,13 +251,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 <br>
 
-#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
-        Detalhamento sobre funcionalidade de cada código.
-        a) Objetivo
-        b) Código do objeto (função/trigger/asserção)
-        c) exemplo de dados para aplicação
-        d) resultados em forma de tabela/imagem
-        
+#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>     
 	Objetivo: Impedir que o preço do item da compra seja maior que o valor total da compra
         CREATE OR REPLACE FUNCTION checkPrecoItemCompra() RETURNS TRIGGER AS ' BEGIN
         IF EXISTS ( select valortotal as valor_da_compra,preco as valor_do_item from itemcompra
@@ -306,16 +293,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
 	Desenvolvemos alguns scripts na linguagem python para gerar milhares de dados nas tabelas necessárias. 
-<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>
-        a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
-        b) tabelas diretamente relacionadas a tabela principal 100 mil registros
-        c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
-        d) registrar o tempo de inserção em cada uma das tabelas do banco de dados
-        e) especificar a quantidade de registros inseridos em cada tabela
-        Para melhor compreensão verifiquem o exemplo na base de testes:<br>
-        https://github.com/discipbd2/base-de-testes-locadora
-        
-
+<a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/tree/master/Scripts_geracao_de_dados">Scripts de geração de dados para o banco.</a>       
 
 #### 9.7	Backup do Banco de Dados<br>
 	Comando (backup)
