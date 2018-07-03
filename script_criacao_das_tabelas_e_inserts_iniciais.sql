@@ -54,11 +54,6 @@ Nome VARCHAR(100),
 FOREIGN KEY(IdEstado) REFERENCES Estado (IdEstado)
 );
 
-CREATE TABLE Pais (
-IdPais SERIAL PRIMARY KEY,
-Nome VARCHAR(100)
-);
-
 CREATE TABLE Consumidor (
 IdConsumidor SERIAL PRIMARY KEY,
 IdPessoa INTEGER,
@@ -124,7 +119,7 @@ Logo INT,
 FOREIGN KEY(IdEndereco) REFERENCES Endereco (IdEndereco)
 );
 
-ALTER TABLE Estado ADD FOREIGN KEY(IdPais) REFERENCES Pais (IdPais);
+
 ALTER TABLE Endereco ADD FOREIGN KEY(IdCidade) REFERENCES Cidade (IdCidade);
 ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdProduto) REFERENCES Produto (IdProduto);
 ALTER TABLE EstabelecimentoProduto ADD FOREIGN KEY(IdEstabelecimento) REFERENCES Estabelecimento (IdEstabelecimento);
@@ -158,29 +153,18 @@ INSERT INTO medida (idmedida,descricao,tipomedida)
 		(9,'CM',9),
 		(10,'Gigas',10);
       
-INSERT INTO pais (idpais, nome)
-            VALUES  (1,  'Brasil'        ),
-        (2,  'Estados Unidos'),
-        (3,  'França'        ),
-        (4,  'Itália'        ),
-        (5,  'Canadá'        ),
-        (6,  'Chile'         ),
-        (7,  'Russia'        ),
-        (8,  'Alemanha'      ),
-        (9,  'México'        ),
-        (10, 'Egito'         );
 
         INSERT INTO estado (idpais, idestado, nome)
-        VALUES  (1, 1,  'Espirito Santo'    ),
-        (1, 2,  'São Paulo'         ),
-        (1, 3,  'Goias'             ),
-        (1, 4,  'Amazonas'          ),
-        (1, 5,  'Mato Grosso do Sul'),
-        (1, 6,  'Rio de Janeiro'    ),
-        (1, 7,  'Bahia'             ),
-        (1, 8,  'Rio de Janeiro'    ),
-        (2, 9,  'Texas'             ),
-        (2, 10, 'Califórnia'        );
+        VALUES  (1,  'Espirito Santo'    ),
+        (2,  'São Paulo'         ),
+        (3,  'Goias'             ),
+        (4,  'Amazonas'          ),
+        ( 5,  'Mato Grosso do Sul'),
+        (6,  'Rio de Janeiro'    ),
+        ( 7,  'Bahia'             ),
+        ( 8,  'Rio de Janeiro'    ),
+        ( 9,  'Texas'             ),
+        (10, 'Califórnia'        );
 		
 INSERT INTO cidade (idcidade,idestado, nome) VALUES  (1,1, 'Colina de Laranjeiras'),(2,5, 'Martins da Mata')
 ,(3,6, 'Barros da Serra')
