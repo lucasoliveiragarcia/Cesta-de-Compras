@@ -312,20 +312,20 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 	Tempo de inserção:
 
-	   a) tabela cidade: 343 msec
-	   b) tabela compra: 5 secs 533 msec
-	   c) tabela consumidor: 104 msec
-	   d) tabela endereco: 133 msec
-	   e) tabela estabelecimento: 8 secs 705 msec
-	   g) tabela estabelecimentoproduto: 395 msec
-	   h) tabela estado: 141 msec
-	   i)tabela itemcompra: 122 sec
-	   j)  tabela itemlistacompra: 233 msec
-	   k)  tabela listacompra: 101 msec
-	   l)  tabela marca: 90 msec
-	  m)  tabela medida:  97 msec
-	  n)  tabela pessoa: 153 msec
-	  o)  tabela produto: 8 secs 64 msec
+	   a) tabela cidade: 
+	   b) tabela compra: 
+	   c) tabela consumidor: 
+	   d) tabela endereco: 
+	   e) tabela estabelecimento: 
+	   g) tabela estabelecimentoproduto: 
+	   h) tabela estado: 
+	   i)tabela itemcompra: 
+	   j)  tabela itemlistacompra: 
+	   k)  tabela listacompra: 
+	   l)  tabela marca: 
+	  m)  tabela medida:  
+	  n)  tabela pessoa: 
+	  o)  tabela produto: 
 
 
 #### 9.7	Backup do Banco de Dados<br>
