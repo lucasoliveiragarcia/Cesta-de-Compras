@@ -365,12 +365,6 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
     Data de Entrega: (Data a ser definida)
 <br>   
-
-#### 9.9	ANÁLISE DOS DADOS COM ORANGE<br>    
-        a) captura das informaçõs
-        b) integração com banco de dados em desenvolvimento
-        c) aplicação de algoritmos e interpretação dos resultados
-        c) atualização da documentação do trabalho incluindo a mineração de dados
 <br>
     Data de Entrega: (Data a ser definida)
 <br>
