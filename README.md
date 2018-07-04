@@ -311,6 +311,10 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estadodobanco.PNG?raw=true "Estado do banco")
   
 	A criação de tabela e inclusão de dados foi realizada em um computador Intel I5 com 4GB de Ram 	e Hd de 500GB, utilizando-se do Windows 7 
+	
+	Tempo tempo de execução 
+	"inicio do processo" 20:00:00
+	"final do processo" 22:30:00
 
 	Tempo de inserção:
 
