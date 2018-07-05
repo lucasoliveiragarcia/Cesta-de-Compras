@@ -146,12 +146,7 @@ Link para telas mobile: https://drive.google.com/open?id=1K8Ts6pe0Mk1Y0ndTrIaQ15
 <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/modelofisico.sql">Modelo Físico</a>
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
-        Detalhamento sobre as informações e processo de obtenção ou geração dos dados.
-        Referenciar todas as fontes referentes a:
-        a) obtenção dos dados
-        b) obtenção de códigos reutilizados
-        c) fontes de estudo para desenvolvimento do projeto
-        
+	Não utilizamos códigos previamente pronto. Desenvolvemos projeto a partir de situações cotidianas.
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
    <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Script_Criacao_das_tabelas_e_1.5M_de_registros">Criação das tabelas e inserção dos dados</a>
 
