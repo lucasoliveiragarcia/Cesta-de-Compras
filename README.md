@@ -29,7 +29,7 @@ O sistema deverá utilizar como referência inicial  as informações levantadas
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
 
-Link para telas mobile: https://drive.google.com/open?id=1K8Ts6pe0Mk1Y0ndTrIaQ15VjF4IpZkz2BXhXJGndPKA
+Link das telas: https://drive.google.com/open?id=1K8Ts6pe0Mk1Y0ndTrIaQ15VjF4IpZkz2BXhXJGndPKA
 
 
 ### 5	MODELO CONCEITUAL<br>
