@@ -293,7 +293,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
    	c) tabela consumidor: 10 registros
    	d) tabela endereco: 10 registros
    	e) tabela estabelecimento: 100000 registros
-   	g) tabela estabelecimentoproduto: 10 registros
+   	g) tabela estabelecimentoproduto: 11 registros
    	h) tabela estado: 10 registros
    	i)tabela itemcompra: 1500000 registros
    	j)  tabela itemlistacompra: 10 registros
@@ -308,25 +308,27 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 	A criação de tabela e inclusão de dados foi realizada em um computador Intel I5 com 4GB de Ram 	e Hd de 500GB, utilizando-se do Windows 7 
 	
 	Tempo tempo de execução 
-	"inicio do processo" 20:00:00
-	"final do processo" 22:30:00
+	"inicio do processo" 20:06:10
+	"final do processo" 23:02:42
 
 	Tempo de inserção:
 
-	   a) tabela cidade: 
-	   b) tabela compra: 
-	   c) tabela consumidor: 
-	   d) tabela endereco: 
-	   e) tabela estabelecimento: 
-	   g) tabela estabelecimentoproduto: 
-	   h) tabela estado: 
+	   a) tabela cidade: 66msec
+	   b) tabela compra: 5sec
+	   c) tabela consumidor: 208msec
+	   d) tabela endereco: 77msec
+	   e) tabela estabelecimento: 5 secs
+	   g) tabela estabelecimentoproduto: 707 msec
+	   h) tabela estado: 80msec
 	   i)tabela itemcompra: 
-	   j)  tabela itemlistacompra: 
-	   k)  tabela listacompra: 
-	   l)  tabela marca: 
-	  m)  tabela medida:  
-	  n)  tabela pessoa: 
-	  o)  tabela produto: 
+	   start 14:07:32
+	   finish: 16:54:02
+	   j)  tabela itemlistacompra: 135msec
+	   k)  tabela listacompra: 53msec
+	   l)  tabela marca: 50msec
+	  m)  tabela medida:  54msec
+	  n)  tabela pessoa: 97msec
+	  o)  tabela produto: 5secs
 
 
 #### 9.7	Backup do Banco de Dados<br>
