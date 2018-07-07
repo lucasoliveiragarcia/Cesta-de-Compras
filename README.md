@@ -366,6 +366,25 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
+	Índice aplicado ao campo preço da tabela estabelecimentoproduto pois o mesmo será consultado pelo consumidor ao exibir
+	sua lista de compra para a realização da compra
+	
+	Query de criação de index
+	create index preco_produto on estabelecimentoproduto(preco)
+
+	Query de busca
+	Consulta onde se obtém o preço de um produto em uma faixa de preço de um estabelecimento de uma determinada unidade.
+	
+	select produto.nome as produto,preco,estabelecimento.nome as estabelecimento,estabelecimento.unidade 
+	from estabelecimentoproduto 
+	join produto on (produto.idproduto=estabelecimentoproduto.idproduto)
+	join estabelecimento on (estabelecimento.idestabelecimento=estabelecimentoproduto.idestabelecimento)
+	where preco>7 and preco<10 and estabelecimento.nome like '%Carone%' and produto.nome like '%Suco de Caju%' 
+	and estabelecimento.unidade like '%Serra%'
+	
+	Tempo da consulta sem índice: 130msec
+	Tempo da consulta com índice: 92msec
+
 	Índice aplicado ao campo preco da tabela itemcompra, é um campo bastante requisitado pois o cliente ao realizar uma compra
 	estará automaticamente atualizando o preço do item do supermercado onde foi realizado a compra.
 	
@@ -373,7 +392,8 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 	create index preco_index on itemcompra (preco)
 	
 	Query de busca
-	Consulta onde se obtém o valor de um item de uma compra entre R$10 e R$20 com nome Refrigerante, de uma compra com valor total entre R$180 e R$200 , de um consumidor com nome Vinicius
+	Consulta onde se obtém o valor de um item de uma compra entre R$10 e R$20 com nome Refrigerante, de uma compra com valor total 		entre R$180 e R$200 , de um consumidor com nome Vinicius
+	
 	select pessoa.nome,produto.nome,preco from itemcompra 
 	join produto on (itemcompra.idproduto=produto.idproduto)
 	join compra on (itemcompra.idcompra=compra.idcompra)
