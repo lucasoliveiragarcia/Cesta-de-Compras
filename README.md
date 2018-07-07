@@ -366,13 +366,25 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
-    a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
-    b) Performance esperada VS Resultados obtidos
-    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices (constando velocidade esperada com planejamento, sem indice e com índice Vs velocidade de execucao real com índice e sem índice).
-    d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
-    e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
-    f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
-    obtendo-se a media dos outros valores como resultado médio final.
+	Índice aplicado ao campo preco da tabela itemcompra, é um campo bastante requisitado pois o cliente ao realizar uma compra
+	estará automaticamente atualizando o preço do item do supermercado onde foi realizado a compra.
+	
+	Query de criação de index
+	create index preco_index on itemcompra (preco)
+	
+	Query de busca
+	Consulta onde se obtém o valor de um item de uma compra entre R$10 e R$20 com nome Refrigerante, de uma compra com valor total entre R$180 e R$200 , de um consumidor com nome Vinicius
+	select pessoa.nome,produto.nome,preco from itemcompra 
+	join produto on (itemcompra.idproduto=produto.idproduto)
+	join compra on (itemcompra.idcompra=compra.idcompra)
+	join consumidor on (compra.idconsumidor=consumidor.idconsumidor)
+	join pessoa on(pessoa.idpessoa=consumidor.idpessoa)
+	where preco > 10 and preco<20 and produto.nome like '%Refrigerante%' and valortotal > 180 and valortotal<200
+	and pessoa.nome like '%Vinicius%'
+	
+	Tempo da consulta sem índice: 559msec
+	Tempo da consulta com índice: 262msec
+	
 <br>
     Data de Entrega: (Data a ser definida)
 <br>   
