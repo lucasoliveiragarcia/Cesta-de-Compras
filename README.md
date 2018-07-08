@@ -39,12 +39,23 @@ Link das telas: https://drive.google.com/open?id=1K8Ts6pe0Mk1Y0ndTrIaQ15VjF4IpZk
      5.2 NOTACAO UML (Caso esteja fazendo a disciplina de Projeto)
 
 #### 5.3 DECISÕES DE PROJETO
-    [atributo]: [descrição da decisão]
-    
-    EXEMPLO:
-    a) Campo endereço: em nosso projeto optamos por um campo multivalorado e composto, pois a empresa 
-    pode possuir para cada departamento mais de uma localização... 
-    b) justifique!
+	Cidade x Estado: Estado possui de 1 até N Cidades. Cidade está relacionado a 1 estado.
+	Cidade x Endereço: Cidade pode estar relacionado de 0 até N endereços. Endereco está relacionado a somente uma Cidade.
+	Endereco x Pessoa: Endereço pode ou não estar relacionado a uma pessoa. Pessoa deve estar relacionado a somente um endereço.
+	Endereco x Estabelecimento: Endereço pode ou não estar relacionado a um estabelecimento. Estabelecimento possui somente 1 		endereço.
+	Pessoa x Consumidor: Pessoa pode ser ou não um consumidor, poderia ser um administrador por exemplo. Consumidor é uma pessoa.
+	Consumidor x Compra: Consumidor pode ter ou não uma compra. Uma compra está relacionada a somente um consumidor.
+	Consumidor x ListaCompra: Consumidor pode ter de zero a N listas de compras. Lista de compra está relacionado a somente um 		consumidor.
+	ListaCompra x ItemListaCompra: Lista de compra pode ou não ter itens. Um item de lista está relacionado a somente uma lista.
+	ItemListaCompra x Produto: O item de uma lista de compra está relacionado a somente um produto. Produto pode ou não estar 		relacionado a um item de uma lista de compra.
+	Produto x Marca: Produto pode ter ou não uma marca (frutas não tem marca por exemplo). Marca pode ou não estar relacionado a um 	produto.
+	Produto x Medida: Produto esta relacionado a somente uma medida. Medida pode ou não estar relacionado a um produto.
+	Produto x EstabelecimentoProduto: Produto pode estar relacionado de zero a N estabelecimentos. Estabelecimento só pode conter 		um preço daquele produto, por isso é 1,1.
+	Produto x ItemCompra: Produto pode estar relacionado de zero a N itens de uma compra. ItemCompra esta relacionado a somente um 		produto.
+	EstabelecimentoProduto x Estabelecimento: EstabelecimentoProduto está relacionado a somente um estabelecimento. Estabelecimento 	pode ter de zero a N produtos.
+	Estabelecimento x ItemCompa: Estabelecimento pode ter de zero a N itens de uma compra. Item de uma compra esta relacionado a 		somente um estabelecimento.
+	Compra x ItemCompra: Compra pode ter de um a N itens de compra. ItemCompra está relacionado a somente uma Compra. 
+	
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
     Tabela ESTADO: Tabela que armazena as informações relativas ao estado.
