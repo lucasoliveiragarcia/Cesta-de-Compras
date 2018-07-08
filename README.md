@@ -377,25 +377,21 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
-	Índice aplicado ao campo preço da tabela estabelecimentoproduto pois o mesmo será consultado pelo consumidor ao exibir
-	sua lista de compra para a realização da compra
+	Índice aplicado ao campo nome da tabela produto, será uma consulta bastante realizada pelo usuário na busca de um produto
+	para a sua lista de compra.
 	
-	Query de criação de index
-	create index preco_produto on estabelecimentoproduto(preco)
-
+	Query de criação de index:
+	create index nome_index on produto(nome)
+	
 	Query de busca
-	Consulta onde se obtém o preço de um produto em uma faixa de preço de um estabelecimento de uma determinada unidade.
+	Consulta onde se obtém o nome de um determinado produto
+	select produto.nome from produto
+	join itemcompra on (itemcompra.idproduto=produto.idproduto)
+	where produto.nome like '%Pera%'
 	
-	select produto.nome as produto,preco,estabelecimento.nome as estabelecimento,estabelecimento.unidade 
-	from estabelecimentoproduto 
-	join produto on (produto.idproduto=estabelecimentoproduto.idproduto)
-	join estabelecimento on (estabelecimento.idestabelecimento=estabelecimentoproduto.idestabelecimento)
-	where preco>7 and preco<10 and estabelecimento.nome like '%Carone%' and produto.nome like '%Suco de Caju%' 
-	and estabelecimento.unidade like '%Serra%'
+	Tempo da consulta sem índice: 692msec
+	Tempo da consulta com índice: 630msec
 	
-	Tempo da consulta sem índice: 130msec
-	Tempo da consulta com índice: 92msec
-
 	Índice aplicado ao campo preco da tabela itemcompra, é um campo bastante requisitado pois o cliente ao realizar uma compra
 	estará automaticamente atualizando o preço do item do supermercado onde foi realizado a compra.
 	
