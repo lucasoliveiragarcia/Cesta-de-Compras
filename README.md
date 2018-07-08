@@ -1,4 +1,4 @@
-# TRABALHO 01 : Cesta de Compras [![Build status](https://ci.appveyor.com/api/projects/status/iao8pt0jse80i4ps?svg=true)](https://ci.appveyor.com/project/lucasoliveiragarcia/cesta-de-compras) [![Build status](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=code_smells)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=bugs)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=cestacompra2018) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cestacompra2018&metric=coverage)](https://sonarcloud.io/dashboard?id=cestacompra2018)
+# TRABALHO 01 : Cesta de Compras [![Build status](https://ci.appveyor.com/api/projects/status/iao8pt0jse80i4ps?svg=true)](https://ci.appveyor.com/project/lucasoliveiragarcia/cesta-de-compras)
 
 Trabalho desenvolvido durante a disciplina de BD
 
@@ -29,7 +29,7 @@ O sistema deverá utilizar como referência inicial  as informações levantadas
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
 
-Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3M-AxAdgzz5gvv6LtiLid8
+Link das telas: https://drive.google.com/open?id=1K8Ts6pe0Mk1Y0ndTrIaQ15VjF4IpZkz2BXhXJGndPKA
 
 
 ### 5	MODELO CONCEITUAL<br>
@@ -39,12 +39,23 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
      5.2 NOTACAO UML (Caso esteja fazendo a disciplina de Projeto)
 
 #### 5.3 DECISÕES DE PROJETO
-    [atributo]: [descrição da decisão]
-    
-    EXEMPLO:
-    a) Campo endereço: em nosso projeto optamos por um campo multivalorado e composto, pois a empresa 
-    pode possuir para cada departamento mais de uma localização... 
-    b) justifique!
+	Cidade x Estado: Estado possui de 1 até N Cidades. Cidade está relacionado a 1 estado.
+	Cidade x Endereço: Cidade pode estar relacionado de 0 até N endereços. Endereco está relacionado a somente uma Cidade.
+	Endereco x Pessoa: Endereço pode ou não estar relacionado a uma pessoa. Pessoa deve estar relacionado a somente um endereço.
+	Endereco x Estabelecimento: Endereço pode ou não estar relacionado a um estabelecimento. Estabelecimento possui somente 1 		endereço.
+	Pessoa x Consumidor: Pessoa pode ser ou não um consumidor, poderia ser um administrador por exemplo. Consumidor é uma pessoa.
+	Consumidor x Compra: Consumidor pode ter ou não uma compra. Uma compra está relacionada a somente um consumidor.
+	Consumidor x ListaCompra: Consumidor pode ter de zero a N listas de compras. Lista de compra está relacionado a somente um 		consumidor.
+	ListaCompra x ItemListaCompra: Lista de compra pode ou não ter itens. Um item de lista está relacionado a somente uma lista.
+	ItemListaCompra x Produto: O item de uma lista de compra está relacionado a somente um produto. Produto pode ou não estar 		relacionado a um item de uma lista de compra.
+	Produto x Marca: Produto pode ter ou não uma marca (frutas não tem marca por exemplo). Marca pode ou não estar relacionado a um 	produto.
+	Produto x Medida: Produto esta relacionado a somente uma medida. Medida pode ou não estar relacionado a um produto.
+	Produto x EstabelecimentoProduto: Produto pode estar relacionado de zero a N estabelecimentos. Estabelecimento só pode conter 		um preço daquele produto, por isso é 1,1.
+	Produto x ItemCompra: Produto pode estar relacionado de zero a N itens de uma compra. ItemCompra esta relacionado a somente um 		produto.
+	EstabelecimentoProduto x Estabelecimento: EstabelecimentoProduto está relacionado a somente um estabelecimento. Estabelecimento 	pode ter de zero a N produtos.
+	Estabelecimento x ItemCompa: Estabelecimento pode ter de zero a N itens de uma compra. Item de uma compra esta relacionado a 		somente um estabelecimento.
+	Compra x ItemCompra: Compra pode ter de um a N itens de compra. ItemCompra está relacionado a somente uma Compra. 
+	
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
     Tabela ESTADO: Tabela que armazena as informações relativas ao estado.
@@ -146,12 +157,7 @@ Link para telas mobile: https://drive.google.com/open?id=1cQa2bpsXflbbxywqFcQOU3
 <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/modelofisico.sql">Modelo Físico</a>
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
-        Detalhamento sobre as informações e processo de obtenção ou geração dos dados.
-        Referenciar todas as fontes referentes a:
-        a) obtenção dos dados
-        b) obtenção de códigos reutilizados
-        c) fontes de estudo para desenvolvimento do projeto
-        
+	Não utilizamos códigos previamente pronto. Desenvolvemos projeto a partir de situações cotidianas.
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
    <a href="https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Script_Criacao_das_tabelas_e_1.5M_de_registros">Criação das tabelas e inserção dos dados</a>
 
@@ -298,7 +304,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
    	c) tabela consumidor: 10 registros
    	d) tabela endereco: 10 registros
    	e) tabela estabelecimento: 100000 registros
-   	g) tabela estabelecimentoproduto: 10 registros
+   	g) tabela estabelecimentoproduto: 11 registros
    	h) tabela estado: 10 registros
    	i)tabela itemcompra: 1500000 registros
    	j)  tabela itemlistacompra: 10 registros
@@ -307,70 +313,108 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
  	m)  tabela medida: 10 registros
   	n)  tabela pessoa: 10 registros
   	o)  tabela produto: 100000 registros
+	
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/estadodobanco.PNG?raw=true "Estado do banco")
   
-	A criação de tabela e inclusão de dados foi realizada em um computador AMD Phenom(™) II X4 850 Processor 3.30 GHZ com 4GB de Ram 	e Hd SATA de 500GB, utilizando-se do Windows 7 
+	A criação de tabela e inclusão de dados foi realizada em um computador Intel I5 com 4GB de Ram 	e Hd de 500GB, utilizando-se do Windows 7 
+	
+	Tempo tempo de execução 
+	"inicio do processo" 20:06:10
+	"final do processo" 23:02:42
 
 	Tempo de inserção:
 
-	   a) tabela cidade: 343 msec
-	   b) tabela compra: 5 secs 533 msec
-	   c) tabela consumidor: 104 msec
-	   d) tabela endereco: 133 msec
-	   e) tabela estabelecimento: 8 secs 705 msec
-	   g) tabela estabelecimentoproduto: 395 msec
-	   h) tabela estado: 141 msec
-	   i)tabela itemcompra: 122 sec
-	   j)  tabela itemlistacompra: 233 msec
-	   k)  tabela listacompra: 101 msec
-	   l)  tabela marca: 90 msec
-	  m)  tabela medida:  97 msec
-	  n)  tabela pessoa: 153 msec
-	  o)  tabela produto: 8 secs 64 msec
+	   a) tabela cidade: 66msec
+	   b) tabela compra: 5sec
+	   c) tabela consumidor: 208msec
+	   d) tabela endereco: 77msec
+	   e) tabela estabelecimento: 5 secs
+	   g) tabela estabelecimentoproduto: 707 msec
+	   h) tabela estado: 80msec
+	   i)tabela itemcompra: 
+	   start 14:07:32
+	   finish: 16:54:02
+	   j)  tabela itemlistacompra: 135msec
+	   k)  tabela listacompra: 53msec
+	   l)  tabela marca: 50msec
+	  m)  tabela medida:  54msec
+	  n)  tabela pessoa: 97msec
+	  o)  tabela produto: 5secs
 
 
 #### 9.7	Backup do Banco de Dados<br>
 	Comando (backup)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_backup.PNG?raw=true "Comando Bakup")
+
+	Tempo de execução
+	Aproximadamente 15 segundos
+	
+	Tamanho do arquivo gerado 
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanhoarquivobackup.PNG?raw=true "Tamanho arquivo backup")	
 	
 	Comando (sql)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_sql.PNG?raw=true "Comando SQL")
 		
 	Tempo de execução
-	Aproximadamente 10 segundos nos dois casos
-	Tamanho do arquivo gerado (backup): 15MB
-	Tamanho do arquivo gerado (sql): 46MB
+	Aproximadamente 3 segundos
+	
+	
+	Tamanho do arquivo gerado
+![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/tamanhoarquivosql.PNG?raw=true "Tamanho arquivo SQL")
 
 	
 	Comando restore (backup)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_backup.PNG?raw=true "Comando restore (backup)")
 	
 	Tempo restore (backup)
-	Aproximadamente 30 segundos.
+	Aproximadamente 20 segundos.
 	
 	Comando restore (sql)
 ![Alt text](https://github.com/lucasoliveiragarcia/Cesta-de-Compras/blob/master/Consultas_SQL_e_Prints/comando_restore_sql.PNG?raw=true "Comando restore (sql)")
 	
 	Tempo restore (sql)
-	Aproximadamente 40 segundos.
+	Aproximadamente 20 segundos.
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
-    a) Lista de índices, tipos de índices com explicação de porque foram implementados nas consultas 
-    b) Performance esperada VS Resultados obtidos
-    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices (constando velocidade esperada com planejamento, sem indice e com índice Vs velocidade de execucao real com índice e sem índice).
-    d) Escolher as consultas mais complexas para serem analisadas (consultas com menos de 2 joins não serão aceitas)
-    e) As imagens do Explain devem ser inclusas no trabalho, bem como explicações sobre os resultados obtidos.
-    f) Inclusão de tabela mostrando as 10 execuções, excluindo-se o maior e menor tempos para cada consulta e 
-    obtendo-se a media dos outros valores como resultado médio final.
+	Índice aplicado ao campo nome da tabela produto, será uma consulta bastante realizada pelo usuário na busca de um produto
+	para a sua lista de compra.
+	
+	Query de criação de index:
+	create index nome_index on produto(nome)
+	
+	Query de busca
+	Consulta onde se obtém o nome de um determinado produto
+	select produto.nome from produto
+	join itemcompra on (itemcompra.idproduto=produto.idproduto)
+	where produto.nome like '%Pera%'
+	
+	Tempo da consulta sem índice: 692msec
+	Tempo da consulta com índice: 630msec
+	
+	Índice aplicado ao campo preco da tabela itemcompra, é um campo bastante requisitado pois o cliente ao realizar uma compra
+	estará automaticamente atualizando o preço do item do supermercado onde foi realizado a compra.
+	
+	Query de criação de index
+	create index preco_index on itemcompra (preco)
+	
+	Query de busca
+	Consulta onde se obtém o valor de um item de uma compra entre R$10 e R$20 com nome Refrigerante, de uma compra com valor total 		entre R$180 e R$200 , de um consumidor com nome Vinicius
+	
+	select pessoa.nome,produto.nome,preco from itemcompra 
+	join produto on (itemcompra.idproduto=produto.idproduto)
+	join compra on (itemcompra.idcompra=compra.idcompra)
+	join consumidor on (compra.idconsumidor=consumidor.idconsumidor)
+	join pessoa on(pessoa.idpessoa=consumidor.idpessoa)
+	where preco > 10 and preco<20 and produto.nome like '%Refrigerante%' and valortotal > 180 and valortotal<200
+	and pessoa.nome like '%Vinicius%'
+	
+	Tempo da consulta sem índice: 559msec
+	Tempo da consulta com índice: 262msec
+	
 <br>
     Data de Entrega: (Data a ser definida)
 <br>   
-
-#### 9.9	ANÁLISE DOS DADOS COM ORANGE<br>    
-        a) captura das informaçõs
-        b) integração com banco de dados em desenvolvimento
-        c) aplicação de algoritmos e interpretação dos resultados
-        c) atualização da documentação do trabalho incluindo a mineração de dados
 <br>
     Data de Entrega: (Data a ser definida)
 <br>
