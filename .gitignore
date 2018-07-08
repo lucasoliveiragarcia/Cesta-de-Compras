@@ -339,3 +339,9 @@ ASALocalRun
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor
+/CestaDeCompras/CestaCompra.AcessoBD/ClassDiagram1.cd
+/CestaDeCompras/CestaCompra.AcessoBD/ClassDiagram2.cd
+/CestaDeCompras/CestaCompra.Aplicacao/ClassDiagram1.cd
+/CestaDeCompras/CestaCompra.Aplicacao/ClassDiagram2.cd
+/CestaDeCompras/CestaCompra.Data/ClassDiagram1.cd
+/CestaDeCompras/CestaCompra.Data/ClassDiagram2.cd
