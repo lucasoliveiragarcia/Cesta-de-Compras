@@ -68,29 +68,23 @@ namespace CestaCompra.Aplicacao.Features
         public virtual void SucessoEmRealizarCompra()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Realizar Compra", ((string[])(null)));
-#line 7
+#line 5
 this.ScenarioSetup(scenarioInfo);
+#line 6
+testRunner.Given("Eu acesso minhas listas de compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 7
+testRunner.And("Eu seleciono a lista desejada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 8
-testRunner.Given("Eu acesso <minhas listas de compras>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.And("Eu seleciono o <estabelecimento>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 9
-testRunner.And("Eu seleciono a lista desejada <listaC>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.And("Eu adiciono um produto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 10
-testRunner.And("O sistema sugere a cidade de residência e/ou eu posso selecionar outra cidade <ci" +
-                    "dade>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 11
-testRunner.And("O sistema retorna <listaS> com os supermercados com o menor preço total em ordem " +
-                    "crescente.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 12
-testRunner.And("Eu seleciono o <supermercado>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 13
-testRunner.And("Eu  pressiono <Realizar Compra>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 14
 testRunner.And("O sistema permite que eu inclua, altere quantidade e preço ou remova itens da lis" +
                     "ta para realizar a compra.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 15
-testRunner.When("Eu <confirmo> a compra", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 16
-testRunner.Then("O sistema gera uma <novaCompra> e registra no banco de dados .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 11
+testRunner.When("Eu confirmo a compra", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 12
+testRunner.Then("a compra é registrada.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -100,12 +94,12 @@ testRunner.Then("O sistema gera uma <novaCompra> e registra no banco de dados ."
         public virtual void InsucessoEmRealizarCompra()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso em Realizar Compra", ((string[])(null)));
-#line 18
+#line 14
 this.ScenarioSetup(scenarioInfo);
-#line 19
-testRunner.When("que eu eu não <confirmo> a compra", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 20
-testRunner.Then("O sistema não gera uma <novaCompra> e não registra no banco de dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 15
+testRunner.When("que eu eu não confirmo a compra", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 16
+testRunner.Then("O sistema não gera uma nova compra e não registra no banco de dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

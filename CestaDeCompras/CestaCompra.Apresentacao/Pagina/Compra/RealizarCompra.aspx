@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Lista de Compras" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaCompra.aspx.cs" Inherits="CestaCompra.Apresentacao.ListaCompra" %>
+﻿<%@ Page Title="Lista de Compras" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RealizarCompra.aspx.cs" Inherits="CestaCompra.Apresentacao.RealizarCompra" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -41,6 +41,46 @@
     <div class="container-fluid">
         <h2><%: Title %></h2>
         <asp:MultiView ID="mvwPrincipal" runat="server" ActiveViewIndex="0">
+            <asp:View ID="viewEscolhaLista" runat="server">
+                <h3>Escolha uma lista</h3>
+                <asp:Button ID="BtnCriarNovaLista" class="btn btn-success btn-lg col-md-6" runat="server" TabIndex="1" OnClick="BtnCriarNovaLista_Click" Text="Criar Nova Lista" />
+
+                <asp:GridView ID="gvwListaCompra" runat="server" Width="50%" CellSpacing="1" CellPadding="0"
+                    AllowSorting="True" GridLines="None" AutoGenerateColumns="False" AllowPaging="True"
+                    PageSize="20" OnPageIndexChanging="Paginacao_Grid"
+                    CssClass="table table-hover table-striped" ShowHeader="false">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="BtnAbriLista" class="btn btn-light btn-lg col-md-12" runat="server" TabIndex="1" Text='<%# Eval("nome") %>'
+                                    OnCommand="EscolherLista_Command" CommandArgument='<%# Eval("idlistaCompra") %>' />
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                            <ItemStyle HorizontalAlign="Left" Wrap="False" />
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </asp:View>
+            <asp:View ID="viewEscolhaEstabelecimento" runat="server">
+                <h3>Escolha uma lista</h3>
+                <asp:Button ID="Button1" class="btn btn-success btn-lg col-md-6" runat="server" TabIndex="1" OnClick="BtnCriarNovaLista_Click" Text="Criar Nova Lista" />
+
+                <asp:GridView ID="gvwEstabelecimento" runat="server" Width="50%" CellSpacing="1" CellPadding="0"
+                    AllowSorting="True" GridLines="None" AutoGenerateColumns="False" AllowPaging="True"
+                    PageSize="20" OnPageIndexChanging="Paginacao_Grid"
+                    CssClass="table table-hover table-striped" ShowHeader="false">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="BtnEscolhaEstabelecimento" class="btn btn-light btn-lg col-md-12" runat="server" TabIndex="1" Text='<%# Eval("nome") %>'
+                                    OnCommand="EscolherEstabelecimento_Command" CommandArgument='<%# Eval("idestabelecimento") %>' />
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                            <ItemStyle HorizontalAlign="Left" Wrap="False" />
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </asp:View>
             <asp:View ID="viewPrincipal" runat="server">
                 <form>
                     <div class="form-group">

@@ -65,26 +65,24 @@ namespace CestaCompra.Aplicacao.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sucesso em Cadastrar Consumidor")]
-        [NUnit.Framework.TestCaseAttribute("Clovis", "Sena", "20/04/1953", "clovis.sena@gmail.com", "CSena$", "xyz$33", null)]
-        public virtual void SucessoEmCadastrarConsumidor(string nome, string sobrenome, string dataNasc, string e_Mail, string login, string senha, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Clovis", "Santos", "20/04/1992", "clovis.Santos@gmail.com", "CSena$", "121", null)]
+        [NUnit.Framework.TestCaseAttribute("Angelo", "Silva", "13/10/1976", "Angelo@gmail.com", "#Empty", "123", null)]
+        [NUnit.Framework.TestCaseAttribute("#Empty", "Sena", "16/04/1963", "mariana.sch@gmail.com", "Login", "123", null)]
+        public virtual void SucessoEmCadastrarConsumidor(string nome, string sobrenome, string dataNasc, string email, string login, string senha, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Cadastrar Consumidor", exampleTags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
-testRunner.Given("eu acesso o site <Cesta de Compras>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("eu acesso a opção de cadastro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 8
-testRunner.And("eu escolho a opcao <Cadastrar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 9
 testRunner.And("O sistema exibe a tela de cadastramento de consumidor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 9
+testRunner.And(string.Format("Eu informo {0}, {1}, {2}, {3}, {4}, {5}", nome, sobrenome, dataNasc, email, login, senha), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 10
-testRunner.And("Eu preencho todos os dados solicitados.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.When("Eu confirmo o cadastro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 11
-testRunner.And("Eu informo <nome>, <sobrenome>, <datanasc>, <email>, <login>, <senha>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 12
-testRunner.When("Eu confirmo pressionando <cadastrar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 13
-testRunner.Then("o sistema conclui o cadastro e me habilita para usar o aplicativo.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema conclui o cadastro e me habilita para usar o sistema.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -99,7 +97,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 testRunner.Given("eu nao preencho corretamente os dados solicitados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 21
-testRunner.Then("o sistema retorna \"entrada de dados incorreta\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.And("Eu informo <Nome>, <Sobrenome>, <DataNasc>, <Email>, <Login>, <Senha>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 22
+testRunner.Then("o sistema retorna uma mensagem de entrada de dados incorreta.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

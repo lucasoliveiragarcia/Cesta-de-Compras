@@ -68,23 +68,21 @@ namespace CestaCompra.Aplicacao.Features
         public virtual void SucessoAoInserirItem()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso ao Inserir Item", ((string[])(null)));
-#line 7
+#line 6
 this.ScenarioSetup(scenarioInfo);
+#line 7
+testRunner.Given("Eu seleciono a opção de adicionar produto em uma lista de compra.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 8
-testRunner.Given("Eu acessei uma lista de compras especifica.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line 9
-testRunner.And("Eu seleciono <adicionar> produto.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 10
 testRunner.And("Eu pesquiso um nome de produto existente no banco.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 11
+#line 9
 testRunner.And("O sistema retorna uma lista de itens que tenham aquele nome.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 10
+testRunner.And("Eu seleciono o produto correto que desejo incluir.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 11
+testRunner.And("Eu informo a quantidade 50.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 12
-testRunner.And("Eu seleciono o <produto> correto que desejo incluir.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.When("Eu pressiono Confirmar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 13
-testRunner.And("Eu seleciono a <quantidade> desejada.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 14
-testRunner.When("Eu pressiono <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 15
 testRunner.Then("O item e incluido na lista de compras.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
@@ -95,12 +93,14 @@ testRunner.Then("O item e incluido na lista de compras.", ((string)(null)), ((Te
         public virtual void InsucessoAoInserirItem()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso ao Inserir Item", ((string[])(null)));
-#line 17
+#line 15
 this.ScenarioSetup(scenarioInfo);
+#line 16
+testRunner.Given("Eu seleciono a opção de adicionar produto em uma lista de compra.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 17
+testRunner.When("eu não confirmo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 18
-testRunner.When("eu não <Confirmar>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 19
-testRunner.Then("o sistema retorna \"Item nao foi incluido\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema não adiciona o produto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

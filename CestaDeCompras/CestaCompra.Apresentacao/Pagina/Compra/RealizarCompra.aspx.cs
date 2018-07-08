@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace CestaCompra.Apresentacao
 {
-    public partial class ListaCompra : Page
+    public partial class RealizarCompra : Page
     {
         AplListaCompra aplListaCompra = new AplListaCompra();
 

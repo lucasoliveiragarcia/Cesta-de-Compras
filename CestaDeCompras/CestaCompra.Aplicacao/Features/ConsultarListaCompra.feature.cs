@@ -71,32 +71,13 @@ namespace CestaCompra.Aplicacao.Features
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
-testRunner.Given("Eu estou logado no Sistema Cesta de Compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("eu seleciono a opção minhas listas de compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 7
-testRunner.And("eu seleciono a opção minhas listas de compras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.Then("o sistema exibe as listas cadastradas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line 8
-testRunner.And("o sistema exibe as minhas listas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.When("eu escolho uma listaa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 9
-testRunner.And("eu seleciono uma lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 10
-testRunner.When("Eu <confirmo> a lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 11
-testRunner.Then("o sistema exibe a lista de itens .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Insucesso ao Consultar Lista")]
-        public virtual void InsucessoAoConsultarLista()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso ao Consultar Lista", ((string[])(null)));
-#line 13
-this.ScenarioSetup(scenarioInfo);
-#line 14
-testRunner.When("eu não <confirmo> a lista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 15
-testRunner.Then("o sistema permanece aguardando a confirmação", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+testRunner.Then("o sistema exibe os itens da lista .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }

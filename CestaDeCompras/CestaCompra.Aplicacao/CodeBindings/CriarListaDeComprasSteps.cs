@@ -60,7 +60,7 @@ namespace CestaCompra.Aplicacao.CodeBindings
         {
             try
             {
-                IdListaCompra = aplListaCompra.CriarListaCompra(nomeLista);
+                IdListaCompra = aplListaCompra.CriarListaCompra(nomeLista, aplListaCompra.consumidor.IdConsumidor);
             }
             catch
             {

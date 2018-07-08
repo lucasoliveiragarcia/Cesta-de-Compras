@@ -67,12 +67,9 @@ namespace CestaCompra.Aplicacao.Features
         {
 #line 6
 #line 7
-testRunner.Given("O administrador recebe a informação de novo supermercado.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+testRunner.Given("O administrador acessa a tela de cadastro de estabelecimento.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line 8
-testRunner.And("O administrador verifica se o supermercado atende aos requisitos de inserção no “" +
-                    "Cadastro de Supermercados”", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 9
-testRunner.And("O administrador realiza o login como administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+testRunner.And("O consumidor tem privilegio de administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
         }
         
@@ -81,19 +78,19 @@ testRunner.And("O administrador realiza o login como administrador", ((string)(n
         public virtual void SucessoEmCadastrarSupermercado()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso em Cadastrar Supermercado", ((string[])(null)));
-#line 11
+#line 10
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 12
+#line 11
 testRunner.Given("que o administrador esta na tela de menu do administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 12
+testRunner.When("o administrador seleciona cadastrar estabelecimento", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 13
-testRunner.When("o administrador seleciona <cadastrar estabelecimento>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 14
 testRunner.And("O administrador insere todos os dados de cadastramento do supermercado.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 14
+testRunner.And("O administrador confirma a inserção.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 15
-testRunner.And("O administrador <confirma> a inserção.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 16
 testRunner.Then("O administrador muda o status do supermercado para “Ativo”  no ambiente de operaç" +
                     "ão.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden

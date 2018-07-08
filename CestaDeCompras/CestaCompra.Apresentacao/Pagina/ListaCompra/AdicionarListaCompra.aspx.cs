@@ -28,12 +28,9 @@ namespace CestaCompra.Apresentacao
         {
             try
             {
-                AplListaCompra aplListaCompra = new AplListaCompra()
-                {
-                    consumidor = MasterPage.ConsumidorLogado
-                };
+                AplListaCompra aplListaCompra = new AplListaCompra();
 
-                int id = aplListaCompra.CriarListaCompra(TxtNomeLista.Text);
+                int id = aplListaCompra.CriarListaCompra(TxtNomeLista.Text, MasterPage.ConsumidorLogado.IdConsumidor);
                 if (id > 0)
                     Response.Redirect("../../Pagina/ListaCompra/ListaCompra.aspx?ID=" + id);
                 else

@@ -55,14 +55,16 @@ namespace CestaCompra.Aplicacao
             return repositorioItemListaCompra.GetItemsListaCompra(IdListaCompra);
         }
 
-        public int CriarListaCompra(string nomeLista)
+        public int CriarListaCompra(string nomeLista, int idConsumidor)
         {
-            this.ValidarCriacaoLista();
+            this.consumidor = repositorioConsumidor.ObterPorId(idConsumidor);
+
+            this.ValidarCamposCriacaoLista();
+
+            this.ValidarQuantidadeDeListaConsumidor();
 
             if (string.IsNullOrEmpty(nomeLista))
                 throw new InvalidOperationException("Informe o nome da lista");
-
-            this.consumidor = repositorioConsumidor.ObterPorId(this.consumidor.IdConsumidor);
             
             ListaCompra listaCompra = new ListaCompra
             {
@@ -76,6 +78,28 @@ namespace CestaCompra.Aplicacao
             repositorioListaCompra.UnitOfWork.Commit();
 
             return listaCompra.IdListaCompra;
+        }
+
+        public void ExcluirListaCompra(int IdListaCompra)
+        {
+            List<ItemListaCompra> itensLista = repositorioListaCompra.ObterPorId(IdListaCompra).ItensListaCompra.ToList();
+
+            foreach(ItemListaCompra itemLista in itensLista)
+            {
+                repositorioItemListaCompra.Excluir(repositorioItemListaCompra.ObterPorId(itemLista.IdItemListaCompra));
+                repositorioItemListaCompra.UnitOfWork.Commit();
+            }
+
+            repositorioListaCompra.Excluir(repositorioListaCompra.ObterPorId(IdListaCompra));
+            repositorioListaCompra.UnitOfWork.Commit();
+        }
+
+        private void ValidarQuantidadeDeListaConsumidor()
+        {
+            if(this.consumidor.Nivel == 1 && this.consumidor.ListasCompra.Count > 1)
+            {
+                throw new InvalidOperationException("Só é permitido a adição de 1 lista para consumidores do nível 1.");
+            }
         }
 
         public int AdicionarProdutoLista(int IdListaCompra, int IdProduto)
@@ -136,7 +160,7 @@ namespace CestaCompra.Aplicacao
             repositorioItemListaCompra.UnitOfWork.Commit();
         }
 
-        private void ValidarCriacaoLista()
+        private void ValidarCamposCriacaoLista()
         {
             if (this.consumidor.IdConsumidor == 0)
                 throw new InvalidOperationException("Informe o consumidor");
