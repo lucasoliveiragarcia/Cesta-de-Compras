@@ -31,8 +31,7 @@ namespace CestaCompra.Aplicacao.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-br"), "FazerLogin", "\tIn order to acess the system\r\n\tAs an identified user\r\n\tI want to supply my login" +
-                    " and password", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-br"), "FazerLogin", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,12 +65,12 @@ namespace CestaCompra.Aplicacao.Features
         
         public virtual void FeatureBackground()
         {
-#line 8
-#line 9
+#line 5
+#line 6
 testRunner.Given("que eu consumidor acesso a página de entrada do sistema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line 10
+#line 7
 testRunner.And("eu digito o  meu <login>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 11
+#line 8
 testRunner.And("eu digito a  minha <senha>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
         }
@@ -79,9 +78,9 @@ testRunner.And("eu digito a  minha <senha>", ((string)(null)), ((TechTalk.SpecFl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sucesso no Login")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("rodrigues.13", "\'asd123\'", null)]
-        [NUnit.Framework.TestCaseAttribute("rogeria", "\'roger122\'", null)]
-        [NUnit.Framework.TestCaseAttribute("daivid", "\'ddavid_11\"", null)]
+        [NUnit.Framework.TestCaseAttribute("educouto", "\'123\'", null)]
+        [NUnit.Framework.TestCaseAttribute("gabriel", "\'123\'", null)]
+        [NUnit.Framework.TestCaseAttribute("rodrigo", "\'ddavid_11\"", null)]
         public virtual void SucessoNoLogin(string login, string senha, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -91,17 +90,17 @@ testRunner.And("eu digito a  minha <senha>", ((string)(null)), ((TechTalk.SpecFl
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sucesso no Login", @__tags);
-#line 13
+#line 10
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 5
 this.FeatureBackground();
-#line 14
-testRunner.Given(string.Format("o {0} esta correto", login), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line 15
-testRunner.And(string.Format("a {0} esta correta", senha), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 16
+#line 11
+testRunner.Given(string.Format("{0}", login), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 12
+testRunner.And(string.Format("a {0}", senha), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 13
 testRunner.When("eu pressiono o botão entrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 17
+#line 14
 testRunner.Then("eu acesso a página do menu principal.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
@@ -112,15 +111,15 @@ testRunner.Then("eu acesso a página do menu principal.", ((string)(null)), ((Te
         public virtual void InsucessoNoLogin()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Insucesso no Login", ((string[])(null)));
-#line 25
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 5
 this.FeatureBackground();
-#line 26
+#line 23
 testRunner.Given("o <login> ou a <senha> esteja errada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line 27
+#line 24
 testRunner.When("Eu pressiono o botão entrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 28
+#line 25
 testRunner.Then("o sistema informa dados incorretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();

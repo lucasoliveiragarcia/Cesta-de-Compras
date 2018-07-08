@@ -1,63 +1,101 @@
-﻿using System;
+﻿using CestaCompra.AcessoBD;
+using CestaCompra.Data;
+using CestaCompra.Data.Models;
+using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
 
-namespace CestaCompra.Aplicacao.CodeBindings
+namespace CestaCompra.Aplicacao
 {
     [Binding]
     public class FazerLoginSteps
     {
-        [Given(@"que eu consumidor acesso a página de entrada do sistema")]
-        public void DadoQueEuConsumidorAcessoAPaginaDeEntradaDoSistema()
+        private ContextCestaBD contextCestaBD;
+        AplConsumidor aplConsumidor;
+        IRepositorioConsumidor repositorioConsumidor;
+        Consumidor consumidor;
+        string login;
+        string senha;
+        bool loginSucesso;
+
+        [Given]
+        public void Dado_que_eu_consumidor_acesso_a_página_de_entrada_do_sistema()
         {
-            ScenarioContext.Current.Pending();
+            this.contextCestaBD = new ContextCestaBD();
+            aplConsumidor = new AplConsumidor();
+            this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
+            consumidor = new Consumidor();
+            loginSucesso = false;
         }
         
-        [Given(@"eu digito o  meu (.*)")]
-        public void DadoEuDigitoOMeu(string p0)
+        [Given]
+        public void Dado_eu_digito_o_meu_P0(string p0)
         {
-            ScenarioContext.Current.Pending();
+            this.login = p0;
         }
         
-        [Given(@"eu digito a  minha (.*)")]
-        public void DadoEuDigitoAMinha(string p0)
+        [Given]
+        public void Dado_eu_digito_a_minha_P0(string p0)
         {
-            ScenarioContext.Current.Pending();
+            this.senha = p0;
         }
         
-        [Given(@"o rodrigues\.(.*) esta correto")]
-        public void DadoORodrigues_EstaCorreto(int p0)
+        [Given]
+        public void Dado_educouto()
         {
-            ScenarioContext.Current.Pending();
+            consumidor = this.repositorioConsumidor.ObterPorLogin("educouto");
         }
         
-        [Given(@"a '(.*)' esta correta")]
-        public void DadoAEstaCorreta(string p0)
+        [Given]
+        public void Dado_a_P0(string p0)
         {
-            ScenarioContext.Current.Pending();
+            this.senha = p0;
         }
         
-        [Given(@"o (.*) ou a (.*) esteja errada")]
-        public void DadoOOuAEstejaErrada(string p0, string p1)
+        [Given]
+        public void Dado_o_P0_ou_a_P1_esteja_errada(string p0, string p1)
         {
-            ScenarioContext.Current.Pending();
+            this.senha = consumidor.Senha + "1";
         }
         
-        [When(@"eu pressiono o botão entrar")]
-        public void QuandoEuPressionoOBotaoEntrar()
+        [When]
+        public void Quando_eu_pressiono_o_botão_entrar()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+                aplConsumidor.VerificarAcesso(this.senha, consumidor.Senha);
+                this.loginSucesso = true;
+            }
+            catch
+            {
+                this.loginSucesso = false;
+            }
         }
         
-        [Then(@"eu acesso a página do menu principal\.")]
-        public void EntaoEuAcessoAPaginaDoMenuPrincipal_()
+        [When]
+        public void Quando_Eu_pressiono_o_botão_entrar()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+                aplConsumidor.VerificarAcesso(this.senha, consumidor.Senha);
+                this.loginSucesso = true;
+            }
+            catch
+            {
+                this.loginSucesso = false;
+            }
         }
         
-        [Then(@"o sistema informa dados incorretos")]
-        public void EntaoOSistemaInformaDadosIncorretos()
+        [Then]
+        public void Então_eu_acesso_a_página_do_menu_principal()
         {
-            ScenarioContext.Current.Pending();
+            Dado_que_eu_consumidor_acesso_a_página_de_entrada_do_sistema();
+        }
+        
+        [Then]
+        public void Então_o_sistema_informa_dados_incorretos()
+        {
+            Assert.True(!loginSucesso);
         }
     }
 }

@@ -205,6 +205,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Estilos\Padrao.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Pagina\Compra\RealizarCompra.aspx" />
+    <Content Include="Pagina\Compra\ListagemCompra.aspx" />
     <Content Include="Pagina\ListaCompra\AdicionarListaCompra.aspx" />
     <Content Include="Pagina\ListaCompra\ListaCompra.aspx" />
     <Content Include="Pagina\Historico\Historico.aspx" />
@@ -294,6 +296,20 @@
     <Compile Include="App_Start\ContextCestaDBNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Pagina\Compra\RealizarCompra.aspx.cs">
+      <DependentUpon>RealizarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina\Compra\RealizarCompra.aspx.designer.cs">
+      <DependentUpon>RealizarCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina\Compra\ListagemCompra.aspx.cs">
+      <DependentUpon>ListagemCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina\Compra\ListagemCompra.aspx.designer.cs">
+      <DependentUpon>ListagemCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pagina\ListaCompra\AdicionarListaCompra.aspx.cs">
       <DependentUpon>AdicionarListaCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

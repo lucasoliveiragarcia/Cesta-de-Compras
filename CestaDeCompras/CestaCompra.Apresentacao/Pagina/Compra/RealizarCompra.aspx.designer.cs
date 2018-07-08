@@ -10,7 +10,7 @@
 namespace CestaCompra.Apresentacao {
     
     
-    public partial class ListaCompra {
+    public partial class RealizarCompra {
         
         /// <summary>
         /// Controle mvwPrincipal.
@@ -20,6 +20,60 @@ namespace CestaCompra.Apresentacao {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.MultiView mvwPrincipal;
+        
+        /// <summary>
+        /// Controle viewEscolhaLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewEscolhaLista;
+        
+        /// <summary>
+        /// Controle BtnCriarNovaLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCriarNovaLista;
+        
+        /// <summary>
+        /// Controle gvwListaCompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvwListaCompra;
+        
+        /// <summary>
+        /// Controle viewEscolhaEstabelecimento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewEscolhaEstabelecimento;
+        
+        /// <summary>
+        /// Controle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Controle gvwEstabelecimento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvwEstabelecimento;
         
         /// <summary>
         /// Controle viewPrincipal.

@@ -4,7 +4,7 @@
     <div id="Espaco" class="row row-lg">
         <p></p>
     </div>
-    <div class="Container text-center">
+    <div class="Container-fluid-center" style="margin: 0 auto; width: 30%;">
 
         <div class="form-group">
             <label for="exampleInputEmail1">Usuário</label>

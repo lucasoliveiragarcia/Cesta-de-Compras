@@ -13,7 +13,6 @@ namespace CestaCompra.AcessoBD
         {
             return  Context.Where(produto => produto.Nome.Contains(nomeProduto)).ToList();
         }
-        
     }
 
     public interface IRepositorioProduto : IRepositorio<Produto>

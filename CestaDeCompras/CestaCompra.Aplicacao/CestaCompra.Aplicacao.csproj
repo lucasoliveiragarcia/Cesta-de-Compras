@@ -85,9 +85,7 @@
     <Compile Include="AplListaCompra.cs" />
     <Compile Include="CodeBindings\AdicionarItemListaSteps.cs" />
     <Compile Include="CodeBindings\CadastrarConsumidorSteps.cs" />
-    <Compile Include="CodeBindings\CadastrarEstabelecimentoSteps.cs" />
     <Compile Include="CodeBindings\ConsultarListaCompraSteps.cs" />
-    <Compile Include="CodeBindings\ConsultarMenorPrecoSteps.cs" />
     <Compile Include="CodeBindings\CriarListaDeComprasSteps.cs" />
     <Compile Include="CodeBindings\FazerLoginSteps.cs" />
     <Compile Include="CodeBindings\RealizarCompraSteps.cs" />

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CestaCompra.AcessoBD;
+using CestaCompra.Data;
+using CestaCompra.Data.Models;
+using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
 
 namespace CestaCompra.Aplicacao.CodeBindings
@@ -6,58 +10,70 @@ namespace CestaCompra.Aplicacao.CodeBindings
     [Binding]
     public class CadastrarConsumidorSteps
     {
-        [Given(@"eu acesso o site (.*)")]
-        public void DadoEuAcessoOSite(string p0)
+        private ContextCestaBD contextCestaBD;
+        AplConsumidor aplConsumidor;
+        IRepositorioConsumidor repositorioConsumidor;
+        Consumidor consumidor;
+        bool realizadoCadastro;
+
+        [Given(@"eu acesso a opção de cadastro")]
+        public void DadoEuAcessoAOpcaoDeCadastro()
         {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"eu escolho a opção (.*)")]
-        public void DadoEuEscolhoAOpcao(string p0)
-        {
-            ScenarioContext.Current.Pending();
+            this.contextCestaBD = new ContextCestaBD();
+            aplConsumidor = new AplConsumidor();
+            this.repositorioConsumidor = new RepositorioConsumidor(contextCestaBD);
+            realizadoCadastro = false;
         }
         
         [Given(@"O sistema exibe a tela de cadastramento de consumidor")]
         public void DadoOSistemaExibeATelaDeCadastramentoDeConsumidor()
         {
-            ScenarioContext.Current.Pending();
+            consumidor = new Consumidor();
+            realizadoCadastro = false;
         }
-        
-        [Given(@"Eu preencho todos os dados solicitados\.")]
-        public void DadoEuPreenchoTodosOsDadosSolicitados_()
+
+        //Eu informo <nome>, <sobrenome>, <datanasc>, <email>, <login>, <senha> 
+        [Given(@"Eu informo (.*), (.*), (.*), (.*), (.*), (.*)")]
+        public void DadoEuInformo(string p0, string p1, string p2, string p3, string p4, string p5)
         {
-            ScenarioContext.Current.Pending();
+            aplConsumidor.pessoa.Nome = p0;
+            aplConsumidor.pessoa.Sobrenome = p1;
+            aplConsumidor.pessoa.DataNascimento = DateTime.Parse(p2);
+            aplConsumidor.pessoa.Email = p3;
+            aplConsumidor.consumidor.Login = p4;
+            aplConsumidor.consumidor.Senha = p5;
         }
         
-        [Given(@"Eu informo (.*), (.*), (.*), (.*), (.*),(.*),(.*),(.*),(.*),(.*),(.*)")]
-        public void DadoEuInformo(string p0, string p1, string p2, string p3, string p4, string p5, string p6, string p7, string p8, string p9, string p10)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [Given(@"eu não preencho corretamente os dados solicitados")]
+        [Given(@"eu nao preencho corretamente os dados solicitados")]
         public void DadoEuNaoPreenchoCorretamenteOsDadosSolicitados()
         {
-            ScenarioContext.Current.Pending();
+            //Não implementado proprositalmente
         }
         
-        [When(@"Eu confirmo pressionando (.*)")]
-        public void QuandoEuConfirmoPressionando(string p0)
+        [When(@"Eu confirmo o cadastro")]
+        public void QuandoEuConfirmoOCadastro()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+                aplConsumidor.CadastrarConsumidor();
+                realizadoCadastro = repositorioConsumidor.ObterPorLogin(aplConsumidor.consumidor.Login) != null;
+            }
+            catch
+            {
+                realizadoCadastro = false;
+            }
         }
         
-        [Then(@"o sistema conclui o cadastro e me habilita como usuário e eu posso começar a usar o aplicativo\.")]
-        public void EntaoOSistemaConcluiOCadastroEMeHabilitaComoUsuarioEEuPossoComecarAUsarOAplicativo_()
+        [Then(@"o sistema conclui o cadastro e me habilita para usar o sistema\.")]
+        public void EntaoOSistemaConcluiOCadastroEMeHabilitaParaUsarOSistema_()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(realizadoCadastro);
         }
         
-        [Then(@"o sistema retorna dados incorretos")]
-        public void EntaoOSistemaRetornaDadosIncorretos()
+        [Then(@"o sistema retorna uma mensagem de entrada de dados incorreta")]
+        public void EntaoOSistemaRetornaUmaMensagemDeEntradaDeDadosIncorreta()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(!realizadoCadastro);
         }
     }
 }
